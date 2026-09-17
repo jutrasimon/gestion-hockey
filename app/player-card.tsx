@@ -9,7 +9,10 @@ import {clubOf,teams,sourceOf,recordFor,initialScope} from './league';
 const portraits:Record<string,number>={roy:0,gagnon:7,sokolov:3,fortin:4,leclerc:1,morin:5};
 export function PlayerAvatar({p,className=''}:{p:Player;className?:string}){
  const index=portraits[sourceOf(p.id)]??0;
- return <span className={`player-avatar ${className}`} aria-hidden="true"><img src="/avatars/roster-retro.png" alt="" draggable={false} style={{left:`${-([38,400,762,1124][index%4]/336)*100}%`,top:`${-(index<4?20:429)/350*100}%`}}/></span>;
+ // Crop each face around its own center; fixed image coordinates avoid percentage drift.
+ const centers=[201,575,940,1308,207,571,940,1307];
+ const x=centers[index]-160;const y=index<4?8:408;
+ return <span className={`player-avatar ${className}`} aria-hidden="true"><svg viewBox={`${x} ${y} 320 374`} focusable="false" preserveAspectRatio="xMidYMid meet"><image href="/avatars/roster-retro.png" width="1536" height="1024"/></svg></span>;
 }
 export function healthOf(p:Player){return p.id==='sokolov'?{injured:true,label:'Blessé · 2 sem.',history:'2028–2029 · Aine · En récupération. 2027–2028 · Aine · 3 semaines. 2024–2025 · Poignet · 7 semaines.'}:{injured:false,label:'En santé',history:p.id==='gagnon'?'2026–2027 · Entorse du genou · 5 semaines · Guérie.':'Aucune blessure enregistrée.'}}
 export function PlayerCard({p,selected,onSelect,handle,ghost=false}:{p:Player;selected?:boolean;onSelect?:()=>void;handle?:ReactNode;ghost?:boolean}){
