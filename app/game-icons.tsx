@@ -1,29 +1,16 @@
 "use client";
-import {useState} from "react";
-import {UserCircleIcon} from "@phosphor-icons/react/dist/csr/UserCircle";
-import {UsersThreeIcon} from "@phosphor-icons/react/dist/csr/UsersThree";
-import {StarIcon} from "@phosphor-icons/react/dist/csr/Star";
-import {TrophyIcon} from "@phosphor-icons/react/dist/csr/Trophy";
-import {TargetIcon} from "@phosphor-icons/react/dist/csr/Target";
-import {LightningIcon} from "@phosphor-icons/react/dist/csr/Lightning";
-import {BarbellIcon} from "@phosphor-icons/react/dist/csr/Barbell";
-import {BrainIcon} from "@phosphor-icons/react/dist/csr/Brain";
-import {LightbulbIcon} from "@phosphor-icons/react/dist/csr/Lightbulb";
-import {HeartIcon} from "@phosphor-icons/react/dist/csr/Heart";
-import {ShieldCheckIcon} from "@phosphor-icons/react/dist/csr/ShieldCheck";
-import {FirstAidKitIcon} from "@phosphor-icons/react/dist/csr/FirstAidKit";
-import {TrendUpIcon} from "@phosphor-icons/react/dist/csr/TrendUp";
-import {HandshakeIcon} from "@phosphor-icons/react/dist/csr/Handshake";
-import {CurrencyDollarIcon} from "@phosphor-icons/react/dist/csr/CurrencyDollar";
-import {SignatureIcon} from "@phosphor-icons/react/dist/csr/Signature";
-import {ArrowsLeftRightIcon} from "@phosphor-icons/react/dist/csr/ArrowsLeftRight";
-import {BinocularsIcon} from "@phosphor-icons/react/dist/csr/Binoculars";
-import {ChartLineUpIcon} from "@phosphor-icons/react/dist/csr/ChartLineUp";
-import {ClockCounterClockwiseIcon} from "@phosphor-icons/react/dist/csr/ClockCounterClockwise";
-import {BellIcon} from "@phosphor-icons/react/dist/csr/Bell";
-import {SlidersHorizontalIcon} from "@phosphor-icons/react/dist/csr/SlidersHorizontal";
-import {MagnifyingGlassIcon} from "@phosphor-icons/react/dist/csr/MagnifyingGlass";
-import {ArrowClockwiseIcon} from "@phosphor-icons/react/dist/csr/ArrowClockwise";
-export const gameIcons={UserCircle:UserCircleIcon,UsersThree:UsersThreeIcon,Star:StarIcon,Trophy:TrophyIcon,Target:TargetIcon,Lightning:LightningIcon,Barbell:BarbellIcon,Brain:BrainIcon,Lightbulb:LightbulbIcon,Heart:HeartIcon,ShieldCheck:ShieldCheckIcon,FirstAidKit:FirstAidKitIcon,TrendUp:TrendUpIcon,Handshake:HandshakeIcon,CurrencyDollar:CurrencyDollarIcon,Signature:SignatureIcon,ArrowsLeftRight:ArrowsLeftRightIcon,Binoculars:BinocularsIcon,ChartLineUp:ChartLineUpIcon,ClockCounterClockwise:ClockCounterClockwiseIcon,Bell:BellIcon,SlidersHorizontal:SlidersHorizontalIcon,MagnifyingGlass:MagnifyingGlassIcon,ArrowClockwise:ArrowClockwiseIcon};
-const icons=[{Icon:UserCircleIcon,label:"Joueur"},{Icon:UsersThreeIcon,label:"Équipe"},{Icon:StarIcon,label:"Favori"},{Icon:TrophyIcon,label:"Trophée"},{Icon:TargetIcon,label:"Tir"},{Icon:LightningIcon,label:"Patinage"},{Icon:BarbellIcon,label:"Puissance"},{Icon:BrainIcon,label:"IQ hockey"},{Icon:LightbulbIcon,label:"Créativité"},{Icon:HeartIcon,label:"Cœur"},{Icon:ShieldCheckIcon,label:"Santé"},{Icon:FirstAidKitIcon,label:"Blessure"},{Icon:TrendUpIcon,label:"Développement"},{Icon:HandshakeIcon,label:"Chimie"},{Icon:CurrencyDollarIcon,label:"Salaire"},{Icon:SignatureIcon,label:"Contrat"},{Icon:ArrowsLeftRightIcon,label:"Échange"},{Icon:BinocularsIcon,label:"Recrutement"},{Icon:ChartLineUpIcon,label:"Statistiques"},{Icon:ClockCounterClockwiseIcon,label:"Historique"},{Icon:BellIcon,label:"Notification"},{Icon:SlidersHorizontalIcon,label:"Filtres"},{Icon:MagnifyingGlassIcon,label:"Recherche"},{Icon:ArrowClockwiseIcon,label:"Retourner"}];
-export function IconKit(){const [weight,setWeight]=useState<'regular'|'bold'|'fill'|'duotone'>('duotone');return <><p>Phosphor · Un kit existant, avec des symboles réutilisables pour les joueurs, la gestion et la navigation.</p><div className="il-segments" aria-label="Style des icônes">{(['regular','bold','fill','duotone'] as const).map((w,i)=><button key={w} aria-pressed={weight===w} onClick={()=>setWeight(w)}>{['Fin','Gras','Plein','Duo'][i]}</button>)}</div><div className="gym-icons">{icons.map(({Icon,label})=><div key={label}><Icon size={34} weight={weight} aria-hidden="true"/><span>{label}</span></div>)}</div><p className="il-muted">Proposition : Duo pour les systèmes du jeu, Gras pour les actions. Les libellés restent visibles pour éviter les symboles ambigus.</p><a href="https://phosphoricons.com/" target="_blank" rel="noreferrer">Explorer le kit Phosphor ↗</a></>}
+import {useEffect,useMemo,useState} from 'react';
+import type {Icon,IconWeight} from '@phosphor-icons/react';
+import {catalog,loaders} from './icon-catalog/catalog';
+const categories=['Tout',...new Set(catalog.map(i=>i.category))];
+const normalize=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/œ/g,'oe');
+const cached=new Map<number,Record<string,Icon>>();
+export function IconKit(){
+ const [weight,setWeight]=useState<IconWeight>('duotone'),[query,setQuery]=useState(''),[category,setCategory]=useState('Tout'),[page,setPage]=useState(0),[loaded,setLoaded]=useState<Record<string,Icon>>({}),[error,setError]=useState(false);
+ const filtered=useMemo(()=>catalog.filter(i=>(category==='Tout'||i.category===category)&&normalize(i.name+' '+i.label+' '+i.category).includes(normalize(query))),[query,category]);
+ const visible=useMemo(()=>filtered.slice(page*48,(page+1)*48),[filtered,page]);
+ const groups=visible.map(i=>i.group).filter((v,i,a)=>a.indexOf(v)===i).join(',');
+ useEffect(()=>{let active=true;setError(false);Promise.all((groups?groups.split(',').map(Number):[]).map(async g=>{if(!cached.has(g))cached.set(g,await loaders[g]() as Record<string,Icon>);return cached.get(g)!})).then(parts=>{if(active)setLoaded(Object.assign({},...parts))}).catch(()=>{if(active)setError(true)});return()=>{active=false}},[groups]);
+ const pages=Math.max(1,Math.ceil(filtered.length/48));
+ return <><p><b>Phosphor · {catalog.length.toLocaleString('fr-CA')} icônes distinctes · 6 styles.</b> Un même kit pour tout le jeu. Les noms du kit sont cherchables en anglais; les usages proposés et les catégories le sont en français.</p><div className="il-search"><input aria-label="Chercher une icône" placeholder="Joueur, contrat, cœur, arrow…" value={query} onChange={e=>{setQuery(e.target.value);setPage(0)}}/></div><div className="icon-categories" aria-label="Catégories des icônes">{categories.map(c=><button key={c} aria-pressed={category===c} onClick={()=>{setCategory(c);setPage(0)}}>{c}</button>)}</div><div className="il-segments icon-weights" aria-label="Style des icônes">{(['thin','light','regular','bold','fill','duotone'] as const).map((w,i)=><button key={w} aria-pressed={weight===w} onClick={()=>setWeight(w)}>{['Très fin','Léger','Standard','Gras','Plein','Duo'][i]}</button>)}</div><div className="icon-pagination"><span role="status">{filtered.length} résultats · {page+1} / {pages}</span><button disabled={page===0} onClick={()=>setPage(v=>v-1)} aria-label="Page précédente des icônes">←</button><button disabled={page+1>=pages} onClick={()=>setPage(v=>v+1)} aria-label="Page suivante des icônes">→</button></div>{error?<p role="alert">Le kit n’a pas pu être chargé. Change de catégorie pour réessayer.</p>:<div className="gym-icons">{visible.map(({name,label})=>{const Glyph=loaded[name];return <div key={name} title={name}>{Glyph?<Glyph size={34} weight={weight} aria-hidden="true"/>:<span className="icon-loading"/>}<span>{label}</span><small>{name}</small></div>})}</div>}{!filtered.length&&<p>Aucune icône trouvée. Essaie un terme plus court ou le nom anglais.</p>}<p className="il-muted">Les styles sont des variantes du même dessin, pas des icônes supplémentaires. Ce catalogue n’attribue pas encore les symboles aux mécaniques du jeu.</p><a href="https://phosphoricons.com/" target="_blank" rel="noreferrer">Site du kit Phosphor ↗</a></>;
+}
