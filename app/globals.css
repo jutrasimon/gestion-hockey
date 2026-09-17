@@ -195,3 +195,30 @@ summary,.fold-trigger{cursor:pointer;border-radius:7px;transition:background .16
 .juice-reward .reward-player>.reward-trophy{z-index:1}
 .juice-reward[data-slot=dialog-content]{gap:14px}
 @media(max-width:600px){.juice-reward [data-slot=dialog-title]{font-size:34px}.juice-reward .reward-player{margin:0 auto 8px}}
+
+/* Loose card stacks: the face stays aligned; two independent sheets sit behind it. */
+.card-stack,.card-drag-preview{position:relative;isolation:isolate;--stack-accent:#98bcb0;--lean:1.25deg;--counter:-1deg}
+:is(.card-stack,.card-drag-preview):has(.pink){--stack-accent:#c3a5b6;--lean:-1.2deg;--counter:1deg}
+:is(.card-stack,.card-drag-preview):has(.lime){--stack-accent:#a6c1a6;--lean:1.4deg;--counter:-.8deg}
+:is(.card-stack,.card-drag-preview):has(.blue){--stack-accent:#93b6d1;--lean:-1deg;--counter:1.3deg}
+:is(.card-stack,.card-drag-preview):has(.orange){--stack-accent:#d3b08e}
+:is(.card-stack,.card-drag-preview):has(.purple){--stack-accent:#ada7c9;--lean:-1.3deg;--counter:.9deg}
+:is(.card-stack,.card-drag-preview):has(.teal){--stack-accent:#94c2bb;--lean:1deg;--counter:-1.2deg}
+:is(.card-stack,.card-drag-preview)::before,:is(.card-stack,.card-drag-preview)::after{content:"";position:absolute;inset:3px 1px -1px;border-radius:var(--curve,12px);pointer-events:none;transform-origin:50% 65%;transition:transform .24s ease;z-index:-1;border:1px solid color-mix(in srgb,var(--stack-accent),var(--background) 30%)}
+:is(.card-stack,.card-drag-preview)::before{background:color-mix(in srgb,var(--stack-accent),var(--background) 55%);transform:translate(3px,12px) rotate(var(--counter));box-shadow:0 8px 15px #0003}
+:is(.card-stack,.card-drag-preview)::after{background:color-mix(in srgb,var(--stack-accent),var(--background) 20%);transform:translate(-2px,6px) rotate(var(--lean))}
+.card-stack>.player-card.roster-card,.card-drag-preview>.player-card.roster-card.ghost{box-shadow:0 2px 5px #0005}
+.card-stack>.roster-card.chosen,[data-theme=dark] .card-stack>.roster-card.chosen{outline:5px solid var(--player-accent);outline-offset:4px;box-shadow:0 0 0 10px color-mix(in srgb,var(--player-accent),transparent 84%)}
+.card-stack>.roster-card.chosen .rim-grip{width:52px;left:calc(50% - 26px);height:5px;opacity:1}
+.slot.over .card-stack>.roster-card{outline:4px dashed var(--ring);outline-offset:4px}
+.card-grid{padding-bottom:12px}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+.card-stack:hover::before{transform:translate(5px,15px) rotate(calc(var(--counter) * 1.65))}
+.card-stack:hover::after{transform:translate(-3px,8px) rotate(calc(var(--lean) * 1.5))}
+}
+@media(max-width:600px){
+:is(.card-stack,.card-drag-preview)::before{transform:translate(1px,8px) rotate(calc(var(--counter) * .55))}
+:is(.card-stack,.card-drag-preview)::after{transform:translate(-1px,4px) rotate(calc(var(--lean) * .55))}
+.card-stack>.roster-card.chosen,[data-theme=dark] .card-stack>.roster-card.chosen{outline-width:3px;outline-offset:2px;box-shadow:0 0 0 6px color-mix(in srgb,var(--player-accent),transparent 84%)}
+}
+@media(prefers-reduced-motion:reduce){.card-stack::before,.card-stack::after{transition:none}}
