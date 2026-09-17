@@ -3,6 +3,7 @@ import {useState,type ReactNode} from 'react';
 import {motion,useAnimationControls,useReducedMotion} from 'motion/react';
 import {Maximize2,ShieldCheck,ShieldAlert} from 'lucide-react';
 import {ArrowClockwiseIcon} from '@phosphor-icons/react/dist/csr/ArrowClockwise';
+import {GradientIcon} from './gradient-icon';
 import {FavoriteButton} from './preferences';
 import {labels,money,type Player} from './players';
 import {clubOf,teams,sourceOf,recordFor,initialScope} from './league';
@@ -41,6 +42,6 @@ export function PlayerCard({p,selected,onSelect,onOpen,handle,ghost=false,initia
  <div className="roster-attributes">{p.stats.map((v,i)=><div key={labels[i]} title={labels[i]}><span>{['MAN','TIR','PUI','PAT','IQ','CRÉ','CŒ'][i]}</span><strong>{v}</strong></div>)}</div>
  <div className="roster-summary"><div className="roster-contract"><strong>{money(p.salary)}</strong><span> / an · {p.years} ans</span></div></div>
  </>}
- </div><div className="roster-actions"><button className="card-open-full" onClick={onOpen||onSelect} aria-label={`Ouvrir la fiche complète de ${p.name}`} title="Ouvrir la fiche complète"><Maximize2 size={17}/><span>Fiche</span></button><button onClick={nextCard} disabled={dealing} className="card-turn" title={flipped?"Retourner vers les statistiques":"Retourner vers le parcours"} aria-label={`Retourner la carte de ${p.name} : ${flipped?'statistiques':'parcours'}`}><ArrowClockwiseIcon size={17} weight="bold"/><span>{flipped?'Stats':'Parcours'}</span></button></div>
+ </div><div className="roster-actions"><button className="card-open-full" onClick={onOpen||onSelect} aria-label={`Ouvrir la fiche complète de ${p.name}`} title="Ouvrir la fiche complète"><Maximize2 size={17}/><span>Fiche</span></button><button onClick={nextCard} disabled={dealing} className="card-turn" title={flipped?"Retourner vers les statistiques":"Retourner vers le parcours"} aria-label={`Retourner la carte de ${p.name} : ${flipped?'statistiques':'parcours'}`}><GradientIcon icon={ArrowClockwiseIcon} size={17} aria-hidden="true"/><span>{flipped?'Stats':'Parcours'}</span></button></div>
  </motion.article>
 }

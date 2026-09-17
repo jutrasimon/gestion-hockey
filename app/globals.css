@@ -286,3 +286,7 @@ summary,.fold-trigger{cursor:pointer;border-radius:7px;transition:background .16
 @media(max-width:600px){.roster-actions .card-turn{padding:3px 4px;gap:3px;font-size:10px}.roster-actions .card-turn svg{width:13px;flex-shrink:0}}
 /* Every host uses one centered portrait viewport, independent of inherited SVG sizing. */
 .player-avatar{flex-shrink:0}.player-avatar>svg{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;margin:0;transform:none}
+/* Shared full-weight icon treatment, with contrast adapted to both themes. */
+.game-gradient-icon .icon-gradient-start{stop-color:#247c88}.game-gradient-icon .icon-gradient-middle{stop-color:#32825f}.game-gradient-icon .icon-gradient-end{stop-color:#5c7c1c}
+[data-theme=dark] .game-gradient-icon .icon-gradient-start{stop-color:#81c6d8}[data-theme=dark] .game-gradient-icon .icon-gradient-middle{stop-color:#a5e3b0}[data-theme=dark] .game-gradient-icon .icon-gradient-end{stop-color:#d5f88b}
+@media(forced-colors:active){.game-gradient-icon{fill:CanvasText!important}}
