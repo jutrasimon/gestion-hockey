@@ -84,7 +84,7 @@ Adaptation retenue pour le gym :
 
 Le numéro devient secondaire. Les couleurs restent des repères décoratifs stables. Elles ne codent aucune rareté, force ou position. Si on choisit un sens plus tard, il devra être visible et constant.
 
-Les tris numériques favorisent la valeur utile : xGA/60 et salaire croissants, production décroissante. Âge croissant signifie « plus jeune », sans déclarer qu’un jeune est meilleur. Les colonnes textuelles sont alphabétiques. Un second clic conserve cet ordre plutôt que placer volontairement la moins bonne valeur en premier.
+Les tris numériques favorisent la valeur utile : xGA/60 et salaire croissants, production décroissante. Âge croissant signifie « plus jeune », sans déclarer qu’un jeune est meilleur. Les colonnes textuelles sont alphabétiques. Un clic sur la colonne active inverse le sens. Choisir une autre colonne rétablit son ordre initial.
 
 ## Ce que le prototype calcule réellement
 
