@@ -78,3 +78,21 @@ body{font-family:ClubGrotesk,Arial,sans-serif}.topbar{background:var(--backgroun
 @media(max-width:850px){.workspace{grid-template-columns:1fr;max-width:800px;padding:24px 20px}.card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.slot-labels{display:none}}
 @media(max-width:600px){.workspace{padding:20px 14px}.topbar{height:68px}.heading h1{font-size:38px}.heading p{font-size:14px}.card-grid{grid-template-columns:1fr;gap:24px}.ice-board{padding:12px 10px 22px}.bench-section .card-grid{padding:0 10px}.player-card.roster-card{padding:22px 10px 10px}.roster-identity{grid-template-columns:76px minmax(0,1fr);min-height:85px}.roster-identity .player-avatar{width:76px}.roster-name strong{font-size:30px}.roster-attributes{grid-template-columns:repeat(7,1fr)}.roster-production strong{font-size:36px}.roster-club{margin-top:10px}.roster-content{padding-top:6px}.roster-back{min-height:190px}.detail-panel{padding:20px}.nav-tabs [data-slot=tabs-trigger]{font-size:14px}.roster-name strong{overflow-wrap:anywhere}.profile-identity h2{font-size:28px}}
 @media(prefers-reduced-motion:reduce){.roster-content{transform:none!important}.player-card.roster-card:hover{transform:none}}
+
+/* Both faces share one grid track: flipping never changes the card geometry. */
+.card-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px}
+.roster-sides{display:grid;align-items:stretch}
+.roster-front,.roster-back{grid-area:1/1;min-width:0}
+.roster-front{display:flex;flex-direction:column;justify-content:center}
+.roster-back{min-height:0;padding:12px 0;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);column-gap:16px;align-content:start}
+.roster-back h3:first-child{grid-column:1;grid-row:1}.roster-back dl{grid-column:1;grid-row:2;margin:0}.roster-back h3:nth-of-type(2){grid-column:2;grid-row:1}.roster-back p{grid-column:2;grid-row:2}
+.roster-back dl>div{flex-wrap:wrap;gap:1px 6px;padding:4px 0}.roster-back dd{text-align:left}
+.roster-attributes{grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;padding:10px 0}
+.roster-production{padding:12px 0}.roster-production strong{font-size:34px}
+.roster-identity{grid-template-columns:72px minmax(0,1fr);min-height:76px}.roster-identity .player-avatar{width:72px}.roster-name strong{font-size:28px}
+.roster-club{margin-top:8px;padding-top:7px;padding-bottom:7px}.roster-content{padding-top:6px}
+.roster-summary{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 10px;border-top:1px solid var(--border);padding:10px 0}
+.roster-contract{padding:0;border:0}.roster-health{padding:0}.roster-contract strong{font-size:15px}.roster-contract>span{font-size:12px}
+@media(max-width:1350px){.workspace{grid-template-columns:minmax(0,1fr);max-width:1200px}.workspace>.detail-panel{max-width:640px;width:100%;margin:auto}.slot-labels{display:none}}
+@media(min-width:1351px) and (max-width:1599px){.slot-labels{display:none}}
+@media(max-width:700px){.card-grid{grid-template-columns:1fr}.workspace{padding-left:12px;padding-right:12px}.ice-board{padding-left:6px;padding-right:12px}.bench-section .card-grid{padding-left:6px;padding-right:12px}}
