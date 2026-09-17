@@ -114,3 +114,21 @@ body{font-family:ClubGrotesk,Arial,sans-serif}.topbar{background:var(--backgroun
 /* Shared, centered portrait viewport for cards, tables and profiles. */
 .player-avatar{aspect-ratio:320/374}
 .player-avatar>svg{display:block;width:100%;height:100%;overflow:hidden;pointer-events:none}
+
+/* One shared card envelope, independent of player content and active face. */
+.card-grid{align-items:stretch}
+.card-grid>.slot,.card-grid>.slot>div{height:100%;min-width:0}
+.player-card.roster-card{height:510px;display:flex;flex-direction:column}
+.roster-toolbar,.roster-actions{flex:none}
+.roster-content{display:flex;flex:1;flex-direction:column;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.roster-identity,.roster-club,.roster-summary{flex:none}
+.roster-identity{height:94px;overflow-y:auto}
+.roster-club{height:58px}
+.roster-summary{min-height:60px;margin-top:auto}
+.roster-sides{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;align-items:start}
+.roster-front{align-self:stretch;justify-content:flex-start}
+.roster-actions{min-height:45px}
+@container (max-width:175px){
+ .roster-identity{height:130px}.roster-club{height:31px}.roster-summary{min-height:76px}.roster-actions{min-height:73px}
+}
+@media(max-width:600px){.player-card.roster-card{height:470px}}
