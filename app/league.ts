@@ -1,6 +1,6 @@
 import {seed,type Player} from './players';
 export const teams=[{id:'quebec',name:'Québec'},{id:'montreal',name:'Montréal'},{id:'sherbrooke',name:'Sherbrooke'}];
-const names=[['Antoine Bouchard','Mathis Dubois','Luka Petrov','Félix Moreau','Gabriel Tremblay','Elliot Simard'],['Louis Beaulieu','Samuel Pelletier','Nikita Orlov','Thomas Côté','Charles Gauthier','Olivier Bergeron']];
+const names=[['Camille Bouchard','Mathis Dubois','Luka Petrov','Florence Moreau','Gabriel Tremblay','Elliot Simard'],['Laurence Beaulieu','Samuel Pelletier','Nikita Orlov','Chloé Côté','Charles Gauthier','Olivier Bergeron']];
 export const roster:Player[]= [...seed,...names.flatMap((group,t)=>group.map((name,i)=>({...seed[i],id:`${teams[t+1].id}-${i}`,name,num:11+i*9+t,age:seed[i].age+1,league:seed[i].league+1,team:1,goals:seed[i].goals+(t?2:4)-(i%2),assists:seed[i].assists+(t?5:2),salary:Number((seed[i].salary*(t?0.9:1.1)).toFixed(2)),stats:seed[i].stats.map((v,j)=>Math.max(1,v+((i+j+t)%3)-1))})))];
 export const clubOf=(id:string)=>id.startsWith('montreal-')?'montreal':id.startsWith('sherbrooke-')?'sherbrooke':'quebec';
 export const sourceOf=(id:string)=>seed.some(p=>p.id===id)?id:seed[Number(id.split('-').at(-1))].id;
