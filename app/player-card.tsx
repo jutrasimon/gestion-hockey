@@ -24,7 +24,7 @@ export function PlayerCard({p,selected,onSelect,onOpen,handle,ghost=false,initia
  const [flipped,setFlipped]=useState(initialFlipped);const [dealing,setDealing]=useState(false);const controls=useAnimationControls();const reduced=useReducedMotion();
  async function nextCard(){if(dealing)return;const next=!flipped;if(reduced){setFlipped(next);onFlip?.(next);return}setDealing(true);await controls.start({x:'32%',y:-12,rotate:7,scale:.98,opacity:0,transition:{type:'tween',duration:.2,ease:'easeIn'}});setFlipped(next);onFlip?.(next);controls.set({x:0,y:12,rotate:-2,scale:.97,opacity:0});await controls.start({x:0,y:0,rotate:0,scale:1,opacity:1,transition:{type:'tween',duration:.26,ease:'easeOut'}});setDealing(false)}
  const club=teams.find(t=>t.id===clubOf(p.id))!;const health=healthOf(p);const production=recordFor(p,initialScope.season,initialScope.phase)!;
- return <motion.article animate={controls} className={`player-card roster-card compact-roster ${p.color} ${selected?'chosen':''} ${ghost?'ghost':''} ${dealing?'dealing':''}`} aria-label={`Carte de ${p.name}`}>
+ return <motion.article onClick={e=>{if(!ghost&&!dealing&&!(e.target as HTMLElement).closest('button,a,input,textarea,select,[role="slider"]'))onSelect?.()}} animate={controls} className={`player-card roster-card compact-roster ${p.color} ${selected?'chosen':''} ${ghost?'ghost':''} ${dealing?'dealing':''}`} aria-label={`Carte de ${p.name}`}>
  {handle}<div className="roster-toolbar"><span>{flipped?'PARCOURS':`#${p.num}`} {!flipped&&<span>· 2028–29</span>}</span>{!ghost&&<FavoriteButton id={p.id} name={p.name}/>}</div>
  <div className={`roster-content ${flipped?'show-back':''}`}>
  {flipped?<div className="player-dossier">
