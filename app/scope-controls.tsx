@@ -1,0 +1,5 @@
+"use client";
+import {Select,SelectContent,SelectItem,SelectTrigger,SelectValue} from '@/components/ui/select';
+import {teams,hasPlayoffs,type Scope} from './league';
+export function ScopeControls({value,onChange,periodOnly=false}:{value:Scope;onChange:(v:Scope)=>void;periodOnly?:boolean}){function field(label:string,key:keyof Scope,options:{id:string;name:string;disabled?:boolean}[]){return <label>{label}<Select value={value[key]} onValueChange={v=>onChange({...value,[key]:v})}><SelectTrigger aria-label={label}><SelectValue/></SelectTrigger><SelectContent>{options.map(o=><SelectItem key={o.id} value={o.id} disabled={o.disabled}>{o.name}</SelectItem>)}</SelectContent></Select></label>}
+return <div className="scope-controls">{!periodOnly&&field('Équipe / ligue','team',[...teams,{id:'league',name:'Leaders de la ligue'}])}{field('Saison','season',[{id:'2028-2029',name:'2028–2029'},{id:'2027-2028',name:'2027–2028'}])}{field('Compétition','phase',[{id:'regular',name:'Saison régulière'},{id:'playoffs',name:hasPlayoffs(value.season,value.team)?'Séries éliminatoires':'Séries · aucune donnée'}])}</div>}

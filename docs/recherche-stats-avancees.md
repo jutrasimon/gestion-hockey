@@ -90,7 +90,7 @@ Les tris numériques favorisent la valeur utile : xGA/60 et salaire croissants, 
 
 Les six joueurs ont chacun un petit jeu d’observations fictives à cinq contre cinq : minutes, buts, passes, tirs, i xG, CF/CA, FF/FA, xGF/xGA et pourcentage hors glace. Les huit mesures visibles sont dérivées de ces observations, sans aléatoire au rendu.
 
-Les cartes conservent leur production toutes situations. Le labo affiche explicitement cinq contre cinq. Les deux séries ne sont donc pas censées avoir les mêmes totaux. Toutes les fiches utilisent 24 matchs fictifs; cela n’est pas une connexion à une saison réelle.
+Les cartes conservent leur production toutes situations. Le labo affiche explicitement cinq contre cinq. Les deux séries ne sont donc pas censées avoir les mêmes totaux. Le jeu de démonstration couvre maintenant trois équipes et deux saisons. La saison 2028–2029 compte 24 matchs fictifs; 2027–2028 possède des observations sur 82 matchs et des séries pour Québec et Montréal. Sherbrooke n’a pas de données de séries. Les autres équipes et périodes sont des variantes synthétiques servant à tester les filtres, pas une simulation ni une connexion à une saison réelle.
 
 Modifier une capacité ou permuter les joueurs ne régénère pas leur passé statistique. Aucun moteur de match, apprentissage du potentiel, modèle xG entraîné, estimation GAR ou simulation de chimie n’a été ajouté. Le filtre de minutes sert à tester la lecture d’un échantillon, pas à certifier la fiabilité d’un seuil particulier.
 
