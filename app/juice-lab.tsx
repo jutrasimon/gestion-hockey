@@ -14,7 +14,7 @@ function ParticleBurst({trigger,power,reduced}:{trigger:number;power:number;redu
   const ctx=el.getContext('2d');if(!ctx)return;
   const {width:w,height:h}=el.getBoundingClientRect();const dpr=Math.min(window.devicePixelRatio||1,2);
   el.width=w*dpr;el.height=h*dpr;ctx.scale(dpr,dpr);
-  const colors=['#b8ed95','#8ccdeb','#e6b3df','#f9c783','#fff8d7'];
+  const colors=['var(--palette-action-soft)','var(--palette-vfx-blue)','var(--palette-vfx-pink)','var(--palette-vfx-gold)','var(--palette-vfx-flash)'];
   const pieces=Array.from({length:Math.round(28+power*.85)},(_,i)=>{const a=Math.random()*Math.PI*2,v=(65+Math.random()*210)*(.55+power/100);return{x:w/2,y:h*.45,vx:Math.cos(a)*v,vy:Math.sin(a)*v-90,size:3+Math.random()*5,color:colors[i%colors.length],spin:Math.random()*8}});
   let frame=0;const start=performance.now();
   function draw(now:number){const t=(now-start)/1000;ctx!.clearRect(0,0,w,h);if(t>1.6)return;ctx!.globalAlpha=Math.min(1,(1.6-t)*2);for(const p of pieces){ctx!.save();ctx!.translate(p.x+p.vx*t,p.y+p.vy*t+135*t*t);ctx!.rotate(p.spin*t);ctx!.fillStyle=p.color;ctx!.fillRect(-p.size/2,-p.size/2,p.size,p.size*.65);ctx!.restore()}frame=requestAnimationFrame(draw)}

@@ -1,0 +1,2273 @@
+[
+  {
+    "key": "vfx-blue",
+    "label": "Particules · bleu",
+    "group": "Effets",
+    "value": "#8ccdeb",
+    "uses": [
+      "globals",
+      "juice-lab"
+    ]
+  },
+  {
+    "key": "vfx-gold",
+    "label": "Particules · or",
+    "group": "Effets",
+    "value": "#f9c783",
+    "uses": [
+      "globals",
+      "juice-lab"
+    ]
+  },
+  {
+    "key": "vfx-pink",
+    "label": "Particules · rose",
+    "group": "Effets",
+    "value": "#e6b3df",
+    "uses": [
+      "juice-lab",
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "vfx-flash",
+    "label": "Particules · éclat",
+    "group": "Effets",
+    "value": "#fff8d7",
+    "uses": [
+      "juice-lab"
+    ]
+  },
+  {
+    "key": "nuance-242",
+    "label": "Anneau · départ",
+    "group": "Graphiques",
+    "value": "#73bcdf",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-244",
+    "label": "Anneau · fin",
+    "group": "Graphiques",
+    "value": "#dafa91",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-243",
+    "label": "Anneau · milieu",
+    "group": "Graphiques",
+    "value": "#9ce3c0",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "chart-low",
+    "label": "Graphiques · bas",
+    "group": "Graphiques",
+    "value": "#4776ac",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "chart-high",
+    "label": "Graphiques · haut",
+    "group": "Graphiques",
+    "value": "#e4fba4",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "chart-mid",
+    "label": "Graphiques · milieu",
+    "group": "Graphiques",
+    "value": "#83cbbd",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-216",
+    "label": "Icônes · départ clair",
+    "group": "Icônes",
+    "value": "#247c88",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "icon-low",
+    "label": "Icônes · départ sombre",
+    "group": "Icônes",
+    "value": "#81c6d8",
+    "uses": [
+      "globals",
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-218",
+    "label": "Icônes · fin claire",
+    "group": "Icônes",
+    "value": "#5c7c1c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "icon-high",
+    "label": "Icônes · fin sombre",
+    "group": "Icônes",
+    "value": "#d5f88b",
+    "uses": [
+      "globals",
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-217",
+    "label": "Icônes · milieu clair",
+    "group": "Icônes",
+    "value": "#32825f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "icon-mid",
+    "label": "Icônes · milieu sombre",
+    "group": "Icônes",
+    "value": "#a5e3b0",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "action",
+    "label": "Accent principal",
+    "group": "Interface",
+    "value": "#c3f279",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "outline",
+    "label": "Bordures",
+    "group": "Interface",
+    "value": "#35434a",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "action-soft",
+    "label": "Boutons du gym",
+    "group": "Interface",
+    "value": "#b8ed95",
+    "uses": [
+      "globals",
+      "juice-lab",
+      "interaction-library",
+      "button-feedback"
+    ]
+  },
+  {
+    "key": "danger",
+    "label": "Danger",
+    "group": "Interface",
+    "value": "#c43255",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "favorite",
+    "label": "Favoris",
+    "group": "Interface",
+    "value": "#ffe37a",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-1",
+    "label": "Fond clair",
+    "group": "Interface",
+    "value": "#f3f5ef",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-101",
+    "label": "Fond sombre",
+    "group": "Interface",
+    "value": "#10151b",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "highlight",
+    "label": "Lumière",
+    "group": "Interface",
+    "value": "#ffffff",
+    "uses": [
+      "globals",
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "shadow",
+    "label": "Ombres",
+    "group": "Interface",
+    "value": "#000000",
+    "uses": [
+      "globals",
+      "interaction-library",
+      "button-feedback"
+    ]
+  },
+  {
+    "key": "nuance-103",
+    "label": "Panneaux sombres",
+    "group": "Interface",
+    "value": "#1b242c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "surface-raised",
+    "label": "Surface secondaire",
+    "group": "Interface",
+    "value": "#28353c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "text",
+    "label": "Texte clair",
+    "group": "Interface",
+    "value": "#eff5f0",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "text-muted",
+    "label": "Texte secondaire",
+    "group": "Interface",
+    "value": "#afbfba",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-2",
+    "label": "Texte sombre",
+    "group": "Interface",
+    "value": "#20352b",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-185",
+    "label": "Joueurs · accent de base",
+    "group": "Joueurs",
+    "value": "#98bcb0",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-188",
+    "label": "Joueurs · bleu",
+    "group": "Joueurs",
+    "value": "#93b6d1",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-190",
+    "label": "Joueurs · mauve",
+    "group": "Joueurs",
+    "value": "#ada7c9",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-189",
+    "label": "Joueurs · ocre",
+    "group": "Joueurs",
+    "value": "#d3b08e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-186",
+    "label": "Joueurs · rose",
+    "group": "Joueurs",
+    "value": "#c3a5b6",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-191",
+    "label": "Joueurs · turquoise",
+    "group": "Joueurs",
+    "value": "#94c2bb",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-187",
+    "label": "Joueurs · vert",
+    "group": "Joueurs",
+    "value": "#a6c1a6",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-10",
+    "label": "Nuance 10",
+    "group": "Nuances secondaires",
+    "value": "#dce2d6",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-100",
+    "label": "Nuance 100",
+    "group": "Nuances secondaires",
+    "value": "#263c33",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-104",
+    "label": "Nuance 104",
+    "group": "Nuances secondaires",
+    "value": "#182319",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-107",
+    "label": "Nuance 107",
+    "group": "Nuances secondaires",
+    "value": "#35462d",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-108",
+    "label": "Nuance 108",
+    "group": "Nuances secondaires",
+    "value": "#d7f5b5",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-11",
+    "label": "Nuance 11",
+    "group": "Nuances secondaires",
+    "value": "#72a72f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-110",
+    "label": "Nuance 110",
+    "group": "Nuances secondaires",
+    "value": "#b9ed79",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-111",
+    "label": "Nuance 111",
+    "group": "Nuances secondaires",
+    "value": "#151d24",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-112",
+    "label": "Nuance 112",
+    "group": "Nuances secondaires",
+    "value": "#405143",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-113",
+    "label": "Nuance 113",
+    "group": "Nuances secondaires",
+    "value": "#e7ffd0",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-114",
+    "label": "Nuance 114",
+    "group": "Nuances secondaires",
+    "value": "#1e2c33",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-115",
+    "label": "Nuance 115",
+    "group": "Nuances secondaires",
+    "value": "#35474e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-116",
+    "label": "Nuance 116",
+    "group": "Nuances secondaires",
+    "value": "#3b5159",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-117",
+    "label": "Nuance 117",
+    "group": "Nuances secondaires",
+    "value": "#e7f3e5",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-118",
+    "label": "Nuance 118",
+    "group": "Nuances secondaires",
+    "value": "#304730",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-119",
+    "label": "Nuance 119",
+    "group": "Nuances secondaires",
+    "value": "#d3f5ba",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-12",
+    "label": "Nuance 12",
+    "group": "Nuances secondaires",
+    "value": "#537f24",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-120",
+    "label": "Nuance 120",
+    "group": "Nuances secondaires",
+    "value": "#552738",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-121",
+    "label": "Nuance 121",
+    "group": "Nuances secondaires",
+    "value": "#ffc2d5",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-122",
+    "label": "Nuance 122",
+    "group": "Nuances secondaires",
+    "value": "#293c2c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-123",
+    "label": "Nuance 123",
+    "group": "Nuances secondaires",
+    "value": "#456441",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-124",
+    "label": "Nuance 124",
+    "group": "Nuances secondaires",
+    "value": "#45314f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-125",
+    "label": "Nuance 125",
+    "group": "Nuances secondaires",
+    "value": "#edc6ff",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-126",
+    "label": "Nuance 126",
+    "group": "Nuances secondaires",
+    "value": "#bbdf98",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-127",
+    "label": "Nuance 127",
+    "group": "Nuances secondaires",
+    "value": "#344149",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-128",
+    "label": "Nuance 128",
+    "group": "Nuances secondaires",
+    "value": "#3c4c53",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-129",
+    "label": "Nuance 129",
+    "group": "Nuances secondaires",
+    "value": "#bdccc4",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-13",
+    "label": "Nuance 13",
+    "group": "Nuances secondaires",
+    "value": "#dfe4d9",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-130",
+    "label": "Nuance 130",
+    "group": "Nuances secondaires",
+    "value": "#41534f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-131",
+    "label": "Nuance 131",
+    "group": "Nuances secondaires",
+    "value": "#b6ee55",
+    "uses": [
+      "globals",
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-132",
+    "label": "Nuance 132",
+    "group": "Nuances secondaires",
+    "value": "#647e43",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-133",
+    "label": "Nuance 133",
+    "group": "Nuances secondaires",
+    "value": "#ecffd5",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-134",
+    "label": "Nuance 134",
+    "group": "Nuances secondaires",
+    "value": "#d0fa9d",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-135",
+    "label": "Nuance 135",
+    "group": "Nuances secondaires",
+    "value": "#172024",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-136",
+    "label": "Nuance 136",
+    "group": "Nuances secondaires",
+    "value": "#314537",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-137",
+    "label": "Nuance 137",
+    "group": "Nuances secondaires",
+    "value": "#1c342d",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-138",
+    "label": "Nuance 138",
+    "group": "Nuances secondaires",
+    "value": "#334b3e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-139",
+    "label": "Nuance 139",
+    "group": "Nuances secondaires",
+    "value": "#425745",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-14",
+    "label": "Nuance 14",
+    "group": "Nuances secondaires",
+    "value": "#fafcf7",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-140",
+    "label": "Nuance 140",
+    "group": "Nuances secondaires",
+    "value": "#842443",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-141",
+    "label": "Nuance 141",
+    "group": "Nuances secondaires",
+    "value": "#b38300",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-143",
+    "label": "Nuance 143",
+    "group": "Nuances secondaires",
+    "value": "#d7ef99",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-144",
+    "label": "Nuance 144",
+    "group": "Nuances secondaires",
+    "value": "#253721",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-145",
+    "label": "Nuance 145",
+    "group": "Nuances secondaires",
+    "value": "#e7ffc7",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-146",
+    "label": "Nuance 146",
+    "group": "Nuances secondaires",
+    "value": "#7e994f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-147",
+    "label": "Nuance 147",
+    "group": "Nuances secondaires",
+    "value": "#506c36",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-148",
+    "label": "Nuance 148",
+    "group": "Nuances secondaires",
+    "value": "#29401f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-149",
+    "label": "Nuance 149",
+    "group": "Nuances secondaires",
+    "value": "#324b25",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-15",
+    "label": "Nuance 15",
+    "group": "Nuances secondaires",
+    "value": "#253b2e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-150",
+    "label": "Nuance 150",
+    "group": "Nuances secondaires",
+    "value": "#20351d",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-151",
+    "label": "Nuance 151",
+    "group": "Nuances secondaires",
+    "value": "#4d6339",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-152",
+    "label": "Nuance 152",
+    "group": "Nuances secondaires",
+    "value": "#3e552c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-153",
+    "label": "Nuance 153",
+    "group": "Nuances secondaires",
+    "value": "#81dcb9",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-154",
+    "label": "Nuance 154",
+    "group": "Nuances secondaires",
+    "value": "#ba9bea",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-155",
+    "label": "Nuance 155",
+    "group": "Nuances secondaires",
+    "value": "#eead83",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-156",
+    "label": "Nuance 156",
+    "group": "Nuances secondaires",
+    "value": "#eef1f2",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-157",
+    "label": "Nuance 157",
+    "group": "Nuances secondaires",
+    "value": "#192c39",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-158",
+    "label": "Nuance 158",
+    "group": "Nuances secondaires",
+    "value": "#fffdf7",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-159",
+    "label": "Nuance 159",
+    "group": "Nuances secondaires",
+    "value": "#254658",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-16",
+    "label": "Nuance 16",
+    "group": "Nuances secondaires",
+    "value": "#c8fa76",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-160",
+    "label": "Nuance 160",
+    "group": "Nuances secondaires",
+    "value": "#e0e8ec",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-161",
+    "label": "Nuance 161",
+    "group": "Nuances secondaires",
+    "value": "#e5ebed",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-162",
+    "label": "Nuance 162",
+    "group": "Nuances secondaires",
+    "value": "#526572",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-163",
+    "label": "Nuance 163",
+    "group": "Nuances secondaires",
+    "value": "#bad3dd",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-164",
+    "label": "Nuance 164",
+    "group": "Nuances secondaires",
+    "value": "#152c3a",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-165",
+    "label": "Nuance 165",
+    "group": "Nuances secondaires",
+    "value": "#cbd5da",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-166",
+    "label": "Nuance 166",
+    "group": "Nuances secondaires",
+    "value": "#477b9b",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-167",
+    "label": "Nuance 167",
+    "group": "Nuances secondaires",
+    "value": "#709fac",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-168",
+    "label": "Nuance 168",
+    "group": "Nuances secondaires",
+    "value": "#0d1922",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-169",
+    "label": "Nuance 169",
+    "group": "Nuances secondaires",
+    "value": "#f3f1e8",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-17",
+    "label": "Nuance 17",
+    "group": "Nuances secondaires",
+    "value": "#798477",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-170",
+    "label": "Nuance 170",
+    "group": "Nuances secondaires",
+    "value": "#152631",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-171",
+    "label": "Nuance 171",
+    "group": "Nuances secondaires",
+    "value": "#1b303e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-172",
+    "label": "Nuance 172",
+    "group": "Nuances secondaires",
+    "value": "#a9cbd5",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-173",
+    "label": "Nuance 173",
+    "group": "Nuances secondaires",
+    "value": "#12232e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-174",
+    "label": "Nuance 174",
+    "group": "Nuances secondaires",
+    "value": "#233c49",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-175",
+    "label": "Nuance 175",
+    "group": "Nuances secondaires",
+    "value": "#203542",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-176",
+    "label": "Nuance 176",
+    "group": "Nuances secondaires",
+    "value": "#a6bac4",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-177",
+    "label": "Nuance 177",
+    "group": "Nuances secondaires",
+    "value": "#304753",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-178",
+    "label": "Nuance 178",
+    "group": "Nuances secondaires",
+    "value": "#8fb8d6",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-179",
+    "label": "Nuance 179",
+    "group": "Nuances secondaires",
+    "value": "#8ebbb1",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-18",
+    "label": "Nuance 18",
+    "group": "Nuances secondaires",
+    "value": "#e7ecdf",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-180",
+    "label": "Nuance 180",
+    "group": "Nuances secondaires",
+    "value": "#142834",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-181",
+    "label": "Nuance 181",
+    "group": "Nuances secondaires",
+    "value": "#b7d1c2",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-182",
+    "label": "Nuance 182",
+    "group": "Nuances secondaires",
+    "value": "#183428",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-183",
+    "label": "Nuance 183",
+    "group": "Nuances secondaires",
+    "value": "#486577",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-184",
+    "label": "Nuance 184",
+    "group": "Nuances secondaires",
+    "value": "#f0e5cd",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-19",
+    "label": "Nuance 19",
+    "group": "Nuances secondaires",
+    "value": "#7a8779",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-192",
+    "label": "Nuance 192",
+    "group": "Nuances secondaires",
+    "value": "#d57b7d",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-193",
+    "label": "Nuance 193",
+    "group": "Nuances secondaires",
+    "value": "#0b1b28",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-194",
+    "label": "Nuance 194",
+    "group": "Nuances secondaires",
+    "value": "#345165",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-195",
+    "label": "Nuance 195",
+    "group": "Nuances secondaires",
+    "value": "#f4f5ed",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-198",
+    "label": "Nuance 198",
+    "group": "Nuances secondaires",
+    "value": "#142d26",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-199",
+    "label": "Nuance 199",
+    "group": "Nuances secondaires",
+    "value": "#54866c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-20",
+    "label": "Nuance 20",
+    "group": "Nuances secondaires",
+    "value": "#83b441",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-200",
+    "label": "Nuance 200",
+    "group": "Nuances secondaires",
+    "value": "#aac0cb",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-201",
+    "label": "Nuance 201",
+    "group": "Nuances secondaires",
+    "value": "#142936",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-202",
+    "label": "Nuance 202",
+    "group": "Nuances secondaires",
+    "value": "#f4f5eb",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-203",
+    "label": "Nuance 203",
+    "group": "Nuances secondaires",
+    "value": "#9ccfa2",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-204",
+    "label": "Nuance 204",
+    "group": "Nuances secondaires",
+    "value": "#94d5ac",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-205",
+    "label": "Nuance 205",
+    "group": "Nuances secondaires",
+    "value": "#a4c5b7",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-206",
+    "label": "Nuance 206",
+    "group": "Nuances secondaires",
+    "value": "#183526",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-207",
+    "label": "Nuance 207",
+    "group": "Nuances secondaires",
+    "value": "#b3c5cd",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-208",
+    "label": "Nuance 208",
+    "group": "Nuances secondaires",
+    "value": "#213f4b",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-209",
+    "label": "Nuance 209",
+    "group": "Nuances secondaires",
+    "value": "#a8bec8",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-21",
+    "label": "Nuance 21",
+    "group": "Nuances secondaires",
+    "value": "#748071",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-210",
+    "label": "Nuance 210",
+    "group": "Nuances secondaires",
+    "value": "#678c54",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-211",
+    "label": "Nuance 211",
+    "group": "Nuances secondaires",
+    "value": "#cef9ae",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-213",
+    "label": "Nuance 213",
+    "group": "Nuances secondaires",
+    "value": "#9a613a",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-214",
+    "label": "Nuance 214",
+    "group": "Nuances secondaires",
+    "value": "#fff7d8",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-215",
+    "label": "Nuance 215",
+    "group": "Nuances secondaires",
+    "value": "#fff4d2",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-22",
+    "label": "Nuance 22",
+    "group": "Nuances secondaires",
+    "value": "#c6d6b6",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-224",
+    "label": "Nuance 224",
+    "group": "Nuances secondaires",
+    "value": "#183326",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-225",
+    "label": "Nuance 225",
+    "group": "Nuances secondaires",
+    "value": "#608453",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-226",
+    "label": "Nuance 226",
+    "group": "Nuances secondaires",
+    "value": "#f4a19e",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-227",
+    "label": "Nuance 227",
+    "group": "Nuances secondaires",
+    "value": "#8fc7e4",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-228",
+    "label": "Nuance 228",
+    "group": "Nuances secondaires",
+    "value": "#afd998",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-229",
+    "label": "Nuance 229",
+    "group": "Nuances secondaires",
+    "value": "#8dad67",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-23",
+    "label": "Nuance 23",
+    "group": "Nuances secondaires",
+    "value": "#e7f1d9",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-230",
+    "label": "Nuance 230",
+    "group": "Nuances secondaires",
+    "value": "#e38c91",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-231",
+    "label": "Nuance 231",
+    "group": "Nuances secondaires",
+    "value": "#876482",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-232",
+    "label": "Nuance 232",
+    "group": "Nuances secondaires",
+    "value": "#172b29",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-233",
+    "label": "Nuance 233",
+    "group": "Nuances secondaires",
+    "value": "#17272b",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-234",
+    "label": "Nuance 234",
+    "group": "Nuances secondaires",
+    "value": "#f4f6ec",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-235",
+    "label": "Nuance 235",
+    "group": "Nuances secondaires",
+    "value": "#a5c8af",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-236",
+    "label": "Nuance 236",
+    "group": "Nuances secondaires",
+    "value": "#c4ef96",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-237",
+    "label": "Nuance 237",
+    "group": "Nuances secondaires",
+    "value": "#8bceb5",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-238",
+    "label": "Nuance 238",
+    "group": "Nuances secondaires",
+    "value": "#15362e",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-24",
+    "label": "Nuance 24",
+    "group": "Nuances secondaires",
+    "value": "#e8ece2",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-245",
+    "label": "Nuance 245",
+    "group": "Nuances secondaires",
+    "value": "#d9ded7",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-246",
+    "label": "Nuance 246",
+    "group": "Nuances secondaires",
+    "value": "#e1e5de",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-247",
+    "label": "Nuance 247",
+    "group": "Nuances secondaires",
+    "value": "#5f6964",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-248",
+    "label": "Nuance 248",
+    "group": "Nuances secondaires",
+    "value": "#5c920f",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-249",
+    "label": "Nuance 249",
+    "group": "Nuances secondaires",
+    "value": "#416b09",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-25",
+    "label": "Nuance 25",
+    "group": "Nuances secondaires",
+    "value": "#1a3013",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-250",
+    "label": "Nuance 250",
+    "group": "Nuances secondaires",
+    "value": "#eb567c",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-251",
+    "label": "Nuance 251",
+    "group": "Nuances secondaires",
+    "value": "#65814e",
+    "uses": [
+      "button-feedback"
+    ]
+  },
+  {
+    "key": "nuance-26",
+    "label": "Nuance 26",
+    "group": "Nuances secondaires",
+    "value": "#e4eed9",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-27",
+    "label": "Nuance 27",
+    "group": "Nuances secondaires",
+    "value": "#436031",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-28",
+    "label": "Nuance 28",
+    "group": "Nuances secondaires",
+    "value": "#ffe1e9",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-29",
+    "label": "Nuance 29",
+    "group": "Nuances secondaires",
+    "value": "#b92c50",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-30",
+    "label": "Nuance 30",
+    "group": "Nuances secondaires",
+    "value": "#e6ece1",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-31",
+    "label": "Nuance 31",
+    "group": "Nuances secondaires",
+    "value": "#d9e2d2",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-32",
+    "label": "Nuance 32",
+    "group": "Nuances secondaires",
+    "value": "#cad5c3",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-33",
+    "label": "Nuance 33",
+    "group": "Nuances secondaires",
+    "value": "#7c8974",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-34",
+    "label": "Nuance 34",
+    "group": "Nuances secondaires",
+    "value": "#c6ef92",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-35",
+    "label": "Nuance 35",
+    "group": "Nuances secondaires",
+    "value": "#3f6425",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-36",
+    "label": "Nuance 36",
+    "group": "Nuances secondaires",
+    "value": "#26382e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-37",
+    "label": "Nuance 37",
+    "group": "Nuances secondaires",
+    "value": "#20392c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-38",
+    "label": "Nuance 38",
+    "group": "Nuances secondaires",
+    "value": "#223817",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-39",
+    "label": "Nuance 39",
+    "group": "Nuances secondaires",
+    "value": "#f5b8d0",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-4",
+    "label": "Nuance 4",
+    "group": "Nuances secondaires",
+    "value": "#243f30",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-40",
+    "label": "Nuance 40",
+    "group": "Nuances secondaires",
+    "value": "#803d5a",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-41",
+    "label": "Nuance 41",
+    "group": "Nuances secondaires",
+    "value": "#c3ed86",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-42",
+    "label": "Nuance 42",
+    "group": "Nuances secondaires",
+    "value": "#4d6b2a",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-43",
+    "label": "Nuance 43",
+    "group": "Nuances secondaires",
+    "value": "#afcfee",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-44",
+    "label": "Nuance 44",
+    "group": "Nuances secondaires",
+    "value": "#355c82",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-45",
+    "label": "Nuance 45",
+    "group": "Nuances secondaires",
+    "value": "#f8c58c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-46",
+    "label": "Nuance 46",
+    "group": "Nuances secondaires",
+    "value": "#875329",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-47",
+    "label": "Nuance 47",
+    "group": "Nuances secondaires",
+    "value": "#d6c1f4",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-48",
+    "label": "Nuance 48",
+    "group": "Nuances secondaires",
+    "value": "#675186",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-49",
+    "label": "Nuance 49",
+    "group": "Nuances secondaires",
+    "value": "#a5dfcf",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-5",
+    "label": "Nuance 5",
+    "group": "Nuances secondaires",
+    "value": "#e9eee3",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-50",
+    "label": "Nuance 50",
+    "group": "Nuances secondaires",
+    "value": "#306c5b",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-51",
+    "label": "Nuance 51",
+    "group": "Nuances secondaires",
+    "value": "#2e4e34",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-52",
+    "label": "Nuance 52",
+    "group": "Nuances secondaires",
+    "value": "#314c2f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-54",
+    "label": "Nuance 54",
+    "group": "Nuances secondaires",
+    "value": "#73816e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-55",
+    "label": "Nuance 55",
+    "group": "Nuances secondaires",
+    "value": "#e0e5da",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-56",
+    "label": "Nuance 56",
+    "group": "Nuances secondaires",
+    "value": "#899283",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-57",
+    "label": "Nuance 57",
+    "group": "Nuances secondaires",
+    "value": "#e9ede3",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-58",
+    "label": "Nuance 58",
+    "group": "Nuances secondaires",
+    "value": "#687362",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-59",
+    "label": "Nuance 59",
+    "group": "Nuances secondaires",
+    "value": "#88917f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-6",
+    "label": "Nuance 6",
+    "group": "Nuances secondaires",
+    "value": "#e6eade",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-60",
+    "label": "Nuance 60",
+    "group": "Nuances secondaires",
+    "value": "#dde4d6",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-61",
+    "label": "Nuance 61",
+    "group": "Nuances secondaires",
+    "value": "#263c2a",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-62",
+    "label": "Nuance 62",
+    "group": "Nuances secondaires",
+    "value": "#788270",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-63",
+    "label": "Nuance 63",
+    "group": "Nuances secondaires",
+    "value": "#f1f3eb",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-64",
+    "label": "Nuance 64",
+    "group": "Nuances secondaires",
+    "value": "#f3e4ff",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-65",
+    "label": "Nuance 65",
+    "group": "Nuances secondaires",
+    "value": "#7c4594",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-66",
+    "label": "Nuance 66",
+    "group": "Nuances secondaires",
+    "value": "#7a8473",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-67",
+    "label": "Nuance 67",
+    "group": "Nuances secondaires",
+    "value": "#e9ece4",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-68",
+    "label": "Nuance 68",
+    "group": "Nuances secondaires",
+    "value": "#3b4b32",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-69",
+    "label": "Nuance 69",
+    "group": "Nuances secondaires",
+    "value": "#79866f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-7",
+    "label": "Nuance 7",
+    "group": "Nuances secondaires",
+    "value": "#667468",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-70",
+    "label": "Nuance 70",
+    "group": "Nuances secondaires",
+    "value": "#f4f6ef",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-71",
+    "label": "Nuance 71",
+    "group": "Nuances secondaires",
+    "value": "#72806a",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-72",
+    "label": "Nuance 72",
+    "group": "Nuances secondaires",
+    "value": "#e8ecdf",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-73",
+    "label": "Nuance 73",
+    "group": "Nuances secondaires",
+    "value": "#b6d793",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-74",
+    "label": "Nuance 74",
+    "group": "Nuances secondaires",
+    "value": "#364f2f",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-75",
+    "label": "Nuance 75",
+    "group": "Nuances secondaires",
+    "value": "#e0e5d7",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-76",
+    "label": "Nuance 76",
+    "group": "Nuances secondaires",
+    "value": "#798471",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-77",
+    "label": "Nuance 77",
+    "group": "Nuances secondaires",
+    "value": "#788371",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-78",
+    "label": "Nuance 78",
+    "group": "Nuances secondaires",
+    "value": "#55783e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-79",
+    "label": "Nuance 79",
+    "group": "Nuances secondaires",
+    "value": "#748368",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-80",
+    "label": "Nuance 80",
+    "group": "Nuances secondaires",
+    "value": "#263c30",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-81",
+    "label": "Nuance 81",
+    "group": "Nuances secondaires",
+    "value": "#eefadb",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-82",
+    "label": "Nuance 82",
+    "group": "Nuances secondaires",
+    "value": "#11271c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-83",
+    "label": "Nuance 83",
+    "group": "Nuances secondaires",
+    "value": "#3b553c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-84",
+    "label": "Nuance 84",
+    "group": "Nuances secondaires",
+    "value": "#e8efdf",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-85",
+    "label": "Nuance 85",
+    "group": "Nuances secondaires",
+    "value": "#e4e9dd",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-86",
+    "label": "Nuance 86",
+    "group": "Nuances secondaires",
+    "value": "#e0e5d9",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-87",
+    "label": "Nuance 87",
+    "group": "Nuances secondaires",
+    "value": "#7a8372",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-88",
+    "label": "Nuance 88",
+    "group": "Nuances secondaires",
+    "value": "#f1f6e9",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-89",
+    "label": "Nuance 89",
+    "group": "Nuances secondaires",
+    "value": "#dce3d3",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-90",
+    "label": "Nuance 90",
+    "group": "Nuances secondaires",
+    "value": "#6b7b60",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-91",
+    "label": "Nuance 91",
+    "group": "Nuances secondaires",
+    "value": "#c1f277",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-92",
+    "label": "Nuance 92",
+    "group": "Nuances secondaires",
+    "value": "#8cb64c",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-93",
+    "label": "Nuance 93",
+    "group": "Nuances secondaires",
+    "value": "#e2e7da",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-94",
+    "label": "Nuance 94",
+    "group": "Nuances secondaires",
+    "value": "#7a8571",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-95",
+    "label": "Nuance 95",
+    "group": "Nuances secondaires",
+    "value": "#243b2e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-96",
+    "label": "Nuance 96",
+    "group": "Nuances secondaires",
+    "value": "#edfadf",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-97",
+    "label": "Nuance 97",
+    "group": "Nuances secondaires",
+    "value": "#142b24",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-98",
+    "label": "Nuance 98",
+    "group": "Nuances secondaires",
+    "value": "#78816e",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-99",
+    "label": "Nuance 99",
+    "group": "Nuances secondaires",
+    "value": "#294b32",
+    "uses": [
+      "globals"
+    ]
+  }
+]
