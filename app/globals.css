@@ -132,3 +132,27 @@ body{font-family:ClubGrotesk,Arial,sans-serif}.topbar{background:var(--backgroun
  .roster-identity{height:130px}.roster-club{height:31px}.roster-summary{min-height:76px}.roster-actions{min-height:73px}
 }
 @media(max-width:600px){.player-card.roster-card{height:470px}}
+/* Touch dragging activates only after the shared hold delay. */
+.roster-card .card-rim{touch-action:pan-y;-webkit-touch-callout:none}
+.nav-brand-actions{display:flex;margin-left:auto;gap:2px}.nav-brand .nav-brand-actions button{margin:0;width:40px;height:44px}.menu-edit{color:var(--muted-foreground);border-radius:8px}.menu-edit:hover,.menu-edit[aria-pressed=true]{background:var(--secondary);color:var(--foreground)}
+.menu-drag-list{display:flex;flex-direction:column;gap:8px;padding:4px 0 12px}.menu-drag-row,.menu-drag-preview{background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--foreground)}.menu-drag-row>button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;height:56px;padding:10px 12px;text-align:left;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;font-size:14px}.menu-drag-row svg{color:var(--muted-foreground);flex-shrink:0}.menu-drag-row.is-dragging{opacity:.3}.menu-drag-slot.is-over{outline:2px solid var(--ring);outline-offset:2px;border-radius:10px}.menu-drag-preview{display:flex;align-items:center;justify-content:space-between;gap:10px;height:56px;padding:10px 12px;box-shadow:0 12px 32px #0005;border-color:var(--ring);cursor:grabbing}
+/* Short cards, a genuinely different reverse, and a direct full-profile action. */
+.player-card.roster-card.compact-roster{height:410px}
+.compact-roster .roster-content{padding-top:4px;scrollbar-width:thin}
+.compact-roster .roster-identity{height:78px;min-height:78px}
+.compact-roster .roster-identity .player-avatar{width:60px}
+.compact-roster .roster-club{height:46px;min-height:46px;margin-top:6px;padding-top:4px;padding-bottom:4px}
+.compact-roster .roster-production{flex:none;padding:9px 0}
+.compact-roster .roster-attributes{flex:none;padding:8px 0;gap:6px 4px}
+.compact-roster .roster-summary{min-height:35px;padding:7px 0}
+.compact-roster .roster-actions{flex-direction:row;min-height:44px;gap:4px;padding:0 5px;align-items:center}
+.compact-roster .roster-actions button{min-height:44px;min-width:36px;border:0;flex:1;font-size:12px;gap:5px}
+.card-open-full{color:var(--foreground)}.card-open-full:hover{background:var(--secondary)}
+.player-dossier{padding:4px 0 12px}.player-dossier h3{font:800 24px/1.1 ClubDisplay,sans-serif;margin:0 0 12px;overflow-wrap:anywhere}
+.dossier-potential{padding:9px;background:color-mix(in srgb,var(--player-accent),var(--card) 85%);border-left:3px solid var(--player-accent);display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px}.dossier-potential strong{color:var(--player-accent);font-size:14px}
+.player-dossier dl{margin:8px 0}.player-dossier dl>div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--border);padding:5px 0;font-size:12px}.player-dossier dt{color:var(--muted-foreground)}.player-dossier dd{margin:0;text-align:right}
+.player-dossier h4{font:800 16px ClubDisplay,sans-serif;margin:10px 0 5px}.dossier-axis{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;margin:6px 0}.dossier-axis>div{position:relative;width:64px;height:4px;border-radius:2px;background:var(--secondary);margin-right:4px;flex-shrink:0}.dossier-axis i{position:absolute;top:-2px;width:8px;height:8px;border-radius:50%;background:var(--player-accent);transform:translateX(-50%)}.dossier-health p{font-size:12px;line-height:1.45;color:var(--muted-foreground);margin:0}
+@container(max-width:175px){
+ .compact-roster .roster-identity{height:108px;min-height:108px;gap:3px}.compact-roster .roster-identity .player-avatar{width:36px}.compact-roster .roster-name strong{font-size:16px}.compact-roster .roster-club{height:27px;min-height:27px;margin-top:4px}.compact-roster .roster-summary{min-height:43px}.compact-roster .roster-actions button>span{display:none}.compact-roster .roster-actions{padding:0;gap:0}.compact-roster .roster-actions button{min-width:0}.player-dossier h3{font-size:16px;margin-bottom:8px}.dossier-potential{padding:5px;display:block;font-size:10px}.dossier-potential strong{display:block;font-size:12px;margin-top:3px}.player-dossier dl>div{display:block;font-size:10px;padding:4px 0}.player-dossier dd{text-align:left}.player-dossier h4{font-size:12px}.dossier-axis{display:block;font-size:10px}.dossier-axis>div{width:90%;margin-top:6px;margin-bottom:10px}.dossier-health p{font-size:10px}
+}
+@media(max-width:600px){.player-card.roster-card.compact-roster{height:340px}}
