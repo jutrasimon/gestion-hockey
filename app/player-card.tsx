@@ -8,7 +8,9 @@ import {clubOf,teams,sourceOf,recordFor,initialScope} from './league';
 
 const portraits:Record<string,number>={roy:0,gagnon:7,sokolov:3,fortin:4,leclerc:1,morin:5};
 export function PlayerAvatar({p,className=''}:{p:Player;className?:string}){
- const index=portraits[sourceOf(p.id)]??0;
+ const source=sourceOf(p.id);
+ const index=portraits[source]??0;
+ if(source==='roy'||source==='fortin')return <span className={`player-avatar ${className}`} aria-hidden="true"><svg viewBox={`${source==='roy'?0:627} ${source==='roy'?200:240} 620 724.625`} focusable="false" preserveAspectRatio="xMidYMid meet"><image href="/avatars/women-retro-v2.png" width="1254" height="1254"/></svg></span>;
  // Crop each face around its own center; fixed image coordinates avoid percentage drift.
  const centers=[201,575,940,1308,207,571,940,1307];
  // The second row starts below the printed labels of the first row.
