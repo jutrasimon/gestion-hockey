@@ -1,7 +1,7 @@
 "use client";
 import {useState,type ReactNode} from 'react';
-import {motion} from 'motion/react';
-import {RotateCw,Maximize2,ShieldCheck,ShieldAlert} from 'lucide-react';
+import {motion,useAnimationControls,useReducedMotion} from 'motion/react';
+import {Layers,Maximize2,ShieldCheck,ShieldAlert} from 'lucide-react';
 import {FavoriteButton} from './preferences';
 import {labels,money,type Player} from './players';
 import {clubOf,teams,sourceOf,recordFor,initialScope} from './league';
@@ -21,10 +21,12 @@ export function PlayerAvatar({p,className=''}:{p:Player;className?:string}){
 }
 export function healthOf(p:Player){return p.id==='sokolov'?{injured:true,label:'Blessé · 2 sem.',history:'2028–2029 · Aine · En récupération. 2027–2028 · Aine · 3 semaines. 2024–2025 · Poignet · 7 semaines.'}:{injured:false,label:'En santé',history:p.id==='gagnon'?'2026–2027 · Entorse du genou · 5 semaines · Guérie.':'Aucune blessure enregistrée.'}}
 export function PlayerCard({p,selected,onSelect,onOpen,handle,ghost=false,initialFlipped=false,onFlip}:{p:Player;selected?:boolean;onSelect?:()=>void;onOpen?:()=>void;handle?:ReactNode;ghost?:boolean;initialFlipped?:boolean;onFlip?:(value:boolean)=>void}){
- const [flipped,setFlipped]=useState(initialFlipped);const club=teams.find(t=>t.id===clubOf(p.id))!;const health=healthOf(p);const production=recordFor(p,initialScope.season,initialScope.phase)!;
- return <article className={`player-card roster-card compact-roster ${p.color} ${selected?'chosen':''} ${ghost?'ghost':''}`} aria-label={`Carte de ${p.name}`}>
+ const [flipped,setFlipped]=useState(initialFlipped);const [dealing,setDealing]=useState(false);const controls=useAnimationControls();const reduced=useReducedMotion();
+ async function nextCard(){if(dealing)return;const next=!flipped;if(reduced){setFlipped(next);onFlip?.(next);return}setDealing(true);await controls.start({x:'32%',y:-12,rotate:7,scale:.98,opacity:0,transition:{type:'tween',duration:.2,ease:'easeIn'}});setFlipped(next);onFlip?.(next);controls.set({x:0,y:12,rotate:-2,scale:.97,opacity:0});await controls.start({x:0,y:0,rotate:0,scale:1,opacity:1,transition:{type:'tween',duration:.26,ease:'easeOut'}});setDealing(false)}
+ const club=teams.find(t=>t.id===clubOf(p.id))!;const health=healthOf(p);const production=recordFor(p,initialScope.season,initialScope.phase)!;
+ return <motion.article animate={controls} className={`player-card roster-card compact-roster ${p.color} ${selected?'chosen':''} ${ghost?'ghost':''} ${dealing?'dealing':''}`} aria-label={`Carte de ${p.name}`}>
  {handle}<div className="roster-toolbar"><span>{flipped?'PARCOURS':`#${p.num}`} {!flipped&&<span>· 2028–29</span>}</span>{!ghost&&<FavoriteButton id={p.id} name={p.name}/>}</div>
- <motion.div className={`roster-content ${flipped?'show-back':''}`} key={`${p.id}-${flipped}`} initial={ghost?false:{opacity:.4,rotateY:-12}} animate={{opacity:1,rotateY:0}} transition={{duration:.22}}>
+ <div className={`roster-content ${flipped?'show-back':''}`}>
  {flipped?<div className="player-dossier">
  <h3>{p.name}</h3>
  <div className="dossier-potential"><span>Potentiel</span><strong>{p.potential}</strong></div>
@@ -38,6 +40,6 @@ export function PlayerCard({p,selected,onSelect,onOpen,handle,ghost=false,initia
  <div className="roster-attributes">{p.stats.map((v,i)=><div key={labels[i]} title={labels[i]}><span>{['MAN','TIR','PUI','PAT','IQ','CRÉ','CŒ'][i]}</span><strong>{v}</strong></div>)}</div>
  <div className="roster-summary"><div className="roster-contract"><strong>{money(p.salary)}</strong><span> / an · {p.years} ans</span></div></div>
  </>}
- </motion.div><div className="roster-actions"><button className="card-open-full" onClick={onOpen||onSelect} aria-label={`Ouvrir la fiche complète de ${p.name}`} title="Ouvrir la fiche complète"><Maximize2 size={17}/><span>Fiche</span></button><button onClick={()=>{setFlipped(!flipped);onFlip?.(!flipped)}} aria-pressed={flipped} aria-label={`Retourner la carte de ${p.name}`}><RotateCw size={16}/><span>{flipped?'Recto':'Verso'}</span></button></div>
- </article>
+ </div><div className="roster-actions"><button className="card-open-full" onClick={onOpen||onSelect} aria-label={`Ouvrir la fiche complète de ${p.name}`} title="Ouvrir la fiche complète"><Maximize2 size={17}/><span>Fiche</span></button><button onClick={nextCard} disabled={dealing} aria-label={`Carte suivante de ${p.name} : ${flipped?'statistiques':'parcours'}`}><Layers size={16}/><span>{flipped?'Stats · 2/2':'Parcours · 1/2'}</span></button></div>
+ </motion.article>
 }
