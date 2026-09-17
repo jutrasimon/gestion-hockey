@@ -281,3 +281,8 @@ summary,.fold-trigger{cursor:pointer;border-radius:7px;transition:background .16
 .profile-overview .overview-abilities,.profile-overview .overview-career,.profile-overview .overview-personality,.profile-overview .overview-season,.profile-overview .overview-contract{grid-column:1;grid-row:auto}
 .profile-overview .overview-abilities{order:-1}
 }
+/* Turn the complete card, including its frame, grip and actions. */
+.card-stack,.card-drag-preview{perspective:1000px}.player-card.roster-card{transform-origin:center center;backface-visibility:hidden}.roster-actions .card-turn{border:1px solid color-mix(in srgb,var(--player-accent),transparent 50%);background:color-mix(in srgb,var(--player-accent),transparent 88%);border-radius:7px;padding:4px 10px;min-height:32px;margin:5px 0;font-weight:700}.roster-actions .card-turn:hover{background:color-mix(in srgb,var(--player-accent),transparent 72%)}.roster-actions .card-turn:focus-visible{outline:2px solid var(--player-accent);outline-offset:2px}
+@media(max-width:600px){.roster-actions .card-turn{padding:3px 4px;gap:3px;font-size:10px}.roster-actions .card-turn svg{width:13px;flex-shrink:0}}
+/* Every host uses one centered portrait viewport, independent of inherited SVG sizing. */
+.player-avatar{flex-shrink:0}.player-avatar>svg{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;margin:0;transform:none}

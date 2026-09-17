@@ -1,7 +1,8 @@
 "use client";
 import {useState,type ReactNode} from 'react';
 import {motion,useAnimationControls,useReducedMotion} from 'motion/react';
-import {Layers,Maximize2,ShieldCheck,ShieldAlert} from 'lucide-react';
+import {Maximize2,ShieldCheck,ShieldAlert} from 'lucide-react';
+import {ArrowClockwiseIcon} from '@phosphor-icons/react/dist/csr/ArrowClockwise';
 import {FavoriteButton} from './preferences';
 import {labels,money,type Player} from './players';
 import {clubOf,teams,sourceOf,recordFor,initialScope} from './league';
@@ -12,17 +13,17 @@ export function PlayerAvatar({p,className=''}:{p:Player;className?:string}){
  const index=portraits[source]??0;
  if(source==='roy'||source==='fortin')return <span className={`player-avatar ${className}`} aria-hidden="true"><svg viewBox={`${source==='roy'?0:627} ${source==='roy'?200:240} 620 724.625`} focusable="false" preserveAspectRatio="xMidYMid meet"><image href="/avatars/women-retro-v2.png" width="1254" height="1254"/></svg></span>;
  // Crop each face around its own center; fixed image coordinates avoid percentage drift.
- const centers=[201,575,940,1308,207,571,940,1307];
+ const centers=[201,575,940,1318,207,571,940,1320];
  // The second row starts below the printed labels of the first row.
  const height=index<4?374:354;
  const width=height*320/374;
  const x=centers[index]-width/2;const y=index<4?8:422;
- return <span className={`player-avatar ${className}`} aria-hidden="true"><svg viewBox={`${x} ${y} ${width} ${height}`} focusable="false" preserveAspectRatio="xMidYMid meet"><image href="/avatars/roster-retro.png" width="1536" height="1024"/></svg></span>;
+ return <span className={`player-avatar ${className}`} aria-hidden="true"><svg viewBox="0 0 320 374" focusable="false" preserveAspectRatio="xMidYMid meet"><svg x="0" y="10" width="320" height="364" viewBox={`${x} ${y} ${width} ${height}`} preserveAspectRatio="xMidYMid meet"><image href="/avatars/roster-retro.png" width="1536" height="1024"/></svg></svg></span>;
 }
 export function healthOf(p:Player){return p.id==='sokolov'?{injured:true,label:'Blessé · 2 sem.',history:'2028–2029 · Aine · En récupération. 2027–2028 · Aine · 3 semaines. 2024–2025 · Poignet · 7 semaines.'}:{injured:false,label:'En santé',history:p.id==='gagnon'?'2026–2027 · Entorse du genou · 5 semaines · Guérie.':'Aucune blessure enregistrée.'}}
 export function PlayerCard({p,selected,onSelect,onOpen,handle,ghost=false,initialFlipped=false,onFlip}:{p:Player;selected?:boolean;onSelect?:()=>void;onOpen?:()=>void;handle?:ReactNode;ghost?:boolean;initialFlipped?:boolean;onFlip?:(value:boolean)=>void}){
  const [flipped,setFlipped]=useState(initialFlipped);const [dealing,setDealing]=useState(false);const controls=useAnimationControls();const reduced=useReducedMotion();
- async function nextCard(){if(dealing)return;const next=!flipped;if(reduced){setFlipped(next);onFlip?.(next);return}setDealing(true);await controls.start({x:'32%',y:-12,rotate:7,scale:.98,opacity:0,transition:{type:'tween',duration:.2,ease:'easeIn'}});setFlipped(next);onFlip?.(next);controls.set({x:0,y:12,rotate:-2,scale:.97,opacity:0});await controls.start({x:0,y:0,rotate:0,scale:1,opacity:1,transition:{type:'tween',duration:.26,ease:'easeOut'}});setDealing(false)}
+ async function nextCard(){if(dealing)return;const next=!flipped;if(reduced){setFlipped(next);onFlip?.(next);return}setDealing(true);await controls.start({rotateY:90,transition:{type:'tween',duration:.22,ease:'easeIn'}});setFlipped(next);onFlip?.(next);controls.set({rotateY:-90});await controls.start({rotateY:0,transition:{type:'tween',duration:.26,ease:'easeOut'}});setDealing(false)}
  const club=teams.find(t=>t.id===clubOf(p.id))!;const health=healthOf(p);const production=recordFor(p,initialScope.season,initialScope.phase)!;
  return <motion.article onClick={e=>{if(!ghost&&!dealing&&!(e.target as HTMLElement).closest('button,a,input,textarea,select,[role="slider"]'))onSelect?.()}} animate={controls} className={`player-card roster-card compact-roster ${p.color} ${selected?'chosen':''} ${ghost?'ghost':''} ${dealing?'dealing':''}`} aria-label={`Carte de ${p.name}`}>
  {handle}<div className="roster-toolbar"><span>{flipped?'PARCOURS':`#${p.num}`} {!flipped&&<span>· 2028–29</span>}</span>{!ghost&&<FavoriteButton id={p.id} name={p.name}/>}</div>
@@ -40,6 +41,6 @@ export function PlayerCard({p,selected,onSelect,onOpen,handle,ghost=false,initia
  <div className="roster-attributes">{p.stats.map((v,i)=><div key={labels[i]} title={labels[i]}><span>{['MAN','TIR','PUI','PAT','IQ','CRÉ','CŒ'][i]}</span><strong>{v}</strong></div>)}</div>
  <div className="roster-summary"><div className="roster-contract"><strong>{money(p.salary)}</strong><span> / an · {p.years} ans</span></div></div>
  </>}
- </div><div className="roster-actions"><button className="card-open-full" onClick={onOpen||onSelect} aria-label={`Ouvrir la fiche complète de ${p.name}`} title="Ouvrir la fiche complète"><Maximize2 size={17}/><span>Fiche</span></button><button onClick={nextCard} disabled={dealing} aria-label={`Carte suivante de ${p.name} : ${flipped?'statistiques':'parcours'}`}><Layers size={16}/><span>{flipped?'Stats · 2/2':'Parcours · 1/2'}</span></button></div>
+ </div><div className="roster-actions"><button className="card-open-full" onClick={onOpen||onSelect} aria-label={`Ouvrir la fiche complète de ${p.name}`} title="Ouvrir la fiche complète"><Maximize2 size={17}/><span>Fiche</span></button><button onClick={nextCard} disabled={dealing} className="card-turn" title={flipped?"Retourner vers les statistiques":"Retourner vers le parcours"} aria-label={`Retourner la carte de ${p.name} : ${flipped?'statistiques':'parcours'}`}><ArrowClockwiseIcon size={17} weight="bold"/><span>Retourner</span></button></div>
  </motion.article>
 }
