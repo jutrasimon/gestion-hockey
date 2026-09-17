@@ -19,7 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" data-theme="dark" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{__html: `try{var theme=localStorage.getItem('hockey-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme}catch(e){}`}} /></head>
       <body className="antialiased">{children}</body>
     </html>
   );
