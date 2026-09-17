@@ -290,3 +290,4 @@ summary,.fold-trigger{cursor:pointer;border-radius:7px;transition:background .16
 .game-gradient-icon .icon-gradient-start{stop-color:#247c88}.game-gradient-icon .icon-gradient-middle{stop-color:#32825f}.game-gradient-icon .icon-gradient-end{stop-color:#5c7c1c}
 [data-theme=dark] .game-gradient-icon .icon-gradient-start{stop-color:#81c6d8}[data-theme=dark] .game-gradient-icon .icon-gradient-middle{stop-color:#a5e3b0}[data-theme=dark] .game-gradient-icon .icon-gradient-end{stop-color:#d5f88b}
 @media(forced-colors:active){.game-gradient-icon{fill:CanvasText!important}}
+[data-slot=tooltip-content].game-tooltip{width:240px;max-width:calc(100vw - 28px);padding:12px;border:1px solid var(--border);background:var(--foreground);color:var(--background);font-size:13px;line-height:1.5;border-radius:9px;z-index:100;box-shadow:0 6px 20px #0002;text-align:left;font-weight:400}
