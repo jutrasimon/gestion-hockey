@@ -1,11 +1,9 @@
-# Palette du gym
+# Système de couleurs
 
-`app/palette.json` est l’unique source des couleurs littérales de l’interface. Le catalogue conserve toutes les nuances existantes sans changer la direction artistique. Les composants CSS et SVG consomment `var(--palette-...)`, directement ou via les variables sémantiques existantes (`--background`, `--ring`, `--player-accent`, etc.). Les transparences sont dérivées par `color-mix`, sans copie de la couleur.
+`app/palette-masters.json` contient les 8 couleurs maîtresses de l’interface et les 6 couleurs des joueurs. Ce sont les seules couleurs littérales de l’application. `app/palette.json` contient les nuances dérivées via des couleurs HSL relatives : changer une maîtresse fait suivre ses nuances, sans régler chaque composant.
 
-Gym → Palette de couleurs : couleurs principales, recherche dans les nuances, édition, restauration individuelle/globale, import/export JSON. Les changements sont immédiats et sauvegardés localement sous `hockey-palette-v1`; ils ne modifient pas les décisions de validation. L’export permet de partager les choix. Le chargement des préférences précède le premier affichage.
+Le gym expose deux petits groupes : Interface et Joueurs. Modification immédiate, restauration individuelle/globale, import/export JSON. Les préférences v2 sont locales (`hockey-palette-v2`) et chargées avant affichage. L’ancienne palette v1 est conservée en stockage mais n’est plus appliquée, afin que les anciennes surcharges ne cassent pas les liens entre couleurs.
 
-Les dégradés des barres et de la courbe sont verticaux, dans le repère du graphique : une même hauteur correspond à une même couleur. Les trois arrêts bas/milieu/haut sont modifiables.
+Les graphes utilisent une échelle verticale de couleur. Les icônes, effets, ombres et transparences consomment aussi la palette. Les particules canvas résolvent les variables via une propriété CSS calculée avant chaque explosion : CanvasRenderingContext2D ne résout pas lui-même `var()`.
 
-Les PNG de portraits restent des illustrations à couleurs intégrées, pas des composants recolorables. Les icônes de l’interface sont recolorables. Le favicon statique reste un asset de publication.
-
-Pour toute nouvelle couleur : ajouter une entrée identifiée dans le catalogue, puis référencer sa variable. Ne pas ajouter de hex/RGB/HSL dans les composants ni de classe Tailwind de palette fixe. Réutiliser les couleurs sémantiques en priorité. Les bibliothèques tierces ne sont pas réécrites; leurs couleurs de thème (dont blanc/noir) sont reliées aux variables de l’application.
+Pour ajouter une couleur, créer une dérivation dans le catalogue et consommer sa variable; aucune nouvelle couleur littérale dans un composant. Les portraits PNG et le favicon statique conservent leurs couleurs intégrées.

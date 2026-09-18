@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import palette from "./palette.json";
+import derived from "./palette.json";
+import masters from "./palette-masters.json";
+const palette=[...masters,...derived];
 
 export const metadata: Metadata = {
   title: "Hockey Club · Gym",
@@ -21,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" data-theme="dark" suppressHydrationWarning>
-      <head><style>{`:root{${palette.map(p=>`--palette-${p.key}:${p.value}`).join(";")}}`}</style><script dangerouslySetInnerHTML={{__html: `try{var theme=localStorage.getItem('hockey-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme}catch(e){};try{var colors=JSON.parse(localStorage.getItem('hockey-palette-v1')||'{}');for(var key of ${JSON.stringify(palette.map(p=>p.key))}){if(/^#[0-9a-f]{6}$/i.test(colors[key]||''))document.documentElement.style.setProperty('--palette-'+key,colors[key])}}catch(e){}`}} /></head>
+      <head><style>{`:root{${palette.map(p=>`--palette-${p.key}:${p.value}`).join(";")}}`}</style><script dangerouslySetInnerHTML={{__html: `try{var theme=localStorage.getItem('hockey-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme}catch(e){};try{var colors=JSON.parse(localStorage.getItem('hockey-palette-v2')||'{}');for(var key of ${JSON.stringify(masters.map(p=>p.key))}){if(/^#[0-9a-f]{6}$/i.test(colors[key]||''))document.documentElement.style.setProperty('--palette-'+key,colors[key])}}catch(e){}`}} /></head>
       <body className="antialiased">{children}</body>
     </html>
   );

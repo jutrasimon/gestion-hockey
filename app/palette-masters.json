@@ -1,0 +1,86 @@
+[
+  {
+    "key": "master-ink",
+    "label": "Fond",
+    "group": "Interface",
+    "value": "#10151b"
+  },
+  {
+    "key": "master-paper",
+    "label": "Texte",
+    "group": "Interface",
+    "value": "#eff5f0"
+  },
+  {
+    "key": "master-green",
+    "label": "Accent",
+    "group": "Interface",
+    "value": "#c3f279"
+  },
+  {
+    "key": "master-blue",
+    "label": "Bleu",
+    "group": "Interface",
+    "value": "#8ccdeb"
+  },
+  {
+    "key": "master-pink",
+    "label": "Rose",
+    "group": "Interface",
+    "value": "#e6b3df"
+  },
+  {
+    "key": "master-gold",
+    "label": "Or",
+    "group": "Interface",
+    "value": "#f9c783"
+  },
+  {
+    "key": "master-red",
+    "label": "Danger",
+    "group": "Interface",
+    "value": "#c43255"
+  },
+  {
+    "key": "master-teal",
+    "label": "Turquoise",
+    "group": "Interface",
+    "value": "#83cbbd"
+  },
+  {
+    "key": "master-nuance-188",
+    "label": "bleu",
+    "group": "Joueurs",
+    "value": "#93b6d1"
+  },
+  {
+    "key": "master-nuance-190",
+    "label": "mauve",
+    "group": "Joueurs",
+    "value": "#ada7c9"
+  },
+  {
+    "key": "master-nuance-189",
+    "label": "ocre",
+    "group": "Joueurs",
+    "value": "#d3b08e"
+  },
+  {
+    "key": "master-nuance-186",
+    "label": "rose",
+    "group": "Joueurs",
+    "value": "#c3a5b6"
+  },
+  {
+    "key": "master-nuance-191",
+    "label": "turquoise",
+    "group": "Joueurs",
+    "value": "#94c2bb"
+  },
+  {
+    "key": "master-nuance-187",
+    "label": "vert",
+    "group": "Joueurs",
+    "value": "#a6c1a6"
+  }
+]
