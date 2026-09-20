@@ -42,6 +42,7 @@ Puis ouvrir `http://localhost:8080`.
 - Particules de souris très fines.
 - Masse salariale et plafond de test.
 - Interface responsive mobile / desktop.
+- Gameplay Gym séparé avec 10 micro-boucles jouables et un verdict de validation sauvegardé localement.
 
 ## Structure
 
@@ -50,6 +51,9 @@ Puis ouvrir `http://localhost:8080`.
 ├─ index.html
 ├─ styles.css
 ├─ app.js
+├─ gameplay.html
+├─ gameplay.css
+├─ gameplay.js
 ├─ README.md
 ├─ RECOVERY_NOTES.md
 ├─ assets/
@@ -57,7 +61,8 @@ Puis ouvrir `http://localhost:8080`.
 └─ docs/
    ├─ PLAYER_MODEL.md
    ├─ DEVELOPMENT.md
-   └─ COLOR_SYSTEM.md
+   ├─ COLOR_SYSTEM.md
+   └─ GAMEPLAY_GYM.md
 ```
 
 ## Données

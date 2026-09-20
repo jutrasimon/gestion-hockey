@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>Gameplay Gym — Hockey Club Lab</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="gameplay.css" />
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand brand-link" href="index.html"><span class="brand-mark">H</span><div><small>CLUB LAB.</small><strong>HOCKEY</strong></div></a>
+    <nav>
+      <a class="nav-item" href="index.html">UI Gym</a>
+      <a class="nav-item active" href="gameplay.html">Gameplay Gym <span class="pill">10</span></a>
+    </nav>
+    <div class="sidebar-note">Chaque module est isolé. Les essais n'affectent pas l'équipe du UI Gym.</div>
+  </aside>
+
+  <main class="shell gym-shell">
+    <header class="topbar">
+      <button id="menuToggle" class="icon-button" aria-label="Ouvrir le menu">☰</button>
+      <div class="eyebrow">H • GAMEPLAY GYM</div>
+      <div class="top-actions">
+        <span id="sessionScore" class="session-score">0 / 10 testés</span>
+        <button id="themeToggle" class="icon-button" aria-label="Changer le thème">◐</button>
+      </div>
+    </header>
+
+    <section class="gym-intro">
+      <div><span class="eyebrow">LABORATOIRE DE BOUCLES</span><h1>Tester le jeu.<br><em>Une décision à la fois.</em></h1></div>
+      <p>Dix micro-boucles indépendantes. On joue, on observe le résultat, puis on note si la décision était claire, tendue et intéressante.</p>
+    </section>
+
+    <section class="gym-layout">
+      <nav class="loop-rail" id="loopRail" aria-label="Boucles de gameplay"></nav>
+      <section class="loop-stage">
+        <div class="loop-stage-head">
+          <div><span id="loopKicker" class="eyebrow"></span><h2 id="loopTitle"></h2><p id="loopQuestion"></p></div>
+          <div class="stage-controls"><button id="resetLoop" class="ghost-button">Recommencer</button><button id="nextLoop" class="primary-button">Boucle suivante →</button></div>
+        </div>
+        <div id="loopApp" class="loop-app" aria-live="polite"></div>
+        <section class="validation-panel">
+          <div><span class="eyebrow">VERDICT DE SESSION</span><h3>Est-ce que cette boucle mérite d'aller plus loin?</h3></div>
+          <div class="verdicts" id="verdicts"><button data-verdict="reject">À jeter</button><button data-verdict="iterate">À retravailler</button><button data-verdict="keep">À garder</button></div>
+          <label class="notes-label">Note de design<textarea id="designNotes" rows="2" placeholder="Ce qui fonctionne, ce qui manque, ce qu'on veut tester ensuite…"></textarea></label>
+        </section>
+      </section>
+    </section>
+  </main>
+  <script src="gameplay.js"></script>
+</body>
+</html>
