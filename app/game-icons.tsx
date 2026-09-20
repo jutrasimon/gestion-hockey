@@ -1,0 +1,17 @@
+"use client";
+import {useEffect,useMemo,useState} from 'react';
+import type {Icon} from '@phosphor-icons/react';
+import {GradientIcon} from './gradient-icon';
+import {catalog,loaders} from './icon-catalog/catalog';
+const categories=['Tout',...new Set(catalog.map(i=>i.category))];
+const normalize=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/œ/g,'oe');
+const cached=new Map<number,Record<string,Icon>>();
+export function IconKit(){
+ const [query,setQuery]=useState(''),[category,setCategory]=useState('Tout'),[page,setPage]=useState(0),[loaded,setLoaded]=useState<Record<string,Icon>>({}),[error,setError]=useState(false);
+ const filtered=useMemo(()=>catalog.filter(i=>(category==='Tout'||i.category===category)&&normalize(i.name+' '+i.label+' '+i.category).includes(normalize(query))),[query,category]);
+ const visible=useMemo(()=>filtered.slice(page*48,(page+1)*48),[filtered,page]);
+ const groups=visible.map(i=>i.group).filter((v,i,a)=>a.indexOf(v)===i).join(',');
+ useEffect(()=>{let active=true;setError(false);Promise.all((groups?groups.split(',').map(Number):[]).map(async g=>{if(!cached.has(g))cached.set(g,await loaders[g]() as Record<string,Icon>);return cached.get(g)!})).then(parts=>{if(active)setLoaded(Object.assign({},...parts))}).catch(()=>{if(active)setError(true)});return()=>{active=false}},[groups]);
+ const pages=Math.max(1,Math.ceil(filtered.length/48));
+ return <><p><b>Phosphor · {catalog.length.toLocaleString('fr-CA')} icônes pleines.</b> Style retenu : plein, avec dégradé menthe–lime. Un même kit pour tout le jeu. Les noms du kit sont cherchables en anglais; les usages proposés et les catégories le sont en français.</p><div className="il-search"><input aria-label="Chercher une icône" placeholder="Joueur, contrat, cœur, arrow…" value={query} onChange={e=>{setQuery(e.target.value);setPage(0)}}/></div><div className="icon-categories" aria-label="Catégories des icônes">{categories.map(c=><button key={c} aria-pressed={category===c} onClick={()=>{setCategory(c);setPage(0)}}>{c}</button>)}</div><div className="icon-pagination"><span role="status">{filtered.length} résultats · {page+1} / {pages}</span><button disabled={page===0} onClick={()=>setPage(v=>v-1)} aria-label="Page précédente des icônes">←</button><button disabled={page+1>=pages} onClick={()=>setPage(v=>v+1)} aria-label="Page suivante des icônes">→</button></div>{error?<p role="alert">Le kit n’a pas pu être chargé. Change de catégorie pour réessayer.</p>:<div className="gym-icons">{visible.map(({name,label})=>{const Glyph=loaded[name];return <div key={name} title={name}>{Glyph?<GradientIcon icon={Glyph} size={34} weight="fill" aria-hidden="true"/>:<span className="icon-loading"/>}<span>{label}</span><small>{name}</small></div>})}</div>}{!filtered.length&&<p>Aucune icône trouvée. Essaie un terme plus court ou le nom anglais.</p>}<p className="il-muted">Ce catalogue n’attribue pas encore les symboles aux mécaniques du jeu.</p><a href="https://phosphoricons.com/" target="_blank" rel="noreferrer">Site du kit Phosphor ↗</a></>;
+}

@@ -1,74 +1,29 @@
-# Gestion hockey — Hockey Club Lab
+# Gestion hockey — UI Gym original restauré
 
-Prototype d'interface web pour un jeu de gestion de hockey asynchrone centré sur l'évolution des joueurs, la composition de l'équipe, les contrats, les statistiques et les combinaisons de joueurs.
+Le vrai prototype **Hockey · Interface Gym**, version 30, a été récupéré depuis son dépôt Sites avec ses 30 commits, ses composants React et ses ressources originales.
 
-## Statut de cette archive
+- UI Gym en ligne : https://jutrasimon.github.io/gestion-hockey/
+- Site original préservé : https://hockey-candy-gym.jutrasimon.chatgpt.site/
+- Source originale intacte : branche `recovery/ui-gym-original-v30`.
+- Détails de récupération : [docs/RESTORATION.md](docs/RESTORATION.md).
 
-**Archive de récupération v21 — 19 septembre 2026.**
+## Tester et compiler
 
-Le site publié `hockey-candy-gym.jutrasimon.chatgpt.site` était encore identifiable, mais le dépôt GitHub `jutrasimon/gestion-hockey` ne contenait que son README initial. Le transfert du code source du 18 septembre n'a donc pas abouti.
+Node.js 22.13 ou plus récent.
 
-Cette archive reconstruit une base locale fonctionnelle à partir de la version v21 publiée/indexée et des spécifications validées du projet. Elle sert de point de reprise propre et documenté.
-
-Voir `RECOVERY_NOTES.md` pour ce qui a été récupéré et ce qui ne peut pas être garanti identique au source perdu.
-
-## Lancer le site
-
-Aucune compilation requise.
-
-1. Ouvrir `index.html` dans un navigateur moderne; ou
-2. Servir le dossier avec un petit serveur HTTP local.
-
-Exemple :
-
-```bash
-python -m http.server 8080
+```sh
+npm ci --ignore-scripts
+npm run build:pages
+npm run preview:pages
 ```
 
-Puis ouvrir `http://localhost:8080`.
+Ouvrir l’adresse affichée avec le chemin `/gestion-hockey/`.
+GitHub Actions reconstruit et publie automatiquement les modifications de `main`.
 
-## Fonctionnalités incluses
+## Contenu
 
-- Alignement : premier trio + banc.
-- Cartes de joueurs avec statistiques, attributs et contrat.
-- Drag-and-drop entre trio et banc.
-- Fiche détaillée de joueur.
-- Favoris persistants avec `localStorage`.
-- Filtres avancés par position, type, âge et note.
-- Tableau comparatif avec tooltips sur les entêtes.
-- Thème sombre / clair.
-- Système centralisé de couleurs en variables CSS.
-- Dégradés verticaux et intensité visuelle liée aux valeurs.
-- Particules de souris très fines.
-- Masse salariale et plafond de test.
-- Interface responsive mobile / desktop.
-- Gameplay Gym séparé avec 10 micro-boucles jouables et un verdict de validation sauvegardé localement.
+Alignement interactif, cartes recto-verso, fiches joueurs, effectif, statistiques avancées, recherche, favoris, thèmes, palette de couleurs et 14 expériences de validation UI : cartes, juice, boutons, icônes, portraits, notifications, graphiques, filtres, mini-cartes, aperçus, états, formulaires, progression et palette.
 
-## Structure
+Les données de joueurs sont fictives. Les préférences sont locales au navigateur et au domaine. Les sauvegardes du site Sites ne sont pas automatiquement transférées vers GitHub Pages.
 
-```text
-/
-├─ index.html
-├─ styles.css
-├─ app.js
-├─ gameplay.html
-├─ gameplay.css
-├─ gameplay.js
-├─ README.md
-├─ RECOVERY_NOTES.md
-├─ assets/
-│  └─ favicon.svg
-└─ docs/
-   ├─ PLAYER_MODEL.md
-   ├─ DEVELOPMENT.md
-   ├─ COLOR_SYSTEM.md
-   └─ GAMEPLAY_GYM.md
-```
-
-## Données
-
-Les joueurs sont fictifs et servent uniquement au prototype. Les données sont définies dans `app.js`.
-
-## Dépôt cible
-
-`https://github.com/jutrasimon/gestion-hockey`
+La reconstruction HTML simplifiée et le Gameplay Gym du commit `37b21dd` restent dans l’historique; ils ne constituent plus la version publiée. Les fichiers de configuration Sites originaux sont conservés comme provenance. La publication GitHub utilise son propre adaptateur Vite et ne modifie pas le site Sites original.

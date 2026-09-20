@@ -1,92 +1,14 @@
 <!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b0f14" />
-  <title>Hockey Club Lab — Gestion hockey</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <canvas id="particles" aria-hidden="true"></canvas>
-  <aside class="sidebar" id="sidebar">
-    <div class="brand"><span class="brand-mark">H</span><div><small>CLUB LAB.</small><strong>HOCKEY</strong></div></div>
-    <nav>
-      <button class="nav-item active">Mon club</button>
-      <button class="nav-item">Équipe</button>
-      <button class="nav-item">Contrats & finances</button>
-      <button class="nav-item">Observatoire</button>
-      <button class="nav-item">Stats avancées</button>
-      <button class="nav-item">Mes favoris <span id="favoriteCount" class="pill">0</span></button>
-      <button class="nav-item">Glossaire</button>
-      <button class="nav-item">Gym · Validation</button>
-      <a class="nav-item nav-link" href="gameplay.html">Gym · Gameplay <span class="pill">10</span></a>
-    </nav>
-    <div class="sidebar-note">Ordre et favoris sauvegardés sur cet appareil.</div>
-  </aside>
-
-  <main class="shell">
-    <header class="topbar">
-      <button id="menuToggle" class="icon-button" aria-label="Ouvrir le menu">☰</button>
-      <div class="eyebrow">H • HOCKEY CLUB LAB</div>
-      <div class="top-actions">
-        <input id="globalSearch" class="search" placeholder="Rechercher partout" />
-        <button id="themeToggle" class="icon-button" aria-label="Changer le thème">◐</button>
-        <button id="resetBtn" class="text-button">Réinitialiser</button>
-      </div>
-    </header>
-
-    <section class="hero">
-      <div><div class="eyebrow">QUÉBEC / SAISON 2028–2029</div><h1>Ton club.</h1><p>Ton alignement, tes joueurs, leur progression.</p></div>
-      <div class="hero-tabs" role="tablist">
-        <button class="tab active">Alignement</button><button class="tab">Effectif</button><button class="tab">Labo avancé</button><button class="tab">Gym</button>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-heading"><div><span class="eyebrow">LE PREMIER TRIO</span><h2>3 joueurs</h2></div><span class="muted">Glisse les cartes pour modifier l’ordre.</span></div>
-      <div id="firstLine" class="player-grid" data-zone="line"></div>
-    </section>
-
-    <section>
-      <div class="section-heading"><div><span class="eyebrow">SUR LE BANC</span><h2>Échange avec un joueur du trio.</h2></div></div>
-      <div id="bench" class="player-grid" data-zone="bench"></div>
-    </section>
-
-    <section class="salary-card">
-      <div><span class="eyebrow">MASSE SALARIALE · 6 JOUEURS</span><strong id="salaryTotal">20,85 M$ / 25 M$</strong></div>
-      <div class="salary-track"><span id="salaryFill"></span></div>
-      <div class="salary-meta"><span>Disponible <b id="salaryAvailable">4,15 M$</b></span><span>Plafond de test <b>25 M$</b></span></div>
-    </section>
-
-    <section class="lab-layout">
-      <div class="panel filters-panel">
-        <div class="section-heading"><div><span class="eyebrow">FILTRES AVANCÉS 08</span><h2>Observatoire</h2></div><button id="clearFilters" class="text-button">Effacer</button></div>
-        <div class="filter-grid">
-          <label>Position<select id="positionFilter"><option value="">Toutes</option><option>AG</option><option>C</option><option>AD</option></select></label>
-          <label>Type<select id="typeFilter"><option value="">Tous</option><option>Marqueur</option><option>Polyvalent</option><option>Fabricant de jeux</option><option>Attaquant de puissance</option></select></label>
-          <label>Âge max.<input id="ageFilter" type="range" min="19" max="35" value="35"><span id="ageValue">35</span></label>
-          <label>Note min.<input id="ratingFilter" type="range" min="1" max="15" value="1"><span id="ratingValue">1</span></label>
-        </div>
-      </div>
-
-      <div class="panel detail-panel" id="detailPanel"></div>
-    </section>
-
-    <section class="panel table-panel">
-      <div class="section-heading"><div><span class="eyebrow">EFFECTIF COMPLET</span><h2>Comparer les joueurs</h2></div><span id="resultCount" class="pill">6</span></div>
-      <div class="table-wrap"><table><thead><tr>
-        <th>Joueur</th><th><span class="th-tip" data-tip="Position naturelle du joueur.">POS</span></th>
-        <th><span class="th-tip" data-tip="Maniement de rondelle.">MAN</span></th><th><span class="th-tip" data-tip="Qualité du tir.">TIR</span></th>
-        <th><span class="th-tip" data-tip="Puissance physique et impact.">PUI</span></th><th><span class="th-tip" data-tip="Patinage.">PAT</span></th>
-        <th><span class="th-tip" data-tip="Lecture de jeu / Hockey IQ.">IQ</span></th><th><span class="th-tip" data-tip="Créativité offensive.">CRÉ</span></th>
-        <th><span class="th-tip" data-tip="Cœur, constance et résilience.">CŒ</span></th><th>Contrat</th><th>Statut</th>
-      </tr></thead><tbody id="playersTable"></tbody></table></div>
-    </section>
-
-    <footer>Données fictives · Prototype de récupération v21 · Gestion hockey</footer>
-  </main>
-  <script src="app.js"></script>
-</body>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Le UI Gym original : alignements, joueurs et laboratoire d’interface hockey." />
+    <link rel="icon" href="%BASE_URL%favicon.svg" />
+    <title>Hockey Club · Gym</title>
+  </head>
+  <body class="antialiased">
+    <div id="root"></div>
+    <script type="module" src="/pages-main.tsx"></script>
+  </body>
 </html>

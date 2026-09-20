@@ -1,0 +1,2273 @@
+[
+  {
+    "key": "vfx-blue",
+    "label": "Particules · bleu",
+    "group": "Effets",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals",
+      "juice-lab"
+    ]
+  },
+  {
+    "key": "vfx-gold",
+    "label": "Particules · or",
+    "group": "Effets",
+    "value": "hsl(from var(--palette-master-gold) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals",
+      "juice-lab"
+    ]
+  },
+  {
+    "key": "vfx-pink",
+    "label": "Particules · rose",
+    "group": "Effets",
+    "value": "hsl(from var(--palette-master-pink) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "juice-lab",
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "vfx-flash",
+    "label": "Particules · éclat",
+    "group": "Effets",
+    "value": "hsl(from var(--palette-master-gold) calc(h + 14.9237) calc(s + 9.2308) calc(l + 17.6471))",
+    "uses": [
+      "juice-lab"
+    ]
+  },
+  {
+    "key": "nuance-242",
+    "label": "Anneau · départ",
+    "group": "Graphiques",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 0.4971) calc(s + -7.5797) calc(l + -7.2549))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-244",
+    "label": "Anneau · fin",
+    "group": "Graphiques",
+    "value": "hsl(from var(--palette-master-green) calc(h + -5.0201) calc(s + 8.9914) calc(l + 6.2745))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-243",
+    "label": "Anneau · milieu",
+    "group": "Graphiques",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -17.9108) calc(s + 14.9964) calc(l + 9.6078))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "chart-low",
+    "label": "Graphiques · bas",
+    "group": "Graphiques",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 13.1318) calc(s + -28.8066) calc(l + -25.8824))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "chart-high",
+    "label": "Graphiques · haut",
+    "group": "Graphiques",
+    "value": "hsl(from var(--palette-master-green) calc(h + -7.4437) calc(s + 9.2660) calc(l + 10.1961))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "chart-mid",
+    "label": "Graphiques · milieu",
+    "group": "Graphiques",
+    "value": "hsl(from var(--palette-master-teal) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-216",
+    "label": "Icônes · départ clair",
+    "group": "Icônes",
+    "value": "hsl(from var(--palette-master-blue) calc(h + -11.7474) calc(s + -12.2308) calc(l + -39.8039))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "icon-low",
+    "label": "Icônes · départ sombre",
+    "group": "Icônes",
+    "value": "hsl(from var(--palette-master-blue) calc(h + -6.5336) calc(s + -17.6431) calc(l + -5.8824))",
+    "uses": [
+      "globals",
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-218",
+    "label": "Icônes · fin claire",
+    "group": "Icônes",
+    "value": "hsl(from var(--palette-master-green) calc(h + -3.3058) calc(s + -19.1550) calc(l + -41.3725))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "icon-high",
+    "label": "Icônes · fin sombre",
+    "group": "Icônes",
+    "value": "hsl(from var(--palette-master-green) calc(h + -4.0397) calc(s + 6.3050) calc(l + 4.7059))",
+    "uses": [
+      "globals",
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-217",
+    "label": "Icônes · milieu clair",
+    "group": "Icônes",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -14.5833) calc(s + 3.5354) calc(l + -30.1961))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "icon-mid",
+    "label": "Icônes · milieu sombre",
+    "group": "Icônes",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -37.6882) calc(s + 11.6333) calc(l + 11.3725))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "action",
+    "label": "Accent principal",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-green) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "outline",
+    "label": "Bordures",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -12.7273) calc(s + -9.0460) calc(l + 16.4706))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "action-soft",
+    "label": "Boutons du gym",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-green) calc(h + 12.8306) calc(s + -11.3452) calc(l + 4.5098))",
+    "uses": [
+      "globals",
+      "juice-lab",
+      "interaction-library",
+      "button-feedback"
+    ]
+  },
+  {
+    "key": "danger",
+    "label": "Danger",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-red) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "favorite",
+    "label": "Favoris",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-gold) calc(h + 12.7921) calc(s + 9.2308) calc(l + -0.5882))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-1",
+    "label": "Fond clair",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -50.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-101",
+    "label": "Fond sombre",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-ink) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "highlight",
+    "label": "Lumière",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -130.0000) calc(s + -23.0769) calc(l + 5.0980))",
+    "uses": [
+      "globals",
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "shadow",
+    "label": "Ombres",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-ink) calc(h + 147.2727) calc(s + -25.5814) calc(l + -8.4314))",
+    "uses": [
+      "globals",
+      "interaction-library",
+      "button-feedback"
+    ]
+  },
+  {
+    "key": "nuance-103",
+    "label": "Panneaux sombres",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -4.4920) calc(s + -1.6377) calc(l + 5.4902))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "surface-raised",
+    "label": "Surface secondaire",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -11.7273) calc(s + -5.5814) calc(l + 11.1765))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "text",
+    "label": "Texte clair",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "text-muted",
+    "label": "Texte secondaire",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 31.2500) calc(s + -11.9658) calc(l + -23.1373))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-2",
+    "label": "Texte sombre",
+    "group": "Interface",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -61.2987) calc(s + -0.8755) calc(l + 8.2353))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-185",
+    "label": "Joueurs · accent de base",
+    "group": "Joueurs",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 30.0000) calc(s + -1.9005) calc(l + -28.2353))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-188",
+    "label": "Joueurs · bleu",
+    "group": "Joueurs",
+    "value": "hsl(from var(--palette-master-nuance-188) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-190",
+    "label": "Joueurs · mauve",
+    "group": "Joueurs",
+    "value": "hsl(from var(--palette-master-nuance-190) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-189",
+    "label": "Joueurs · ocre",
+    "group": "Joueurs",
+    "value": "hsl(from var(--palette-master-nuance-189) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-186",
+    "label": "Joueurs · rose",
+    "group": "Joueurs",
+    "value": "hsl(from var(--palette-master-nuance-186) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-191",
+    "label": "Joueurs · turquoise",
+    "group": "Joueurs",
+    "value": "hsl(from var(--palette-master-nuance-191) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-187",
+    "label": "Joueurs · vert",
+    "group": "Joueurs",
+    "value": "hsl(from var(--palette-master-nuance-187) calc(h + 0.0000) calc(s + 0.0000) calc(l + 0.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-10",
+    "label": "Nuance 10",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -40.0000) calc(s + -5.9341) calc(l + -8.6275))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-100",
+    "label": "Nuance 100",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -57.2727) calc(s + -3.1324) calc(l + 10.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-104",
+    "label": "Nuance 104",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -87.2727) calc(s + -6.9373) calc(l + 3.1373))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-107",
+    "label": "Nuance 107",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -111.9273) calc(s + -3.8423) calc(l + 14.1176))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-108",
+    "label": "Nuance 108",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 4.8192) calc(s + -6.1224) calc(l + 12.3529))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-11",
+    "label": "Nuance 11",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 3.1942) calc(s + -26.2382) calc(l + -29.2157))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-110",
+    "label": "Nuance 110",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 3.5908) calc(s + -5.9971) calc(l + -0.9804))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-111",
+    "label": "Nuance 111",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -4.7273) calc(s + 0.7344) calc(l + 2.7451))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-112",
+    "label": "Nuance 112",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -82.1390) calc(s + -13.8573) calc(l + 20.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-113",
+    "label": "Nuance 113",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 7.3325) calc(s + 17.6871) calc(l + 19.6078))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-114",
+    "label": "Nuance 114",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -12.7273) calc(s + 0.3445) calc(l + 7.4510))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-115",
+    "label": "Nuance 115",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -15.9273) calc(s + -6.4974) calc(l + 17.2549))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-116",
+    "label": "Nuance 116",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -16.7273) calc(s + -5.3111) calc(l + 20.5882))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-117",
+    "label": "Nuance 117",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 28.1228) calc(s + -45.4708) calc(l + 21.3725))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-118",
+    "label": "Nuance 118",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -92.7273) calc(s + -6.2537) calc(l + 14.9020))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-119",
+    "label": "Nuance 119",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 11.2705) calc(s + -7.6294) calc(l + 13.3333))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-12",
+    "label": "Nuance 12",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 5.7052) calc(s + -26.4847) calc(l + -39.2157))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-120",
+    "label": "Nuance 120",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + -7.7904) calc(s + -22.2528) calc(l + -23.9216))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-121",
+    "label": "Nuance 121",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + -4.3050) calc(s + 40.6504) calc(l + 39.8039))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-122",
+    "label": "Nuance 122",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -83.2536) calc(s + -6.7695) calc(l + 11.3725))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-123",
+    "label": "Nuance 123",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -99.5844) calc(s + -4.3693) calc(l + 23.9216))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-124",
+    "label": "Nuance 124",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + 67.2727) calc(s + -2.1439) calc(l + 16.6667))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-125",
+    "label": "Nuance 125",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-pink) calc(h + -27.1827) calc(s + 49.5050) calc(l + 8.6275))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-126",
+    "label": "Nuance 126",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 7.1168) calc(s + -29.7203) calc(l + 2.3529))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-127",
+    "label": "Nuance 127",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -9.8701) calc(s + -8.7814) calc(l + 16.0784))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-128",
+    "label": "Nuance 128",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -14.4664) calc(s + -9.4975) calc(l + 19.6078))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-129",
+    "label": "Nuance 129",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 18.0000) calc(s + -10.2564) calc(l + -17.8431))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-13",
+    "label": "Nuance 13",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -42.7273) calc(s + -6.1538) calc(l + -7.6471))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-130",
+    "label": "Nuance 130",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -46.0606) calc(s + -13.4192) calc(l + 20.5882))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-131",
+    "label": "Nuance 131",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + -1.3450) calc(s + -0.4947) calc(l + -7.8431))",
+    "uses": [
+      "globals",
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-132",
+    "label": "Nuance 132",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 3.1349) calc(s + -51.7430) calc(l + -33.3333))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-133",
+    "label": "Nuance 133",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 3.8371) calc(s + 17.6871) calc(l + 20.5882))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-134",
+    "label": "Nuance 134",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 3.7910) calc(s + 7.9783) calc(l + 8.6275))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-135",
+    "label": "Nuance 135",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -14.2657) calc(s + -3.5475) calc(l + 3.1373))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-136",
+    "label": "Nuance 136",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -74.7273) calc(s + -8.6322) calc(l + 14.7059))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-137",
+    "label": "Nuance 137",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -50.2273) calc(s + 4.4186) calc(l + 7.2549))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-138",
+    "label": "Nuance 138",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -65.2273) calc(s + -6.5338) calc(l + 16.2745))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-139",
+    "label": "Nuance 139",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -84.1558) calc(s + -11.8559) calc(l + 21.5686))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-14",
+    "label": "Nuance 14",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -46.0000) calc(s + 22.3776) calc(l + 2.9412))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-140",
+    "label": "Nuance 140",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + -4.9914) calc(s + -2.2067) calc(l + -15.2941))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-141",
+    "label": "Nuance 141",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-gold) calc(h + 9.3343) calc(s + 9.2308) calc(l + -39.4118))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-143",
+    "label": "Nuance 143",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + -6.5616) calc(s + -9.4316) calc(l + 5.6863))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-144",
+    "label": "Nuance 144",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -103.6364) calc(s + -0.5814) calc(l + 8.8235))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-145",
+    "label": "Nuance 145",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 2.4085) calc(s + 17.6871) calc(l + 17.8431))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-146",
+    "label": "Nuance 146",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + -1.4139) calc(s + -50.4164) calc(l + -25.6863))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-147",
+    "label": "Nuance 147",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 7.8053) calc(s + -48.9796) calc(l + -39.4118))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-148",
+    "label": "Nuance 148",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -110.9091) calc(s + 9.1554) calc(l + 10.1961))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-149",
+    "label": "Nuance 149",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -113.2536) calc(s + 8.3472) calc(l + 13.5294))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-15",
+    "label": "Nuance 15",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -68.1818) calc(s + -2.6647) calc(l + 10.3922))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-150",
+    "label": "Nuance 150",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -100.2273) calc(s + 3.6869) calc(l + 7.6471))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-151",
+    "label": "Nuance 151",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 8.1228) calc(s + -55.3898) calc(l + -40.5882))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-152",
+    "label": "Nuance 152",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 10.3528) calc(s + -50.5300) calc(l + -45.8824))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-153",
+    "label": "Nuance 153",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -11.4103) calc(s + 15.6126) calc(l + 2.9412))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-154",
+    "label": "Nuance 154",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-pink) calc(h + -44.6910) calc(s + 14.7942) calc(l + -3.9216))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-155",
+    "label": "Nuance 155",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-gold) calc(h + -11.0249) calc(s + -14.8827) calc(l + -2.1569))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-156",
+    "label": "Nuance 156",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 65.0000) calc(s + -9.7436) calc(l + -0.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-157",
+    "label": "Nuance 157",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -8.3523) calc(s + 13.4430) calc(l + 7.6471))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-158",
+    "label": "Nuance 158",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -85.0000) calc(s + 76.9231) calc(l + 3.5294))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-159",
+    "label": "Nuance 159",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 2.2291) calc(s + -29.5704) calc(l + -49.0196))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-16",
+    "label": "Nuance 16",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + -0.5785) calc(s + 10.6448) calc(l + 0.9804))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-160",
+    "label": "Nuance 160",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 70.0000) calc(s + 0.9231) calc(l + -4.7059))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-161",
+    "label": "Nuance 161",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 65.0000) calc(s + -4.8951) calc(l + -3.5294))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-162",
+    "label": "Nuance 162",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -8.3523) calc(s + -9.2549) calc(l + 30.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-163",
+    "label": "Nuance 163",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + -1.8045) calc(s + -36.3898) calc(l + 6.2745))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-164",
+    "label": "Nuance 164",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -10.0246) calc(s + 21.2540) calc(l + 7.0588))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-165",
+    "label": "Nuance 165",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 70.0000) calc(s + -6.2230) calc(l + -12.3529))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-166",
+    "label": "Nuance 166",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 3.9098) calc(s + -33.2022) calc(l + -29.2157))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-167",
+    "label": "Nuance 167",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + -5.9474) calc(s + -43.8217) calc(l + -17.8431))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-168",
+    "label": "Nuance 168",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -7.0130) calc(s + 19.0995) calc(l + 0.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-169",
+    "label": "Nuance 169",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -80.9091) calc(s + 8.3516) calc(l + -1.7647))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-17",
+    "label": "Nuance 17",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -101.9580) calc(s + -20.4021) calc(l + 40.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-170",
+    "label": "Nuance 170",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -9.1558) calc(s + 14.4186) calc(l + 5.2941))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-171",
+    "label": "Nuance 171",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -8.7273) calc(s + 13.7444) calc(l + 9.0196))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-172",
+    "label": "Nuance 172",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + -5.3110) calc(s + -35.9954) calc(l + 1.3725))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-173",
+    "label": "Nuance 173",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -9.1558) calc(s + 18.1686) calc(l + 4.1176))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-174",
+    "label": "Nuance 174",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -12.2010) calc(s + 9.6038) calc(l + 12.7451))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-175",
+    "label": "Nuance 175",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -9.7861) calc(s + 9.1125) calc(l + 10.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-176",
+    "label": "Nuance 176",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 70.0000) calc(s + -2.8067) calc(l + -23.9216))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-177",
+    "label": "Nuance 177",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 1.6241) calc(s + -43.6528) calc(l + -47.8431))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-178",
+    "label": "Nuance 178",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 6.4047) calc(s + -23.9651) calc(l + -3.5294))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-179",
+    "label": "Nuance 179",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 36.6667) calc(s + 1.7850) calc(l + -30.3922))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-18",
+    "label": "Nuance 18",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + -0.2289) calc(s + -56.8227) calc(l + 18.8235))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-180",
+    "label": "Nuance 180",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -10.2273) calc(s + 18.8630) calc(l + 5.6863))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-181",
+    "label": "Nuance 181",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 15.3846) calc(s + -1.0430) calc(l + -18.0392))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-182",
+    "label": "Nuance 182",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -58.4416) calc(s + 11.2607) calc(l + 6.4706))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-183",
+    "label": "Nuance 183",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -9.7485) calc(s + -0.9741) calc(l + 29.0196))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-184",
+    "label": "Nuance 184",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-gold) calc(h + 6.5666) calc(s + -36.9231) calc(l + 12.7451))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-19",
+    "label": "Nuance 19",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -97.0130) calc(s + -20.0696) calc(l + 41.7647))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-192",
+    "label": "Nuance 192",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + 13.0502) calc(s + -7.6255) calc(l + 17.6471))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-193",
+    "label": "Nuance 193",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -5.8307) calc(s + 31.2813) calc(l + 1.5686))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-194",
+    "label": "Nuance 194",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 5.5424) calc(s + -38.3442) calc(l + -43.5294))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-195",
+    "label": "Nuance 195",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -62.5000) calc(s + 5.4945) calc(l + -0.3922))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-198",
+    "label": "Nuance 198",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -49.5273) calc(s + 12.8801) calc(l + 4.3137))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-199",
+    "label": "Nuance 199",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -63.9273) calc(s + -2.6456) calc(l + 34.3137))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-20",
+    "label": "Nuance 20",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 2.2594) calc(s + -35.3741) calc(l + -23.1373))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-200",
+    "label": "Nuance 200",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 70.0000) calc(s + 1.0107) calc(l + -21.7647))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-201",
+    "label": "Nuance 201",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -9.7861) calc(s + 20.3646) calc(l + 6.0784))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-202",
+    "label": "Nuance 202",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -64.0000) calc(s + 10.2564) calc(l + -0.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-203",
+    "label": "Nuance 203",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -41.2745) calc(s + -6.2152) calc(l + 5.6863))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-204",
+    "label": "Nuance 204",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -26.1795) calc(s + 2.7151) calc(l + 5.2941))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-205",
+    "label": "Nuance 205",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 24.5455) calc(s + -0.9293) calc(l + -24.1176))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-206",
+    "label": "Nuance 206",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -63.7618) calc(s + 12.0809) calc(l + 6.6667))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-207",
+    "label": "Nuance 207",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 68.4615) calc(s + -2.4420) calc(l + -19.6078))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-208",
+    "label": "Nuance 208",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -15.5844) calc(s + 13.3075) calc(l + 12.7451))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-209",
+    "label": "Nuance 209",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 68.7500) calc(s + -0.5417) calc(l + -22.7451))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-21",
+    "label": "Nuance 21",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -104.7273) calc(s + -19.3573) calc(l + 38.8235))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-210",
+    "label": "Nuance 210",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 16.3371) calc(s + -57.3129) calc(l + -27.2549))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-211",
+    "label": "Nuance 211",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 11.0942) calc(s + 3.8940) calc(l + 11.7647))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-213",
+    "label": "Nuance 213",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-gold) calc(h + -10.2013) calc(s + -45.4862) calc(l + -32.9412))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-214",
+    "label": "Nuance 214",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-gold) calc(h + 13.1160) calc(s + 9.2308) calc(l + 17.8431))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-215",
+    "label": "Nuance 215",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-gold) calc(h + 10.7571) calc(s + 9.2308) calc(l + 16.6667))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-22",
+    "label": "Nuance 22",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 6.6942) calc(s + -54.2427) calc(l + 6.4706))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-224",
+    "label": "Nuance 224",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -61.6162) calc(s + 10.4186) calc(l + 6.2745))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-225",
+    "label": "Nuance 225",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -108.6456) calc(s + -2.7907) calc(l + 33.7255))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-226",
+    "label": "Nuance 226",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + 16.4766) calc(s + 20.2800) calc(l + 30.5882))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-227",
+    "label": "Nuance 227",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 1.5232) calc(s + -9.2193) calc(l + -0.7843))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-228",
+    "label": "Nuance 228",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 15.4634) calc(s + -36.2136) calc(l + 1.1765))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-229",
+    "label": "Nuance 229",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 4.1228) calc(s + -52.3984) calc(l + -17.0588))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-23",
+    "label": "Nuance 23",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 1.6942) calc(s + -36.1591) calc(l + 18.6275))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-230",
+    "label": "Nuance 230",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + 10.9353) calc(s + 1.4896) calc(l + 23.7255))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-231",
+    "label": "Nuance 231",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + 95.8442) calc(s + -10.6878) calc(l + 37.6471))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-232",
+    "label": "Nuance 232",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -38.7273) calc(s + 4.7216) calc(l + 4.5098))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-233",
+    "label": "Nuance 233",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -20.7273) calc(s + 4.7216) calc(l + 4.5098))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-234",
+    "label": "Nuance 234",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -58.0000) calc(s + 12.6374) calc(l + -0.3922))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-235",
+    "label": "Nuance 235",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 7.1429) calc(s + 1.0610) calc(l + -23.3333))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-236",
+    "label": "Nuance 236",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 5.6830) calc(s + -8.7592) calc(l + 5.0980))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-237",
+    "label": "Nuance 237",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -10.7214) calc(s + -0.3030) calc(l + 2.1569))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-238",
+    "label": "Nuance 238",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -47.2727) calc(s + 18.4186) calc(l + 6.2745))",
+    "uses": [
+      "interaction-library"
+    ]
+  },
+  {
+    "key": "nuance-24",
+    "label": "Nuance 24",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -46.0000) calc(s + -2.2436) calc(l + -4.3137))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-245",
+    "label": "Nuance 245",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -27.1429) calc(s + -13.4879) calc(l + -9.2157))",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-246",
+    "label": "Nuance 246",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -35.7143) calc(s + -11.2125) calc(l + -6.4706))",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-247",
+    "label": "Nuance 247",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -62.7273) calc(s + -20.5814) calc(l + 30.7843))",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-248",
+    "label": "Nuance 248",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 1.4270) calc(s + -0.9465) calc(l + -39.6078))",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-249",
+    "label": "Nuance 249",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -127.0130) calc(s + 58.9014) calc(l + 14.3137))",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-25",
+    "label": "Nuance 25",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -107.2100) calc(s + 17.7022) calc(l + 4.7059))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-250",
+    "label": "Nuance 250",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + -0.9185) calc(s + 19.4864) calc(l + 14.7059))",
+    "uses": [
+      "page"
+    ]
+  },
+  {
+    "key": "nuance-251",
+    "label": "Nuance 251",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -119.7861) calc(s + -0.9437) calc(l + 32.1569))",
+    "uses": [
+      "button-feedback"
+    ]
+  },
+  {
+    "key": "nuance-26",
+    "label": "Nuance 26",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 5.2656) calc(s + -44.1311) calc(l + 18.0392))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-27",
+    "label": "Nuance 27",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 13.7155) calc(s + -49.8991) calc(l + -42.7451))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-28",
+    "label": "Nuance 28",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -146.0000) calc(s + 76.9231) calc(l + -0.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-29",
+    "label": "Nuance 29",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + -0.9356) calc(s + 2.2225) calc(l + -3.3333))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-30",
+    "label": "Nuance 30",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -37.2727) calc(s + -0.6279) calc(l + -4.5098))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-31",
+    "label": "Nuance 31",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -36.2500) calc(s + -1.4553) calc(l + -9.4118))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-32",
+    "label": "Nuance 32",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -33.3333) calc(s + -5.4299) calc(l + -14.9020))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-33",
+    "label": "Nuance 33",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -115.5844) calc(s + -17.2810) calc(l + 41.1765))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-34",
+    "label": "Nuance 34",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 3.1458) calc(s + -7.9129) calc(l + 4.3137))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-35",
+    "label": "Nuance 35",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 11.9323) calc(s + -36.3275) calc(l + -44.3137))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-36",
+    "label": "Nuance 36",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -66.0606) calc(s + -6.4325) calc(l + 10.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-37",
+    "label": "Nuance 37",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -63.9273) calc(s + 2.5085) calc(l + 9.0196))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-38",
+    "label": "Nuance 38",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -112.7273) calc(s + 16.1908) calc(l + 7.0588))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-39",
+    "label": "Nuance 39",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + -9.2230) calc(s + 15.9590) calc(l + 35.8824))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-4",
+    "label": "Nuance 4",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -66.0606) calc(s + 1.6913) calc(l + 10.9804))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-40",
+    "label": "Nuance 40",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-red) calc(h + -11.5866) calc(s + -23.8999) calc(l + -11.1765))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-41",
+    "label": "Nuance 41",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 1.1602) calc(s + -8.2122) calc(l + 1.5686))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-42",
+    "label": "Nuance 42",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 4.3865) calc(s + -38.6888) calc(l + -41.9608))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-43",
+    "label": "Nuance 43",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 10.5764) calc(s + -5.4219) calc(l + 7.4510))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-44",
+    "label": "Nuance 44",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-blue) calc(h + 10.6630) calc(s + -28.2939) calc(l + -37.6471))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-45",
+    "label": "Nuance 45",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-gold) calc(h + -2.9096) calc(s + -2.2446) calc(l + 1.5686))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-46",
+    "label": "Nuance 46",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-gold) calc(h + -7.7678) calc(s + -37.3601) calc(l + -40.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-47",
+    "label": "Nuance 47",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-pink) calc(h + -43.5294) calc(s + 19.3680) calc(l + 5.4902))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-48",
+    "label": "Nuance 48",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + 52.1784) calc(s + -0.9302) calc(l + 33.7255))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-49",
+    "label": "Nuance 49",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -4.8851) calc(s + 6.6319) calc(l + 10.5882))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-5",
+    "label": "Nuance 5",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -42.7273) calc(s + 1.3675) calc(l + -3.7255))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-50",
+    "label": "Nuance 50",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -5.3333) calc(s + -2.4476) calc(l + -34.9020))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-51",
+    "label": "Nuance 51",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-teal) calc(h + -37.0833) calc(s + -15.1026) calc(l + -41.1765))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-52",
+    "label": "Nuance 52",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -96.8652) calc(s + -2.0042) calc(l + 15.6863))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-54",
+    "label": "Nuance 54",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -108.5167) calc(s + -17.6316) calc(l + 38.4314))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-55",
+    "label": "Nuance 55",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -42.7273) calc(s + -5.6166) calc(l + -7.2549))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-56",
+    "label": "Nuance 56",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -116.7273) calc(s + -19.1436) calc(l + 45.8824))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-57",
+    "label": "Nuance 57",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -46.0000) calc(s + -1.3378) calc(l + -3.9216))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-58",
+    "label": "Nuance 58",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -113.9037) calc(s + -17.6002) calc(l + 33.3333))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-59",
+    "label": "Nuance 59",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -122.7273) calc(s + -18.0184) calc(l + 44.9020))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-6",
+    "label": "Nuance 6",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -50.0000) calc(s + -0.8547) calc(l + -5.4902))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-60",
+    "label": "Nuance 60",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -40.0000) calc(s + -2.4887) calc(l + -8.2353))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-61",
+    "label": "Nuance 61",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -81.8182) calc(s + -3.1324) calc(l + 10.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-62",
+    "label": "Nuance 62",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -119.3939) calc(s + -18.1434) calc(l + 39.0196))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-63",
+    "label": "Nuance 63",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -55.0000) calc(s + 1.9231) calc(l + -1.1765))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-64",
+    "label": "Nuance 64",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + 143.3333) calc(s + 76.9231) calc(l + -0.1961))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-65",
+    "label": "Nuance 65",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-pink) calc(h + -26.4631) calc(s + -14.0895) calc(l + -37.6471))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-66",
+    "label": "Nuance 66",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -117.4332) calc(s + -18.6988) calc(l + 40.0000))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-67",
+    "label": "Nuance 67",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -47.5000) calc(s + -5.6856) calc(l + -3.9216))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-68",
+    "label": "Nuance 68",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -114.3273) calc(s + -5.5814) calc(l + 16.0784))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-69",
+    "label": "Nuance 69",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -118.8142) calc(s + -16.1936) calc(l + 39.6078))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-7",
+    "label": "Nuance 7",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -84.1558) calc(s + -19.1594) calc(l + 34.3137))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-70",
+    "label": "Nuance 70",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -52.8571) calc(s + 4.9231) calc(l + 0.1961))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-71",
+    "label": "Nuance 71",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -114.5455) calc(s + -16.1797) calc(l + 37.4510))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-72",
+    "label": "Nuance 72",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + -4.8442) calc(s + -56.8227) calc(l + 18.8235))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-73",
+    "label": "Nuance 73",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 5.8119) calc(s + -36.3670) calc(l + -0.1961))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-74",
+    "label": "Nuance 74",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 23.5692) calc(s + -56.9161) calc(l + -46.4706))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-75",
+    "label": "Nuance 75",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -48.5714) calc(s + -1.8648) calc(l + -7.8431))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-76",
+    "label": "Nuance 76",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -117.9904) calc(s + -17.8263) calc(l + 39.6078))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-77",
+    "label": "Nuance 77",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -116.0606) calc(s + -18.2043) calc(l + 39.4118))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-78",
+    "label": "Nuance 78",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 12.9011) calc(s + -50.4448) calc(l + -35.4902))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-79",
+    "label": "Nuance 79",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -119.3939) calc(s + -14.0920) calc(l + 37.6471))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-80",
+    "label": "Nuance 80",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -65.4545) calc(s + -3.1324) calc(l + 10.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-81",
+    "label": "Nuance 81",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + -0.0800) calc(s + -6.7032) calc(l + 20.7843))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-82",
+    "label": "Nuance 82",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -62.7273) calc(s + 13.7043) calc(l + 2.5490))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-83",
+    "label": "Nuance 83",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -90.4196) calc(s + -7.5258) calc(l + 19.8039))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-84",
+    "label": "Nuance 84",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 2.9442) calc(s + -48.9796) calc(l + 19.4118))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-85",
+    "label": "Nuance 85",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -45.0000) calc(s + -1.6484) calc(l + -5.8824))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-86",
+    "label": "Nuance 86",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -45.0000) calc(s + -4.3269) calc(l + -7.4510))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-87",
+    "label": "Nuance 87",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -120.9626) calc(s + -18.6426) calc(l + 39.6078))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-88",
+    "label": "Nuance 88",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -46.9231) calc(s + 18.8586) calc(l + -0.9804))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-89",
+    "label": "Nuance 89",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -43.7500) calc(s + -0.8547) calc(l + -9.0196))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-90",
+    "label": "Nuance 90",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -117.1717) calc(s + -13.2526) calc(l + 34.5098))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-91",
+    "label": "Nuance 91",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 0.5967) calc(s + 0.2374) calc(l + -0.3922))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-92",
+    "label": "Nuance 92",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 0.4678) calc(s + -40.2494) calc(l + -20.5882))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-93",
+    "label": "Nuance 93",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-paper) calc(h + -46.9231) calc(s + -1.7654) calc(l + -6.8627))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-94",
+    "label": "Nuance 94",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -119.7273) calc(s + -17.4513) calc(l + 39.8039))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-95",
+    "label": "Nuance 95",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -66.6403) calc(s + -1.3709) calc(l + 10.1961))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-96",
+    "label": "Nuance 96",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-green) calc(h + 5.5831) calc(s + -9.3400) calc(l + 21.5686))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-97",
+    "label": "Nuance 97",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -50.9881) calc(s + 10.9265) calc(l + 3.9216))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-98",
+    "label": "Nuance 98",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -124.3062) calc(s + -17.6316) calc(l + 38.4314))",
+    "uses": [
+      "globals"
+    ]
+  },
+  {
+    "key": "nuance-99",
+    "label": "Nuance 99",
+    "group": "Nuances secondaires",
+    "value": "hsl(from var(--palette-master-ink) calc(h + -76.8449) calc(s + 3.7289) calc(l + 14.3137))",
+    "uses": [
+      "globals"
+    ]
+  }
+]
