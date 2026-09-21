@@ -16,3 +16,9 @@ for(const k of Object.keys(catalogs) as Category[]){if(!catalogs[k].includes(t.p
 for(const k of Object.keys(b.raw))if(!finite(t.raw[k as keyof typeof b.raw],0,100000))return false;
 for(const s of t.seasons)if(typeof s.season!=='string'||s.season.length>30||typeof s.phase!=='string'||s.phase.length>30||![s.gp,s.goals,s.assists].every(n=>finite(n,0,10000)))return false;
 return [t.energy,t.confidence,t.morale].every(n=>finite(n,0,100))&&finite(t.injuryWeeks,0,104)&&typeof t.injury==='string'&&t.injury.length<=200&&typeof t.notes==='string'&&t.notes.length<=20000;}catch{return false;}}
+
+// Explicit experimental presets: neutral remains available; saved rules are never replaced silently.
+export function suggestedRules(){const rules=freshTemplate().rules;
+rules.type.Marqueur=[0,2,0,0,0,-1,0];rules.type['Fabricant de jeux']=[1,-1,0,0,2,0,0];rules.type['Attaquant de puissance']=[-1,0,2,-1,0,1,1];
+rules.playStyle.Direct=[0,1,0,0,-1,0,0];rules.playStyle.Prudent=[0,-1,0,0,0,1,0];rules.playStyle['Créatif']=[1,0,0,0,1,-1,0];return rules;}
+export function optionPreview(t:Template,k:Category,name:string){const candidate={...t,player:{...t.player,[k]:name}};return calculate(candidate);}

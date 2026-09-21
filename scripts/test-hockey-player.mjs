@@ -4,7 +4,7 @@ import ts from 'typescript';
 const source=name=>fs.readFileSync(new URL('../app/'+name,import.meta.url),'utf8');
 const encode=s=>'data:text/javascript;base64,'+Buffer.from(ts.transpileModule(s,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText).toString('base64');
 const model=source('hockey-player-model.ts').replace("'./players'",JSON.stringify(encode(source('players.ts'))));
-const {freshTemplate,calculate,advanced,validTemplate,catalogs}=await import(encode(model));
+const {freshTemplate,calculate,advanced,validTemplate,catalogs,suggestedRules,optionPreview}=await import(encode(model));
 const t=freshTemplate();assert.ok(validTemplate(t));assert.equal(calculate(t).overall,7);
 const changed=structuredClone(t);changed.player.stats[5]=15;assert.ok(calculate(changed).recovery>calculate(t).recovery);assert.equal(calculate(changed).creation,calculate(t).creation);
 changed.rules.type.Polyvalent[1]=3;assert.equal(calculate(changed).finishing,10);changed.player.type='Marqueur';assert.equal(calculate(changed).finishing,7);
@@ -13,3 +13,9 @@ assert.equal(advanced(t).p60,2);changed.raw.minutes=0;assert.equal(advanced(chan
 assert.equal(catalogs.type.length,4);assert.equal(catalogs.playStyle.length,3);assert.equal(catalogs.potential.length,6);
 assert.ok(validTemplate(JSON.parse(JSON.stringify(t))));assert.equal(validTemplate({...t,player:{...t.player,id:'unknown'}}),false);assert.equal(validTemplate({...t,energy:NaN}),false);assert.equal(validTemplate({...t,rules:{}}),false);
 console.log('Hockey Player: modifiers, inactive categories, caps, derived stats, catalogs and import validation passed.');
+
+const proposed=freshTemplate();proposed.rules=suggestedRules();assert.ok(validTemplate(proposed));
+assert.equal(optionPreview(proposed,'type','Marqueur').finishing,10);
+assert.equal(optionPreview(proposed,'type','Marqueur').stats[5],6);
+assert.equal(proposed.player.type,'Polyvalent');
+assert.equal(optionPreview(proposed,'trait','Cupide').overall,calculate(proposed).overall);
