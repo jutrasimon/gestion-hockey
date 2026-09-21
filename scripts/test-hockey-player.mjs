@@ -21,7 +21,7 @@ assert.equal(proposed.player.type,'Polyvalent');
 assert.equal(optionPreview(proposed,'trait','Cupide').overall,calculate(proposed).overall);
 
 const unified=source('player-workbench-model.ts').replace("'./hockey-player-model'",JSON.stringify(encode(model)));
-const {freshPlayer,validPlayer,migratePlayer,playerSummary}=await import(encode(unified));
+const {freshPlayer,validPlayer,migratePlayer,playerSummary,normalizePotential,potentialLevels}=await import(encode(unified));
 const clean=freshPlayer();assert.ok(validPlayer(clean));assert.equal(playerSummary(clean).overall,7);
 const legacy=freshTemplate();legacy.rules.type.Polyvalent[1]=5;legacy.player.playStyle='Créatif';
 const migrated=migratePlayer(legacy);assert.ok(validPlayer(migrated));assert.equal(migrated.stats[1],7);assert.equal(migrated.temperament[2],1);
@@ -37,3 +37,5 @@ const {rating}=await import('data:text/javascript;base64,'+Buffer.from(compiled)
 assert.equal(rating('xga60',2).label,'Favorable');assert.equal(rating('xga60',3.1).label,'Défavorable');assert.equal(rating('xga60',2.5).label,'Intermédiaire');
 assert.equal(rating('xgpct',50).symbol,'●');assert.equal(rating('xgpct',53).symbol,'▲');assert.equal(rating('finishing',-2).label,'Sous l’attendu');assert.equal(rating('p60',null).label,'Non calculable');
 console.log('Advanced colors: inverted danger rate, boundaries, finishing interpretation and missing values passed.');
+
+assert.equal(potentialLevels.length,5);assert.equal(normalizePotential('Modeste'),'Faible');assert.equal(normalizePotential('Moyen'),'Normal');assert.equal(normalizePotential('À évaluer'),'Normal');
