@@ -93,3 +93,25 @@ for(const [id,alias] of [['roy','rookie'],['gagnon','gagnon'],['sokolov','star']
 assert.deepEqual(M.freshTraining().stats,M.players.rookie.stats);
 assert.equal(M.attributes[5],'Défense');
 console.log('Defense: recovery influence, targeted training, scouting and cross-gym roster consistency passed.');
+
+await import('../public/gameplay-simple-models.js');
+const S=globalThis.SimpleModels;
+assert.equal(S.trio('star').creation,23/3);assert.equal(S.trio('star').finishing,12);assert.equal(S.trio('star').defense,6);
+assert.equal(S.trio('star').finishing-S.trio('worker').finishing,7);
+assert.equal(S.trio('star').defense-S.trio('worker').defense,-1);
+for(const id of Object.keys(S.plans)){
+ const result=S.match(id,constant(0));assert.equal(result.goals,result.shots);assert.equal(result.awayGoals,result.against);
+ assert.equal(S.match(id,constant(.999)).goals,0);
+ assert.equal(result.shots,20+S.plans[id].shots);assert.equal(result.against,22+S.plans[id].against);
+}
+const simpleStart=S.fresh();
+assert.equal(S.train(simpleStart,'normal',5).stats[5],4.5);
+assert.equal(simpleStart.energy,76);
+assert.equal(S.previewTraining({...simpleStart,energy:40},'intense',5).gain,1);
+assert.equal(S.previewTraining({...simpleStart,energy:39},'intense',5).gain,.5);
+assert.equal(S.train({...simpleStart,energy:19},'intense',5),null);
+assert.equal(S.train({...simpleStart,stats:Array(7).fill(14.9)},'intense',5).stats[5],15);
+assert.equal(S.rest({...simpleStart,energy:95}).energy,100);
+let program=S.fresh();for(let i=0;i<4;i++)program=S.train(program,'normal',5);
+assert.equal(program.stats[5],6);assert.equal(program.energy,36);assert.equal(S.train(program,'normal',5),null);assert.equal(S.rest(program),null);
+console.log('Simple numeric rules: trio comparisons, match dice, energy threshold, costs, caps and sequence passed.');
