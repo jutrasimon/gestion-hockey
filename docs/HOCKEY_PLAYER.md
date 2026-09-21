@@ -1,3 +1,7 @@
+## Retrait des tags — 21 septembre 2026
+
+Le catalogue, la sous-page, les filtres et les tags de l’aperçu sont retirés à la demande de l’utilisateur. Les classifications par moyenne et les forces par seuil ne décrivaient pas des profils pertinents. Aucun remplacement n’est validé. Un éventuel profil devra synthétiser plusieurs dimensions plutôt que répéter une donnée. Les champs du joueur restent disponibles; les anciennes distinctions sauvegardées ne sont pas effacées.
+
 # Hockey Player — éditeur unifié (21 septembre 2026)
 
 Le gym utilise désormais `player-workbench-model.ts` (version 2) : identité, sept attributs directs, potentiel estimé, trois axes à trois positions, contexte, carrière et contrat. Un seul éditeur et un aperçu partagent les mêmes données.
