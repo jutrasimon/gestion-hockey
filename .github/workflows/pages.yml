@@ -24,6 +24,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: node scripts/test-gameplay.mjs
       - run: node scripts/test-hockey-player.mjs
+      - run: node scripts/test-match-sim.mjs
       - run: npm run build:pages
       - run: node scripts/test-ui-foundation.mjs
       - uses: actions/upload-pages-artifact@v3

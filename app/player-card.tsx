@@ -34,7 +34,7 @@ export function PlayerCard({p,selected,onSelect,onOpen,handle,ghost=false,initia
  <h3>{p.name}</h3>
  <div className="dossier-potential"><span>Potentiel</span><strong>{p.potential}</strong></div>
  <dl><div><dt>Ligue</dt><dd>{p.league} saisons</dd></div><div><dt>Au club</dt><dd>{p.team} saisons</dd></div><div><dt>Trait</dt><dd>{p.trait}</dd></div></dl>
- <div className="dossier-character"><h4>Personnalité</h4>{[['Rebelle','Conformiste'],['Intransigeant','Conciliant']].map((axis,i)=><div className="dossier-axis" key={i}><span>{axis[p.axes[i]>=50?1:0]}</span><div role="img" aria-label={`${axis[0]} à ${axis[1]} : ${p.axes[i]} sur 100`}><i style={{left:`${p.axes[i]}%`}}/></div></div>)}</div>
+ <div className="dossier-character"><h4>Personnalité</h4>{[['Intransigeant','Conciliant']].map((axis)=><div className="dossier-axis" key={axis[0]}><span>{axis[p.axes[1]>=50?1:0]}</span><div role="img" aria-label={`${axis[0]} à ${axis[1]} : ${p.axes[1]} sur 100`}><i style={{left:`${p.axes[1]}%`}}/></div></div>)}</div>
  <div className="dossier-health"><h4>{health.label}</h4><p title={health.history}>{previewHealth?previewHealth.history:p.id==='sokolov'?'Aine · En récupération':p.id==='gagnon'?'Genou · 2026–2027 · Guérie':'Aucune blessure enregistrée.'}</p></div>
  </div>:<>
  <button className="roster-identity" onClick={onSelect} aria-label={`Sélectionner ${p.name}`}><PlayerAvatar p={p}/><span className="roster-name"><span>{p.name.split(' ')[0]}</span><strong>{p.name.split(' ').slice(1).join(' ')}</strong><span className="roster-position">{p.pos} <i>·</i> {p.age} ans</span></span></button>
