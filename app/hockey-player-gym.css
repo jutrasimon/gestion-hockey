@@ -6,3 +6,5 @@
 
 /* Keep editor content inside its column, including long controls. */
 .hp-gym [role=tabpanel],.hp-gym section{min-width:0;max-width:100%}.hp-gym p{white-space:normal;overflow-wrap:anywhere}.hp-gym .quiet-btn{max-width:100%;height:auto;min-height:40px;white-space:normal;overflow-wrap:anywhere;line-height:1.5}.hp-gym .nav-tabs{height:auto!important}.hp-options button{min-width:0}.hp-options .quiet-btn>.hp-option-effects{display:flex;gap:4px 12px}
+
+.hp-origin{display:grid;gap:6px;padding:12px;margin:12px 0;border-left:3px solid var(--ring);background:var(--background);border-radius:6px;font-size:12px;line-height:1.6}.hp-origin>b{color:var(--foreground)}.hp-origin>span{color:var(--muted-foreground)}.hp-origin-guide{margin:12px 0}.hp-origin-guide summary{cursor:pointer;font-weight:700;padding:12px}.hp-origin-guide td{white-space:normal;min-width:160px;vertical-align:top}
