@@ -61,3 +61,17 @@ le programme. Les évaluations et notes de design restent en localStorage.
 les effets des plans, une victoire possible à intensité zéro, les poids de
 chimie, les gains ciblés, la fatigue cumulative, le repos et les bornes.
 Ce contrôle s’exécute aussi avant chaque publication GitHub Pages.
+
+
+## Révision contrats, scouting et pool inter-ligues
+
+- Contrat : salaire 2–6 M$, durée 1–5 ans, prime 0/10/25 % du salaire de la première année (incluse, non additionnelle). Satisfaction = arrondi puis borne 0–100 de 45 + (salaire − 4,4) × 35 + (années − 2) × 6 + fraction de prime × 20. Signature à 70. Contre-offre arrondie au dixième supérieur pour atteindre le seuil exact; aucun hasard, rôle ou trait caché. Argent affiché au millième de M$ pour conserver la somme des versements.
+- Scouting : budget 90 000 pièces; public gratuit, visite 15 000 (+15), approfondi 30 000 (+30). Fiabilité initiale 40 prospect, 88 vedette, plafond 95 par domaine. Ce score n’est ni du talent ni une probabilité calibrée. Tir/maniement et patinage/puissance sont des observations distinctes; rencontre et examen médical donnent des informations qualitatives. Les répétitions au plafond ne sont pas facturées. Données de scénario fictives.
+- Échanges : ancienne formule supprimée. Lot local à cible unique, pool de ligues parallèles, offres concurrentes fictives résolues ensemble, exclusion des offres de même ligue que la cible. Arbitrage expérimental visible. Aucun transfert réel, réseau, saison persistante ni résolution multi-cibles.
+- Les états des expériences vivent dans l’onglet; recharger remet les scénarios à zéro. Les notes et verdicts utilisent localStorage. Écritures des notes différées de 250 ms, vidées à pagehide; JSON invalide et stockage indisponible ne bloquent plus le lancement. Chimie recalculée au plus une fois par image pour les changements de poids.
+
+## Gym des statistiques
+
+`stats.html` importe les 18 joueurs et mesures directement depuis `app/players.ts`, `app/league.ts`, `app/advanced-stats.ts`. Il explique les sept attributs, le profil, les axes de personnalité et les 20 mesures à 5 contre 5. Les quatre lignes d’historique (deux saisons × régulière/séries) restent présentes indépendamment du filtre avancé; absence de données explicitement indiquée. Valeurs fictives de référence, pas de synchronisation avec les modifications temporaires du UI Gym; pas de reconstruction d’attributs historiques.
+
+Validation : tests Node des coûts et contre-offres, budgets et plafonds de scouting, domaines révélés, exclusion intra-ligue et arbitrage. Parcours navigateur contrat → contre-offre → signature, deux domaines scouting, lot verrouillé, 24 changements rapides de chimie, sélection de joueurs et périodes. La cause des gels signalés n’a pas été reproduite; aucune garantie de résolution générale.

@@ -28,3 +28,7 @@ Alignement interactif, cartes recto-verso, fiches joueurs, effectif, statistique
 Les données de joueurs sont fictives. Les préférences sont locales au navigateur et au domaine. Les sauvegardes du site Sites ne sont pas automatiquement transférées vers GitHub Pages.
 
 La reconstruction HTML simplifiée reste dans l’historique. Le Gameplay Gym du commit `37b21dd` est restauré séparément dans `public/gameplay.html`, avec ses propres styles et ses 10 expériences indépendantes. Ses décisions ne modifient pas l’équipe du UI Gym; seules les notes et les évaluations sont sauvegardées localement. Vite copie ces fichiers dans la publication. Les fichiers de configuration Sites originaux sont conservés comme provenance. La publication GitHub utilise son propre adaptateur Vite et ne modifie pas le site Sites original.
+
+### Gym des statistiques
+
+Ouvrir [le gym des statistiques](https://jutrasimon.github.io/gestion-hockey/stats.html) : 18 joueurs, attributs expliqués, saisons disponibles et mesures avancées avec formules. Données fictives partagées avec les sources du UI Gym.

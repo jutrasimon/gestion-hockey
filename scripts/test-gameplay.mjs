@@ -47,3 +47,24 @@ const exhausted={...M.freshTraining(),energy:0};assert.equal(M.train(exhausted,'
 const capped={...M.freshTraining(),stats:Array(7).fill(15)};assert.equal(M.train(capped,'skill',1,100).stats[1],15);
 assert.equal(M.rest({...start,energy:95}).energy,100);
 console.log('Gameplay: match accounting, plan effects, zero intensity, chemistry weights, training progression and limits passed.');
+
+await import('../public/gameplay-management-models.js');
+const N=globalThis.ManagementModels;
+for(const years of [1,2,5])for(const bonus of [0,.1,.25]){
+ const offer=N.contract(3.7,years,bonus);
+ assert.equal(Math.round((offer.upfront+offer.firstYearRemaining)*100),370);
+ assert.equal(offer.total,Math.round(3.7*years*100)/100);
+ assert.ok(N.contract(offer.counter,years,bonus).accepted);
+}
+assert.ok(N.contract(4.5,5,.25).score>N.contract(4.5,2,0).score);
+let scouting=N.freshScout();
+const free=N.scout(scouting,'star','shot','public');assert.equal(free.report.reliability,88);assert.equal(free.state.budget,90000);
+const shot=N.scout(scouting,'prospect','shot','deep');assert.equal(shot.report.reliability,70);assert.equal(shot.state.budget,60000);assert.equal(scouting.reports.length,0);
+assert.notDeepEqual(shot.report.findings,N.scout(scouting,'prospect','skating','deep').report.findings);
+scouting=N.scout(shot.state,'prospect','shot','deep').state;assert.equal(scouting.knowledge['prospect:shot'],95);
+assert.ok(N.scout(scouting,'prospect','shot','deep').error);
+assert.ok(N.scout({...scouting,budget:0},'prospect','health','deep').error);
+assert.equal(N.scout(N.scout(N.freshScout(),'prospect','mind','standard').state,'prospect','mind','standard').report.findings.length,2);
+for(const target of N.pool){const result=N.resolvePool(target.id,'gagnon');assert.notEqual(result.winner.league,target.league);assert.notEqual(result.winner.id,'internal')}
+assert.ok(N.resolvePool('bouchard','gagnon').accepted);assert.ok(!N.resolvePool('bouchard','leclerc').accepted);
+console.log('Management: contract accounting/counteroffers, scouting budgets/reveals/caps, inter-league exclusion and arbitration passed.');

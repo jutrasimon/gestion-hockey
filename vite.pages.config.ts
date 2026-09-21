@@ -21,5 +21,5 @@ export default defineConfig({
     react(),
   ],
   resolve: { alias: { '@': fileURLToPath(new URL('.', import.meta.url)) } },
-  build: { outDir: 'dist-pages', emptyOutDir: true },
+  build: { rollupOptions: { input: { main: 'index.html', stats: 'stats.html' } }, outDir: 'dist-pages', emptyOutDir: true },
 });
