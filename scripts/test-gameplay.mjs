@@ -68,3 +68,6 @@ assert.equal(N.scout(N.scout(N.freshScout(),'prospect','mind','standard').state,
 for(const target of N.pool){const result=N.resolvePool(target.id,'gagnon');assert.notEqual(result.winner.league,target.league);assert.notEqual(result.winner.id,'internal')}
 assert.ok(N.resolvePool('bouchard','gagnon').accepted);assert.ok(!N.resolvePool('bouchard','leclerc').accepted);
 console.log('Management: contract accounting/counteroffers, scouting budgets/reveals/caps, inter-league exclusion and arbitration passed.');
+
+assert.equal(N.contract(4.5,2,0).score,49);
+assert.equal(N.contract(4.5,5,.25).score,72);

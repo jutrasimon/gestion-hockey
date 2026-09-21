@@ -3,7 +3,7 @@
   function contract(salary,years,bonus){
     salary=clamp(Number(salary)||0,2,6);years=clamp(Math.round(Number(years)||1),1,5);bonus=[0,.1,.25].includes(bonus)?bonus:0;
     const parts={base:45,salary:(salary-4.4)*35,security:(years-2)*6,upfront:bonus*20};
-    const score=clamp(Math.round(Object.values(parts).reduce((a,b)=>a+b,0)),0,100);
+    const score=clamp(Math.round(round(Object.values(parts).reduce((a,b)=>a+b,0))),0,100);
     const counterSalary=Math.max(salary,Math.ceil((4.4+(70-parts.base-parts.security-parts.upfront)/35)*10)/10);
     return {salary,years,bonus,parts,score,accepted:score>=70,counter:round(counterSalary),upfront:Math.round(salary*bonus*1000)/1000,firstYearRemaining:Math.round(salary*(1-bonus)*1000)/1000,total:round(salary*years)};
   }
