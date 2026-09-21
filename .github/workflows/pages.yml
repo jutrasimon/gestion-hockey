@@ -25,6 +25,7 @@ jobs:
       - run: node scripts/test-gameplay.mjs
       - run: node scripts/test-hockey-player.mjs
       - run: npm run build:pages
+      - run: node scripts/test-ui-foundation.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist-pages

@@ -9,7 +9,7 @@ const valid=(v:unknown):v is string=>typeof v==='string'&&/^#[\da-f]{6}$/i.test(
 export function PaletteEditor(){
  const [colors,setColors]=useState<Colors>({}),[all,setAll]=useState(false),[status,setStatus]=useState('');
  useEffect(()=>{try{const saved=JSON.parse(localStorage.getItem(PALETTE_STORAGE)||'{}');setColors(Object.fromEntries(palette.filter(p=>valid(saved[p.key])).map(p=>[p.key,saved[p.key]])))}catch{}},[]);
- function apply(next:Colors){setColors(next);for(const p of palette)document.documentElement.style.setProperty(`--palette-${p.key}`,next[p.key]||p.value);try{localStorage.setItem(PALETTE_STORAGE,JSON.stringify(next));setStatus('Palette sauvegardée sur cet appareil.')}catch{setStatus('Palette appliquée. Sauvegarde locale indisponible.')}}
+ function apply(next:Colors){setColors(next);for(const p of palette)document.documentElement.style.setProperty(`--palette-${p.key}`,next[p.key]||p.value);try{localStorage.setItem(PALETTE_STORAGE,JSON.stringify(next));window.dispatchEvent(new Event('hockey-appearance'));setStatus('Palette sauvegardée sur cet appareil.')}catch{setStatus('Palette appliquée. Sauvegarde locale indisponible.')}}
  function change(key:string,value:string){if(valid(value))apply({...colors,[key]:value})}
  const shown=palette.filter(p=>all?p.group==='Joueurs':p.group==='Interface');
  function exportPalette(){const blob=new Blob([JSON.stringify(Object.fromEntries(palette.map(p=>[p.key,colors[p.key]||p.value])),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='hockey-palette.json';a.click();URL.revokeObjectURL(url)}

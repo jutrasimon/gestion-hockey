@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./ui-gym-foundation.css";
 import derived from "./palette.json";
 import masters from "./palette-masters.json";
 const palette=[...masters,...derived];
