@@ -75,3 +75,7 @@ Ce contrôle s’exécute aussi avant chaque publication GitHub Pages.
 `stats.html` importe les 18 joueurs et mesures directement depuis `app/players.ts`, `app/league.ts`, `app/advanced-stats.ts`. Il explique les sept attributs, le profil, les axes de personnalité et les 20 mesures à 5 contre 5. Les quatre lignes d’historique (deux saisons × régulière/séries) restent présentes indépendamment du filtre avancé; absence de données explicitement indiquée. Valeurs fictives de référence, pas de synchronisation avec les modifications temporaires du UI Gym; pas de reconstruction d’attributs historiques.
 
 Validation : tests Node des coûts et contre-offres, budgets et plafonds de scouting, domaines révélés, exclusion intra-ligue et arbitrage. Parcours navigateur contrat → contre-offre → signature, deux domaines scouting, lot verrouillé, 24 changements rapides de chimie, sélection de joueurs et périodes. La cause des gels signalés n’a pas été reproduite; aucune garantie de résolution générale.
+
+### Statistiques pendant les expériences
+
+Le Gameplay Gym embarque `stats-panel.html` dans un panneau fixe à droite, ou en bas sur petit écran. Le joueur choisi reste affiché lors des changements de module et le panneau défile indépendamment. Les valeurs de référence, les sept définitions partagées avec le gym des stats, les quatre périodes historiques et les mesures avancées sont accessibles sans perdre le scénario. Les résultats temporaires des simulations ne sont pas synchronisés avec ces références.
