@@ -293,3 +293,21 @@ summary,.fold-trigger{cursor:pointer;border-radius:7px;transition:background .16
 [data-slot=tooltip-content].game-tooltip{width:240px;max-width:calc(100vw - 28px);padding:12px;border:1px solid var(--border);background:var(--foreground);color:var(--background);font-size:13px;line-height:1.5;border-radius:9px;z-index:100;box-shadow:0 6px 20px color-mix(in srgb, var(--palette-shadow) 13.333%, transparent);text-align:left;font-weight:400}
 /* Kit utilities also resolve through the palette, including dialog overlays. */
 @theme inline{--color-white:var(--palette-highlight);--color-black:var(--palette-shadow)}
+
+/* Shared cards: content sets the band height in every gym and preview. */
+.player-card.roster-card.compact-roster{height:auto;min-height:410px}
+.compact-roster .roster-content{flex:1;padding-bottom:0}
+.compact-roster .roster-identity{height:auto;min-height:72px;padding-bottom:5px}
+.compact-roster .roster-club{height:auto;min-height:62px;padding-top:7px;padding-bottom:7px;align-items:center}
+.compact-roster .roster-club>span:last-child{min-width:0;line-height:1.35;overflow-wrap:anywhere}
+.compact-roster .roster-club small{display:block;line-height:1.4}
+.compact-roster .roster-summary{margin-top:auto}
+.tags{flex-wrap:wrap;align-items:center}
+.tags>span{flex:0 0 auto;white-space:nowrap;line-height:1.5}
+.tenure{flex-wrap:wrap}
+.profile-width-control{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted-foreground);margin-bottom:20px}
+.profile-width-control input{width:100%;accent-color:var(--ring);cursor:ew-resize}
+.workspace>.detail-panel{width:100%;max-width:var(--profile-width,345px)}
+@media(min-width:1351px){.workspace:not(.library-workspace){grid-template-columns:minmax(0,1fr) var(--profile-width,345px)}}
+@container(max-width:175px){.compact-roster .roster-identity{min-height:100px}.compact-roster .roster-club{min-height:62px}.compact-roster .roster-club small{font-size:10px}}
+@media(max-width:600px){.player-card.roster-card.compact-roster{min-height:360px}.profile-width-control{display:none}.workspace>.detail-panel{max-width:100%}}
