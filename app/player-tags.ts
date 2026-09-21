@@ -1,0 +1,13 @@
+import {labels} from './players';
+import {potentialLevels,normalizePotential,axes,playerSummary,type WorkbenchPlayer} from './player-workbench-model';
+export type PlayerTag={id:string;family:string;name:string;rule:string;active:boolean;origin:string};
+export const awardTypes=['MVP','Champion','Meilleur pointeur'];
+export function playerTags(p:WorkbenchPlayer):PlayerTag[]{const avg=playerSummary(p).overall,min=Math.min(...p.stats),max=Math.max(...p.stats),f=(n:number)=>n.toLocaleString('fr-CA',{maximumFractionDigits:2});
+const tiers=[['En développement',1,6],['Confirmé',6,10],['Élite',10,16]] as const;
+const result:PlayerTag[]=tiers.map(([name,low,high],i)=>({id:'level-'+i,family:'Niveau actuel',name,rule:`Moyenne ${i===0?'inférieure à 6':i===1?'de 6 inclus à 10 exclu':'au moins 10'}/15. Ici : ${f(avg)}.`,active:avg>=low&&avg<high,origin:'Calculé · évolue avec les attributs'}));
+potentialLevels.forEach((name,i)=>result.push({id:'potential-'+i,family:'Potentiel',name:`Potentiel ${i+1}/5 · ${name}`,rule:'Estimation enregistrée : '+normalizePotential(p.potential)+'. Aucun bonus aux attributs.',active:normalizePotential(p.potential)===name,origin:'Estimation · réévaluable'}));
+['Technicien','Tireur','Physique','Mobile','Lecteur du jeu','Défensif','Combatif'].forEach((name,i)=>result.push({id:'strength-'+i,family:'Forces',name,rule:`${labels[i]} ≥ 10/15 et à 2 points maximum du meilleur attribut. Ici : ${f(p.stats[i])}; meilleur : ${f(max)}.`,active:p.stats[i]>=10&&p.stats[i]>=max-2,origin:'Calculé · évolue avec les attributs'}));
+result.push({id:'generalist',family:'Forces',name:'Généraliste',rule:`Écart entre meilleur et plus faible attribut ≤ 2. Ici : ${f(max-min)}. Équilibré ne veut pas dire fort.`,active:max-min<=2,origin:'Calculé · répartition des attributs'});
+[1,2].forEach(i=>axes[i].forEach((name,j)=>result.push({id:`axis-${i}-${j}`,family:i===1?'Personnalité':'Style',name:name==='Neutre'?(i===1?'Tempérament neutre':'Style neutre'):name,rule:'Position choisie dans le modèle : '+axes[i][p.temperament[i]]+'. Aucun bonus de talent.',active:p.temperament[i]===j,origin:'Tendance durable · événement majeur seulement'})));
+(p.awards||[]).forEach((award,i)=>result.push({id:'award-'+award.type+'-'+award.year,family:'Parcours',name:`${award.type} · ${award.year}`,rule:'Distinction enregistrée pour la saison '+award.year+'. Conservée lorsque les attributs changent.',active:true,origin:'Fait historique · saisi pour le test'}));return result;}
+export function matchesTags(p:WorkbenchPlayer,ids:string[]){const active=new Set(playerTags(p).filter(t=>t.active).map(t=>t.id));return ids.every(id=>active.has(id));}

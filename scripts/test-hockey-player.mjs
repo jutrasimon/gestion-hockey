@@ -39,3 +39,11 @@ assert.equal(rating('xgpct',50).symbol,'●');assert.equal(rating('xgpct',53).sy
 console.log('Advanced colors: inverted danger rate, boundaries, finishing interpretation and missing values passed.');
 
 assert.equal(potentialLevels.length,5);assert.equal(normalizePotential('Modeste'),'Faible');assert.equal(normalizePotential('Moyen'),'Normal');assert.equal(normalizePotential('À évaluer'),'Normal');
+
+const tagSource=source('player-tags.ts').replace("'./players'",JSON.stringify(encode(source('players.ts')))).replace("'./player-workbench-model'",JSON.stringify(encode(unified)));
+const {playerTags,matchesTags}=await import(encode(tagSource));
+const tagged=freshPlayer();assert.equal(playerTags(tagged).length,22);assert.ok(matchesTags(tagged,['generalist','level-1','potential-2']));
+tagged.stats=[7,12,7,7,7,7,7];assert.ok(matchesTags(tagged,['strength-1']));assert.equal(matchesTags(tagged,['generalist']),false);
+tagged.awards=[{type:'MVP',year:2019}];assert.ok(validPlayer(tagged));assert.ok(playerTags(tagged).some(t=>t.name==='MVP · 2019'));
+tagged.stats.fill(1);assert.ok(playerTags(tagged).some(t=>t.name==='MVP · 2019'));assert.ok(matchesTags(tagged,['generalist','level-0']));assert.equal(validPlayer({...tagged,awards:[{type:'MVP',year:NaN}]}),false);
+console.log('Tags: catalog size, thresholds, combinations, awards persistence and validation passed.');
