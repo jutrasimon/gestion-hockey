@@ -1,3 +1,19 @@
+# Hockey Player — éditeur unifié (21 septembre 2026)
+
+Le gym utilise désormais `player-workbench-model.ts` (version 2) : identité, sept attributs directs, potentiel estimé, trois axes à trois positions, contexte, carrière et contrat. Un seul éditeur et un aperçu partagent les mêmes données.
+
+Les profils et les bonus/malus de type/style/personnalité ne participent plus aux calculs. Les anciennes notes création, finition, récupération et mobilité sont retirées. La moyenne des sept attributs reste un résumé explicite, pas une note de match. Points = buts + passes; engagement restant = salaire × saisons restantes.
+
+Personnalité : rebelle / neutre / conformiste; intransigeant / neutre / conciliant. Style : direct / neutre / prudent. Tendances durables sauf événement majeur; aucun effet de talent. Développement annuel automatique envisagé selon âge, potentiel, utilisation, performances et contexte annuel; formule non implémentée. Aucun entraînement à gérer.
+
+Sauvegarde : `hockey-player-workbench-v2`. Le brouillon v1 reste intact et sert à une migration si aucun v2 valide n’existe. Attributs de base conservés, bonus ignorés. Axes v1 : moins de 34 = gauche, plus de 66 = droite, sinon neutre. Créatif devient neutre. Nouveaux champs : relations 50, demande égale au salaire, historique vide. Import/export JSON v2 et import v1. Les instantanés sont manuels, pas des saisons simulées.
+
+La référence de conception est repliable dans l’éditeur. Aucun onglet Outils UI dans ce gym; le UI Gym reste séparé.
+
+---
+
+## Archives de la première version (supplantées ci-dessus)
+
 # Hockey Player : gym de conception
 
 Accès : UI Gym → Hockey Player, ou `/?gym=player`. Template neutre indépendant de l’équipe. Les outils UI existants sont réutilisés : carte recto/verso, radar, sliders, tableaux, fiche flottante, bibliothèque d’interactions, atelier boutons et juice.

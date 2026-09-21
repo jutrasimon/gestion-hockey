@@ -19,3 +19,14 @@ assert.equal(optionPreview(proposed,'type','Marqueur').finishing,10);
 assert.equal(optionPreview(proposed,'type','Marqueur').stats[5],6);
 assert.equal(proposed.player.type,'Polyvalent');
 assert.equal(optionPreview(proposed,'trait','Cupide').overall,calculate(proposed).overall);
+
+const unified=source('player-workbench-model.ts').replace("'./hockey-player-model'",JSON.stringify(encode(model)));
+const {freshPlayer,validPlayer,migratePlayer,playerSummary}=await import(encode(unified));
+const clean=freshPlayer();assert.ok(validPlayer(clean));assert.equal(playerSummary(clean).overall,7);
+const legacy=freshTemplate();legacy.rules.type.Polyvalent[1]=5;legacy.player.playStyle='Créatif';
+const migrated=migratePlayer(legacy);assert.ok(validPlayer(migrated));assert.equal(migrated.stats[1],7);assert.equal(migrated.temperament[2],1);
+clean.temperament=[0,2,2];clean.potential='Très élevé';clean.context.morale=0;assert.equal(playerSummary(clean).overall,7);
+clean.stats[1]=14;assert.equal(playerSummary(clean).overall,8);clean.contract.salary=2;clean.contract.years=3;assert.equal(playerSummary(clean).guaranteed,6);
+assert.equal(validPlayer({...clean,temperament:[0,4,1]}),false);assert.equal(validPlayer({...clean,stats:[NaN,7,7,7,7,7,7]}),false);
+clean.history.push({date:'2026-09-21',note:'Essai',stats:[...clean.stats]});assert.ok(validPlayer(JSON.parse(JSON.stringify(clean))));
+console.log('Unified player: migration ignores legacy bonuses, neutral conversion, isolated axes/context, arithmetic and persistence validation passed.');
