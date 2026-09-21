@@ -32,3 +32,7 @@ La reconstruction HTML simplifiée reste dans l’historique. Le Gameplay Gym du
 ### Gym des statistiques
 
 Ouvrir [le gym des statistiques](https://jutrasimon.github.io/gestion-hockey/stats.html) : 18 joueurs, attributs expliqués, saisons disponibles et mesures avancées avec formules. Données fictives partagées avec les sources du UI Gym.
+
+### Hockey Player — modèle de conception
+
+[Ouvrir le template éditable](https://jutrasimon.github.io/gestion-hockey/?gym=player) : tous les attributs, catalogues, règles expérimentales, profils et statistiques observées. Les outils du UI Gym sont intégrés. Documentation et notes de format 3 trios / 9–12 joueurs dans [docs/HOCKEY_PLAYER.md](docs/HOCKEY_PLAYER.md).
