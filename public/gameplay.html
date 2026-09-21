@@ -8,7 +8,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="gameplay-base.css" />
   <link rel="stylesheet" href="gameplay.css" />
-  <link rel="stylesheet" href="gameplay-lab.css?v=management2" />
+  <link rel="stylesheet" href="gameplay-lab.css?v=simple1" />
   <link rel="stylesheet" href="gameplay-stats-panel.css?v=1" />
 </head>
 <body>
@@ -44,6 +44,7 @@
           <div><span id="loopKicker" class="eyebrow"></span><h2 id="loopTitle"></h2><p id="loopQuestion"></p></div>
           <div class="stage-controls"><button id="resetLoop" class="ghost-button">Recommencer</button><button id="nextLoop" class="primary-button">Boucle suivante →</button></div>
         </div>
+        <div id="gymModes" class="gym-modes"></div>
         <div id="loopApp" class="loop-app" aria-live="polite"></div>
         <section class="validation-panel">
           <div><span class="eyebrow">VERDICT DE SESSION</span><h3>Est-ce que cette boucle mérite d'aller plus loin?</h3></div>
@@ -58,7 +59,8 @@
   <script src="gameplay-lab.js"></script>
   <script src="gameplay-management-models.js?v=management2"></script>
   <script src="gameplay-management.js"></script>
-  <script src="gameplay.js"></script>
+  <script src="gameplay-simple.js?v=1"></script>
+  <script src="gameplay.js?v=simple1"></script>
 </body>
 </html>
 

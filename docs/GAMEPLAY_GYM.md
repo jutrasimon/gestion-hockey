@@ -79,3 +79,14 @@ Validation : tests Node des coûts et contre-offres, budgets et plafonds de scou
 ### Statistiques pendant les expériences
 
 Le Gameplay Gym embarque `stats-panel.html` dans un panneau fixe à droite, ou en bas sur petit écran. Le joueur choisi reste affiché lors des changements de module et le panneau défile indépendamment. Les valeurs de référence, les sept définitions partagées avec le gym des stats, les quatre périodes historiques et les mesures avancées sont accessibles sans perdre le scénario. Les résultats temporaires des simulations ne sont pas synchronisés avec ces références.
+
+### Mode Simple — trois premières expériences
+
+Mode par défaut, avec bascule Laboratoire conservant intégralement les interfaces originales. États indépendants en mémoire : changer de mode ou de module ne les efface pas; Recommencer ne réinitialise que le mode courant. Notes/verdicts restent partagés par module. Recharger réinitialise les essais.
+
+- Match : prudent/équilibré/offensif, moteur original avec effort fixe 65; score, tirs, fatigue et explication courte.
+- Chimie : diagnostic de couverture de trois fonctions, distinct de l’ancien score pondéré. Création = moyenne IQ/créativité, finition = tir, récupération = moyenne puissance/cœur. Meilleur joueur pour chaque fonction; seuils 6 et 9. Aucun score global ni hasard.
+- Entraînement : technique ciblée, charges 35/65/95, choix de l’attribut, repos et quatre séances avec énergie persistante. Moteur original.
+- Explications puis formules dans deux niveaux de détails fermés par défaut. Panneau permanent de statistiques conservé.
+
+Validation navigateur : match, sélection du trio, entraînement complet de quatre séances, retour Simple/Laboratoire sans perte, réinitialisation. Pas d’erreur console constatée.
