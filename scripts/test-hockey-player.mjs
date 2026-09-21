@@ -30,3 +30,10 @@ clean.stats[1]=14;assert.equal(playerSummary(clean).overall,8);clean.contract.sa
 assert.equal(validPlayer({...clean,temperament:[0,4,1]}),false);assert.equal(validPlayer({...clean,stats:[NaN,7,7,7,7,7,7]}),false);
 clean.history.push({date:'2026-09-21',note:'Essai',stats:[...clean.stats]});assert.ok(validPlayer(JSON.parse(JSON.stringify(clean))));
 console.log('Unified player: migration ignores legacy bonuses, neutral conversion, isolated axes/context, arithmetic and persistence validation passed.');
+
+const ratings=source('advanced-rating.tsx').replace("'./stat-color'",JSON.stringify(encode(source('stat-color.ts'))));
+const compiled=ts.transpileModule(ratings,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.React}}).outputText;
+const {rating}=await import('data:text/javascript;base64,'+Buffer.from(compiled).toString('base64'));
+assert.equal(rating('xga60',2).label,'Favorable');assert.equal(rating('xga60',3.1).label,'Défavorable');assert.equal(rating('xga60',2.5).label,'Intermédiaire');
+assert.equal(rating('xgpct',50).symbol,'●');assert.equal(rating('xgpct',53).symbol,'▲');assert.equal(rating('finishing',-2).label,'Sous l’attendu');assert.equal(rating('p60',null).label,'Non calculable');
+console.log('Advanced colors: inverted danger rate, boundaries, finishing interpretation and missing values passed.');

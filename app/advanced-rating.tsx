@@ -1,0 +1,15 @@
+import {effectColor} from './stat-color';
+export type MetricKey='p60'|'ixg60'|'xgpct'|'cfpct'|'ffpct'|'xga60'|'finishing'|'rel';
+export const benchmarks:Record<MetricKey,{low:number;high:number;reverse?:boolean;reference:string}>={
+p60:{low:1.5,high:2.5,reference:'Rouge < 1,5; intermédiaire 1,5–2,5; vert > 2,5 points/60'},
+ixg60:{low:.7,high:1.1,reference:'Rouge < 0,7; intermédiaire 0,7–1,1; vert > 1,1 xG/60'},
+xgpct:{low:48,high:52,reference:'Rouge < 48 %; équilibre 48–52 %; vert > 52 %'},
+cfpct:{low:48,high:52,reference:'Rouge < 48 %; équilibre 48–52 %; vert > 52 %'},
+ffpct:{low:48,high:52,reference:'Rouge < 48 %; équilibre 48–52 %; vert > 52 %'},
+xga60:{low:2.5,high:3,reverse:true,reference:'Vert < 2,5; intermédiaire 2,5–3; rouge > 3 xGA/60. Plus bas est favorable'},
+finishing:{low:-1,high:1,reference:'Rouge < −1; proche de l’attendu −1 à +1; vert > +1 but. Écart observé, pas une mesure de talent durable'},
+rel:{low:-2,high:2,reference:'Rouge < −2; proche de zéro −2 à +2; vert > +2 points de pourcentage'}
+};
+export function rating(key:MetricKey,value:number|null){if(value===null||!Number.isFinite(value))return {color:'var(--muted-foreground)',label:'Non calculable',symbol:'—'};const b=benchmarks[key],direction=value<b.low?-1:value>b.high?1:0,score=b.reverse?-direction:direction;return {color:score===0?'var(--palette-stat-mid,#d6ab46)':effectColor(score),label:key==='finishing'?(score>0?'Au-dessus de l’attendu':score<0?'Sous l’attendu':'Proche de l’attendu'):(score>0?'Favorable':score<0?'Défavorable':'Intermédiaire'),symbol:score>0?'▲':score<0?'▼':'●'};}
+export function AdvancedValue({metric,value}:{metric:MetricKey;value:number|null}){const r=rating(metric,value);return <span className="advanced-value" style={{color:r.color}} title={r.label+' · '+benchmarks[metric].reference} aria-label={(value===null?'Non calculable':value.toLocaleString('fr-CA',{maximumFractionDigits:2}))+' · '+r.label+' · '+benchmarks[metric].reference}>{value===null||!Number.isFinite(value)?'—':value.toLocaleString('fr-CA',{maximumFractionDigits:2})}<span className="advanced-signal" aria-hidden="true">{r.symbol}</span></span>}
+export function AdvancedLegend(){return <div className="advanced-legend"><p><span style={{color:effectColor(-1)}}>▼ Défavorable</span> · <span style={{color:'var(--palette-stat-mid,#d6ab46)'}}>● Intermédiaire</span> · <span style={{color:effectColor(1)}}>▲ Favorable</span></p><p>Repères pédagogiques fixes du prototype, pas des normes NHL ni un classement des joueurs. Même échelle dans le tableau et la fiche. Pour xGA/60, plus bas est favorable.</p><details><summary>Comprendre les couleurs et leurs seuils</summary>{Object.entries(benchmarks).map(([key,b])=><p key={key}><b>{{p60:'P/60',ixg60:'ixG/60',xgpct:'xGF %',cfpct:'CF %',ffpct:'FF %',xga60:'xGA/60',finishing:'B − ixG',rel:'xGF % rel.'}[key]} :</b> {b.reference}.</p>)}<p>B − ixG reflète aussi la variance. Les partenaires, l’opposition et le temps de glace influencent l’interprétation. Peu de minutes : résultats plus incertains; la couleur ne mesure pas cette fiabilité.</p></details></div>}
