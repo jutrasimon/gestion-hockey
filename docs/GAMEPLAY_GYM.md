@@ -92,3 +92,5 @@ Mode par défaut avec des règles indépendantes du Laboratoire. Chaque mode gar
 ### Défense et style de jeu
 
 Le sixième attribut est Défense, remplaçant Créativité dans tous les écrans et moteurs. Les nouvelles notes de démonstration sont Roy 4, Gagnon 8, Sokolov 5, Fortin 5, Leclerc 6, Morin 8; elles ne sont pas déduites des anciennes notes de créativité. Les joueurs dérivés conservent la méthode de variation du roster. Le style (Créatif, Prudent, Direct) décrit une façon de jouer sans bonus caché. Le trio simple affiche la moyenne des défenses; la chimie du Laboratoire utilise le poids réglable de Défense. Scouting : nouveau domaine Défense/IQ. Entraînement : Défense peut être ciblée dans les deux modes. Les forces collectives du Match restent des paramètres de scénario, sans moyenne automatique du roster.
+
+La synthèse du trio Simple apparaît avant les candidats : force globale = moyenne des trois aspects, chacun comptant pour un tiers. Le calcul utilise les valeurs avant arrondi. Les cartes des candidats montrent aussi la force globale et son écart au trio actuel. La chimie est explicitement indiquée comme non simulée, sans inventer une note d’entente.

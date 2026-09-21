@@ -115,3 +115,6 @@ assert.equal(S.rest({...simpleStart,energy:95}).energy,100);
 let program=S.fresh();for(let i=0;i<4;i++)program=S.train(program,'normal',5);
 assert.equal(program.stats[5],6);assert.equal(program.energy,36);assert.equal(S.train(program,'normal',5),null);assert.equal(S.rest(program),null);
 console.log('Simple numeric rules: trio comparisons, match dice, energy threshold, costs, caps and sequence passed.');
+
+assert.equal(S.trio('rookie').strength,17/3);
+for(const id of ['star','worker','rookie']){const t=S.trio(id);assert.equal(t.strength,(t.creation+t.finishing+t.defense)/3)}
