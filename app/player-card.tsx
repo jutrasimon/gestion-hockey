@@ -5,7 +5,7 @@ import {Maximize2,ShieldCheck,ShieldAlert} from 'lucide-react';
 import {ArrowClockwiseIcon} from '@phosphor-icons/react/dist/csr/ArrowClockwise';
 import {GradientIcon} from './gradient-icon';
 import {FavoriteButton} from './preferences';
-import {labels,money,type Player} from './players';
+import {labels,money,playStyleMeaning,type Player} from './players';
 import {clubOf,teams,sourceOf,recordFor,initialScope} from './league';
 
 const portraits:Record<string,number>={roy:0,gagnon:7,sokolov:3,fortin:4,leclerc:1,morin:5};
@@ -37,9 +37,9 @@ export function PlayerCard({p,selected,onSelect,onOpen,handle,ghost=false,initia
  <div className="dossier-health"><h4>{health.label}</h4><p title={health.history}>{p.id==='sokolov'?'Aine · En récupération':p.id==='gagnon'?'Genou · 2026–2027 · Guérie':'Aucune blessure enregistrée.'}</p></div>
  </div>:<>
  <button className="roster-identity" onClick={onSelect} aria-label={`Sélectionner ${p.name}`}><PlayerAvatar p={p}/><span className="roster-name"><span>{p.name.split(' ')[0]}</span><strong>{p.name.split(' ').slice(1).join(' ')}</strong><span className="roster-position">{p.pos} <i>·</i> {p.age} ans</span></span></button>
- <div className="roster-club"><span className="club-monogram" aria-hidden="true">{club.name.slice(0,1)}</span><span>{club.name}<small>{p.type}</small></span></div>
+ <div className="roster-club"><span className="club-monogram" aria-hidden="true">{club.name.slice(0,1)}</span><span>{club.name}<small>{p.type}</small><small title={playStyleMeaning}>Style : {p.playStyle}</small></span></div>
  <div className="roster-production" aria-label="Statistiques de saison régulière">{[['MJ',production.gp],['B',production.goals],['A',production.assists],['PTS',production.goals+production.assists]].map(([l,v])=><div key={l}><span>{l}</span><strong>{v}</strong></div>)}</div>
- <div className="roster-attributes">{p.stats.map((v,i)=><div key={labels[i]} title={labels[i]}><span>{['MAN','TIR','PUI','PAT','IQ','CRÉ','CŒ'][i]}</span><strong>{v}</strong></div>)}</div>
+ <div className="roster-attributes">{p.stats.map((v,i)=><div key={labels[i]} title={labels[i]}><span>{['MAN','TIR','PUI','PAT','IQ','DÉF','CŒ'][i]}</span><strong>{v}</strong></div>)}</div>
  <div className="roster-summary"><div className="roster-contract"><strong>{money(p.salary)}</strong><span> / an · {p.years} ans</span></div></div>
  </>}
  </div><div className="roster-actions"><button className="card-open-full" onClick={onOpen||onSelect} aria-label={`Ouvrir la fiche complète de ${p.name}`} title="Ouvrir la fiche complète"><Maximize2 size={17}/><span>Fiche</span></button><button onClick={nextCard} disabled={dealing} className="card-turn" title={flipped?"Retourner vers les statistiques":"Retourner vers le profil"} aria-label={`Retourner la carte de ${p.name} : ${flipped?'statistiques':'profil'}`}><GradientIcon icon={ArrowClockwiseIcon} size={17} aria-hidden="true"/><span>{flipped?'Stats':'Profil'}</span></button></div>

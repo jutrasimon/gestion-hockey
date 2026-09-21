@@ -71,3 +71,25 @@ console.log('Management: contract accounting/counteroffers, scouting budgets/rev
 
 assert.equal(N.contract(4.5,2,0).score,49);
 assert.equal(N.contract(4.5,5,.25).score,72);
+
+// Defense must improve recovery without masquerading as offensive creativity.
+const lowDefense=[6,5,6,5,7,2,7],highDefense=[...lowDefense];highDefense[5]=12;
+assert.equal(M.simpleRoles(lowDefense)[0],M.simpleRoles(highDefense)[0]);
+assert.equal(M.simpleRoles(lowDefense)[1],M.simpleRoles(highDefense)[1]);
+assert.ok(M.simpleRoles(highDefense)[2]>M.simpleRoles(lowDefense)[2]);
+const defenseTraining=M.train(M.freshTraining(),'skill',5,65,constant(.5));
+assert.ok(defenseTraining.stats[5]>M.freshTraining().stats[5]);
+assert.deepEqual(defenseTraining.stats.filter((_,i)=>i!==5),M.freshTraining().stats.filter((_,i)=>i!==5));
+assert.deepEqual(N.scout(N.freshScout(),'star','defense','deep').report.findings.map(x=>x.attribute),[5,4]);
+assert.deepEqual(N.scoutPlayers.star.stats,M.players.star.stats);
+const {readFileSync}=await import('node:fs');
+const uiSource=readFileSync(new URL('../app/players.ts',import.meta.url),'utf8');
+for(const [id,alias] of [['roy','rookie'],['gagnon','gagnon'],['sokolov','star'],['fortin','fortin'],['morin','worker']]){
+ const row=uiSource.split('\n').find(line=>line.includes("id:'"+id+"'"));
+ const stats=JSON.parse(row.match(/stats:(\[[^\]]+\])/)[1]);
+ assert.deepEqual(stats,M.players[alias].stats,`${id}: UI and gameplay stats must agree`);
+ assert.equal(row.match(/playStyle:'([^']+)'/)[1],M.players[alias].playStyle);
+}
+assert.deepEqual(M.freshTraining().stats,M.players.rookie.stats);
+assert.equal(M.attributes[5],'Défense');
+console.log('Defense: recovery influence, targeted training, scouting and cross-gym roster consistency passed.');

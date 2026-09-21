@@ -2,13 +2,13 @@
 (function (root) {
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
   const round = v => Math.round(v * 100) / 100;
-  const attributes = ['Maniement', 'Tir', 'Puissance', 'Patinage', 'IQ hockey', 'Créativité', 'Cœur'];
+  const attributes = ['Maniement', 'Tir', 'Puissance', 'Patinage', 'IQ hockey', 'Défense', 'Cœur'];
   const players = {
-    gagnon: {name:'Alexis Gagnon', role:'Centre polyvalent', stats:[6,5,6,5,7,4,7]},
-    fortin: {name:'Sarah Fortin', role:'Ailière créatrice', stats:[7,4,3,8,6,8,5]},
-    star: {name:'Viktor Sokolov', role:'Finisseur exigeant', stats:[10,12,8,7,10,11,6], fit:72},
-    worker: {name:'Jules Morin', role:'Soutien polyvalent', stats:[5,5,5,6,6,5,7], fit:94},
-    rookie: {name:'Émilie Roy', role:'Espoir à adapter à droite', stats:[4,6,3,7,3,5,7], fit:62},
+    gagnon: {name:'Alexis Gagnon',playStyle:'Prudent', role:'Centre polyvalent', stats:[6,5,6,5,7,8,7]},
+    fortin: {name:'Sarah Fortin',playStyle:'Créatif', role:'Ailière créatrice', stats:[7,4,3,8,6,5,5]},
+    star: {name:'Viktor Sokolov',playStyle:'Créatif', role:'Finisseur exigeant', stats:[10,12,8,7,10,5,6], fit:72},
+    worker: {name:'Jules Morin',playStyle:'Prudent', role:'Soutien polyvalent', stats:[5,5,5,6,6,8,7], fit:94},
+    rookie: {name:'Émilie Roy',playStyle:'Direct', role:'Espoir à adapter à droite', stats:[4,6,3,7,3,4,7], fit:62},
   };
   const plans = {
     attack:{name:'Attaque totale', shots:6, risk:0.06, against:5},
@@ -51,7 +51,9 @@
     const attributesScore=total ? rows.reduce((s,r)=>s+r.contribution,0)/total : null;
     return {candidate,rows,total,attributesScore,fit:right.fit,automatism:42,score:total?Math.round(attributesScore*0.5+right.fit*0.3+42*0.2):null};
   }
-  const freshTraining = () => ({sessions:0,day:0,energy:76,confidence:50,stats:[4,6,3,7,3,5,7],history:[]});
+  // Qualitative role coverage; style is descriptive, never a hidden bonus.
+  const simpleRoles = stats => [(stats[0]+stats[4])/2,stats[1],(stats[5]*2+stats[2]+stats[6])/4];
+  const freshTraining = () => ({sessions:0,day:0,energy:76,confidence:50,stats:[4,6,3,7,3,4,7],history:[]});
   const trainingPlans={skill:{name:'Technique ciblée',factor:1.15,cost:1},minutes:{name:'Mise en situation',factor:0.85,cost:0.85},balanced:{name:'Séance équilibrée',factor:0.65,cost:0.65}};
   function train(state, planId, target, intensity, rng=Math.random) {
     if (state.sessions>=4 || state.energy<=0) return null;
@@ -77,5 +79,5 @@
     next.history.push({type:'rest',day:next.day,energyBefore:before,energyAfter:next.energy});
     return next;
   }
-  root.GameplayModels={attributes,players,plans,teams,match,chemistry,freshTraining,trainingPlans,train,rest};
+  root.GameplayModels={simpleRoles,attributes,players,plans,teams,match,chemistry,freshTraining,trainingPlans,train,rest};
 })(globalThis);

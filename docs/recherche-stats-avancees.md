@@ -41,7 +41,7 @@ Pour les gardiens, GSAx = buts attendus contre − buts accordés. Cette lecture
 
 ### A. Des capacités qui produisent des observations
 
-On garde maniement, tir, puissance, patinage, IQ, créativité et cœur. Ces paramètres influencent des probabilités dans la simulation. Après un bloc de saison, on observe les résultats classiques et avancés. Un joueur peut progresser techniquement sans produire immédiatement davantage de points.
+On garde maniement, tir, puissance, patinage, IQ, défense et cœur. Ces paramètres influencent des probabilités dans la simulation. Après un bloc de saison, on observe les résultats classiques et avancés. Un joueur peut progresser techniquement sans produire immédiatement davantage de points.
 
 Intérêt à tester : est-ce que cela aide le DG à distinguer une mauvaise séquence d’un mauvais développement? Risque : trop de chiffres pour une décision simple. La carte ne devrait pas porter tout le modèle.
 
@@ -55,7 +55,7 @@ Intérêt à tester : peut-on découvrir un joueur intéressant avant qu’il ne
 
 Une autre version pourrait parler de création d’occasions, finition et limitation du danger plutôt que montrer autant d’attributs. Attention à la distinction : le profil latent est un paramètre du moteur; la statistique publiée est le résultat d’une période. Donner directement « 58 % xGF » comme qualité innée ferait disparaître une partie de l’effet des partenaires.
 
-Intérêt à tester : est-ce plus concret qu’une note de créativité? Risque : le joueur semble changer de personnalité sportive chaque semaine à cause du bruit statistique.
+Intérêt à tester : est-ce plus concret qu’une note d’IQ hockey? Risque : le joueur semble changer de personnalité sportive chaque semaine à cause du bruit statistique.
 
 Aucune de ces trois pistes n’est retenue. Le labo permet de les discuter côte à côte.
 
@@ -101,3 +101,5 @@ Une future simulation pourrait enregistrer, pour chaque événement, période, s
 Les jeux de données MoneyPuck comprennent patineurs, gardiens, combinaisons, équipes et tirs. La page indique un usage gratuit non commercial et des conditions distinctes pour d’autres usages. Une exploitation commerciale nécessiterait de vérifier l’autorisation; consulter une définition ne nous autorise pas à republier leur base. Source : [MoneyPuck — données](https://moneypuck.com/data.htm).
 
 Pour ce jeu fictif, on peut concevoir nos propres probabilités et produire nos propres observations. Avant de pousser plus loin : comparer plusieurs joueurs moyens dans plusieurs rôles, regarder si les décisions restent compréhensibles et tester si le joueur ressent de l’attachement plutôt qu’une obligation d’optimiser un tableur.
+
+La créativité est désormais un style de jeu (créatif, prudent ou direct), distinct des sept attributs et sans bonus automatique. Défense mesure couverture, fermeture des lignes de passe, usage du bâton et capacité à contenir un adversaire.

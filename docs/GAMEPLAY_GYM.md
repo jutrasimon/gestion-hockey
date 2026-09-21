@@ -85,8 +85,12 @@ Le Gameplay Gym embarque `stats-panel.html` dans un panneau fixe à droite, ou e
 Mode par défaut, avec bascule Laboratoire conservant intégralement les interfaces originales. États indépendants en mémoire : changer de mode ou de module ne les efface pas; Recommencer ne réinitialise que le mode courant. Notes/verdicts restent partagés par module. Recharger réinitialise les essais.
 
 - Match : prudent/équilibré/offensif, moteur original avec effort fixe 65; score, tirs, fatigue et explication courte.
-- Chimie : diagnostic de couverture de trois fonctions, distinct de l’ancien score pondéré. Création = moyenne IQ/créativité, finition = tir, récupération = moyenne puissance/cœur. Meilleur joueur pour chaque fonction; seuils 6 et 9. Aucun score global ni hasard.
+- Chimie : diagnostic de couverture de trois fonctions, distinct de l’ancien score pondéré. Création = moyenne maniement/IQ, finition = tir, récupération = (2 × Défense + Puissance + Cœur) / 4. Meilleur joueur pour chaque fonction; seuils 6 et 9. Aucun score global ni hasard.
 - Entraînement : technique ciblée, charges 35/65/95, choix de l’attribut, repos et quatre séances avec énergie persistante. Moteur original.
 - Explications puis formules dans deux niveaux de détails fermés par défaut. Panneau permanent de statistiques conservé.
 
 Validation navigateur : match, sélection du trio, entraînement complet de quatre séances, retour Simple/Laboratoire sans perte, réinitialisation. Pas d’erreur console constatée.
+
+### Défense et style de jeu
+
+Le sixième attribut est Défense, remplaçant Créativité dans tous les écrans et moteurs. Les nouvelles notes de démonstration sont Roy 4, Gagnon 8, Sokolov 5, Fortin 5, Leclerc 6, Morin 8; elles ne sont pas déduites des anciennes notes de créativité. Les joueurs dérivés conservent la méthode de variation du roster. Le style (Créatif, Prudent, Direct) décrit une façon de jouer sans bonus caché. La chimie simple utilise Défense à 50 % pour récupérer la rondelle; la chimie du Laboratoire utilise le poids réglable de Défense. Scouting : nouveau domaine Défense/IQ. Entraînement : Défense peut être ciblée dans les deux modes. Les forces collectives du Match restent des paramètres de scénario, sans moyenne automatique du roster.
