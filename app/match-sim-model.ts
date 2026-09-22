@@ -1,5 +1,6 @@
 // Spatial prototype. Time is active real seconds; one second represents one hockey minute.
 export type Skater = {
+    num: number;
     name: string;
     stats: number[];
     style: number;
