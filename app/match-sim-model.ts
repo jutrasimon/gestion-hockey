@@ -9,10 +9,16 @@ export type Skater = {
     confidence: number;
     weight: number;
     height: number;
+    heartBoost?: number;
 };
 export type Agent = Skater & {
     team: number;
     slot: number;
+    hitCooldown:number;
+    stunnedUntil:number;
+    emotion:string;
+    emotionUntil:number;
+    trailing:boolean;
     x: number;
     y: number;
 };
@@ -49,14 +55,20 @@ export type Match = {
     goalPause: boolean;
     ended: boolean;
     events: Event[];
-    playerStats: {goals:number;assists:number;shots:number;onTarget:number;passes:number;completed:number;steals:number;recoveries:number;blocks:number;losses:number}[];
+    playerStats: {goals:number;assists:number;shots:number;onTarget:number;passes:number;completed:number;steals:number;recoveries:number;blocks:number;losses:number;hits:number;hitsReceived:number}[];
+    contacts:{x:number;y:number;until:number;attacker:number;victim:number}[];
     lastPasser: number;
     plans: Intention[];
     planAt: number;
     planKey: string;
 };
 export const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
-export const effective = (p: Skater) => p.stats.map(v => v * p.energy / 100 * p.morale / 100 * (1 + .25 * p.confidence / 100));
+// Mini rink: same skill speeds, 30% shorter and narrower physical distances.
+export const RINK={width:70,height:35,scale:.7};
+export function heartEffects(p:Skater){const h=clamp(p.stats[5]/15,0,1),energy=p.energy===0?0:p.energy/100+(1-p.energy/100)*.3*h,morale=p.morale/100+(1-p.morale/100)*.3*h;return {h,energy,morale,boost:p.heartBoost||0};}
+export const effective = (p:Skater)=>{const c=heartEffects(p);return p.stats.map(v=>v*c.energy*c.morale*(1+.25*p.confidence/100)*(1+c.boost));};
+export function syncHeart(s:Match){for(const p of s.agents){p.trailing=s.score[p.team]<s.score[1-p.team];if(p.emotionUntil<=s.time){p.emotion='';p.emotionUntil=0;}p.heartBoost=Math.min(.15,(p.stats[5]/15)*(.1*Number(p.trailing)+.1*Number(p.emotionUntil>s.time)));}}
+function stir(s:Match,p:Agent,cause:string){p.emotion=cause;p.emotionUntil=s.time+2;}
 export const physical = (p: Skater) => effective(p)[2] * clamp(1 + (p.weight - 190) / 500 + (p.height - 72) / 100, .8, 1.2);
 const distance = (a: {
     x: number;
@@ -64,7 +76,7 @@ const distance = (a: {
 }, b: {
     x: number;
     y: number;
-}) => Math.hypot(a.x - b.x, a.y - b.y);
+}) => Math.hypot(a.x - b.x, a.y - b.y)*RINK.scale;
 type Point = {
     x: number;
     y: number;
@@ -83,7 +95,7 @@ const space = (p: Point, opponents: Point[]) => Math.min(30, ...opponents.map(o 
 export function shotQuality(p: Agent, opponents: Agent[]) { const e = effective(p), position = clamp(1 - distance(p, goalFor(p.team)) / 55, .15, 1), pressure = clamp(space(p, opponents) / 8, .4, 1); return clamp((.65 * e[1] + .2 * physical(p) + .15 * e[4]) / 15 * position * pressure * .65, 0, .9); }
 export function chooseAction(s: Match, index = s.owner) {
     const p = s.agents[index], opponents = s.agents.filter(a => a.team !== p.team), gap = space(p, opponents), progress = forward(p), quality = shotQuality(p, opponents), clear = laneSpace(p, goalFor(p.team), opponents) > 5;
-    const options = s.agents.map((a, i) => ({ a, i, lane: laneSpace(p, a, opponents.filter(o => distance(o, p) > 4)), open: space(a, opponents) })).filter(o => o.a !== p && o.a.team === p.team && distance(p, o.a) > 6 && distance(p, o.a) < 42 && o.lane > 3 && o.a.energy > 0 && o.a.morale > 0).map(o => ({ ...o, quality: shotQuality(o.a, opponents), gain: forward(o.a) - progress }));
+    const options = s.agents.map((a, i) => ({ a, i, lane: laneSpace(p, a, opponents.filter(o => distance(o, p) > 4)), open: space(a, opponents) })).filter(o => o.a !== p && o.a.team === p.team && distance(p, o.a) > 6 && distance(p, o.a) < 42 && o.lane > 3 && o.a.energy > 0 && heartEffects(o.a).morale > 0).map(o => ({ ...o, quality: shotQuality(o.a, opponents), gain: forward(o.a) - progress }));
     options.sort((a, b) => (b.quality * 100 + b.open + Math.max(-10, b.gain) * .4) - (a.quality * 100 + a.open + Math.max(-10, a.gain) * .4));
     const best = options[0];
     // Keep a breakaway. Otherwise a pass must improve the opportunity or escape pressure.
@@ -158,11 +170,11 @@ export function createMatch(players: Skater[], seed = 1): Match {
     if (players.length !== 6)
         throw Error('Six joueurs requis');
     const agents = players.map((p, i) => {
-        if (p.stats.length !== 7 || ![...p.stats, p.energy, p.morale, p.confidence, p.weight, p.height, p.style].every(Number.isFinite))
+        if (p.stats.length !== 6 || ![...p.stats, p.energy, p.morale, p.confidence, p.weight, p.height, p.style].every(Number.isFinite))
             throw Error('Valeurs invalides');
-        return { ...p, stats: p.stats.map(v => clamp(v, 0, 15)), energy: clamp(p.energy, 0, 100), morale: clamp(p.morale, 0, 100), confidence: clamp(p.confidence, 0, 100), style: clamp(Math.round(p.style), 0, 2), team: i < 3 ? 0 : 1, slot: i % 3, x: 0, y: 0 };
+        return { ...p, stats: p.stats.map(v => clamp(v, 0, 15)), energy: clamp(p.energy, 0, 100), morale: clamp(p.morale, 0, 100), confidence: clamp(p.confidence, 0, 100), style: clamp(Math.round(p.style), 0, 2), team: i < 3 ? 0 : 1, slot: i % 3, hitCooldown:0,stunnedUntil:0,emotion:'',emotionUntil:0,trailing:false,heartBoost:0,x: 0, y: 0 };
     });
-    const s: Match = { time: 0, agents, owner: 0, puck: { x: 50, y: 25 }, flight: null, score: [0, 0], shots: [0, 0], saves: [0, 0], blocks: [0, 0], misses: [0, 0], turnovers: [0, 0], rng: seed >>> 0, decision: .5, looseUntil: 0, goalPause: false, ended: false, events: [], lastPasser:-1, playerStats:players.map(()=>({goals:0,assists:0,shots:0,onTarget:0,passes:0,completed:0,steals:0,recoveries:0,blocks:0,losses:0})), plans: [], planAt: 0, planKey: '' };
+    const s: Match = { time: 0, agents, owner: 0, puck: { x: 50, y: 25 }, flight: null, score: [0, 0], shots: [0, 0], saves: [0, 0], blocks: [0, 0], misses: [0, 0], turnovers: [0, 0], rng: seed >>> 0, decision: .5, looseUntil: 0, goalPause: false, ended: false, events: [], contacts:[],lastPasser:-1, playerStats:players.map(()=>({goals:0,assists:0,shots:0,onTarget:0,passes:0,completed:0,steals:0,recoveries:0,blocks:0,losses:0,hits:0,hitsReceived:0})), plans: [], planAt: 0, planKey: '' };
     resetPositions(s, random(s) < .5 ? 0 : 1);
     log(s, 'Mise en jeu', s.agents[s.owner].name + ' commence avec la rondelle (tirage 50/50).');
     return s;
@@ -187,10 +199,10 @@ export function resumeGoal(s: Match) {
 function move(p: Agent, target: {
     x: number;
     y: number;
-}, dt: number) {
-    const speed = 2 + effective(p)[3] * 1.3;
-    const d = distance(p, target), step = Math.min(d, speed * dt);
-    if (d && p.energy > 0 && p.morale > 0) {
+}, dt: number, time:number) {
+    const speed = (2 + effective(p)[3] * 1.3)*(p.stunnedUntil>time?.35:1);
+    const d = Math.hypot(p.x-target.x,p.y-target.y), step = Math.min(d, speed * dt / RINK.scale);
+    if (d && p.energy > 0 && heartEffects(p).morale > 0) {
         p.x = clamp(p.x + (target.x - p.x) / d * step, 3, 97);
         p.y = clamp(p.y + (target.y - p.y) / d * step, 3, 47);
     }
@@ -202,6 +214,7 @@ export function stepMatch(s: Match, dt = .05) {
     dt = Math.min(dt, 20 - s.time);
     s.time += dt;
     s.decision -= dt;
+    syncHeart(s);s.contacts=s.contacts.filter(c=>c.until>s.time);
     // All targets use the same pre-movement snapshot, avoiding order-dependent decisions.
     const key = `${s.owner}:${s.flight?.kind ?? ""}:${s.flight?.to ?? -1}`;
     if (s.time >= s.planAt || s.planKey !== key) {
@@ -211,26 +224,27 @@ export function stepMatch(s: Match, dt = .05) {
     }
     const plan = s.plans;
     for (const [i, p] of s.agents.entries()) {
-        move(p, plan[i].target, dt);
-        // Heart slows energy loss; no injury, morale or confidence evolution in this prototype.
-        p.energy = clamp(p.energy - dt * .18 * (1 - p.stats[6] / 30), 0, 100);
+        move(p, plan[i].target, dt,s.time);
+        // Heart slows fatigue; contacts consume energy. Morale/confidence remain baseline inputs.
+        p.energy = clamp(p.energy - dt * .18 * (1 - p.stats[5] / 30), 0, 100);
     }
+    if(s.owner>=0&&!s.flight){const victim=s.agents[s.owner];const challenger=s.agents.filter(p=>p.team!==victim.team&&p.energy>0&&p.stunnedUntil<=s.time&&p.hitCooldown<=s.time&&distance(p,victim)<2.4).sort((a,b)=>distance(a,victim)-distance(b,victim))[0];if(challenger)tryCheck(s,s.agents.indexOf(challenger),s.owner);}
     if (s.flight) {
         const f = s.flight, from = s.agents[f.from];
         if (f.kind === 'pass') {
             f.x = s.agents[f.to].x;
             f.y = s.agents[f.to].y;
         }
-        const d = distance(s.puck, f), step = 75 * dt;
+        const d = Math.hypot(s.puck.x-f.x,s.puck.y-f.y), step = 75 * dt / RINK.scale;
         s.puck = d <= step ? { x: f.x, y: f.y } : { x: s.puck.x + (f.x - s.puck.x) / d * step, y: s.puck.y + (f.y - s.puck.y) / d * step };
         if (f.kind === 'pass') {
             const defender = s.agents.find(a => a.team !== from.team && distance(a, s.puck) < 3);
             if (defender) {
-                const attack = effective(from)[0] + effective(from)[4], def = effective(defender)[5] + effective(defender)[0], chance = clamp(def / (def + attack + 1) * .65, 0, .8);
+                const attack = effective(from)[0] + effective(from)[4], def = effective(defender)[4] + effective(defender)[0], chance = clamp(def / (def + attack + 1) * .65, 0, .8);
                 const roll = random(s);
                 if (roll < chance) {
                     s.owner = f.from;
-                    take(s, s.agents.indexOf(defender), 'Interception', `Défense + maniement contre maniement + IQ : ${(chance * 100).toFixed(0)} %, tirage ${(roll * 100).toFixed(0)}.`);
+                    take(s, s.agents.indexOf(defender), 'Interception', `IQ + maniement contre maniement + IQ : ${(chance * 100).toFixed(0)} %, tirage ${(roll * 100).toFixed(0)}.`);
                 }
             }
         }
@@ -250,6 +264,7 @@ export function stepMatch(s: Match, dt = .05) {
                 s.owner = f.from;
                 if (roll < f.quality) {
                     s.score[from.team]++;s.playerStats[f.from].goals++;if(s.lastPasser>=0&&s.lastPasser!==f.from)s.playerStats[s.lastPasser].assists++;
+                    for(const player of s.agents){if(player.team!==from.team)stir(s,player,'But encaissé');else if(s.score[from.team]===s.score[1-from.team])stir(s,player,'But égalisateur');}syncHeart(s);
                     s.goalPause = true;
                     log(s, 'BUT · ' + from.name, `Qualité ${(f.quality * 100).toFixed(1)} %; arrêt ${(100 - f.quality * 100).toFixed(1)} %; tirage ${(roll * 100).toFixed(1)}.`);
                 }
@@ -264,7 +279,7 @@ export function stepMatch(s: Match, dt = .05) {
     }
     else if (s.owner < 0) {
         if (s.time >= s.looseUntil) {
-            const candidates = s.agents.map((p, i) => ({ p, i, rank: distance(p, s.puck) / (1 + effective(p)[4] / 30) })).filter(({ p }) => distance(p, s.puck) < 4 && p.energy > 0 && p.morale > 0).sort((a, b) => a.rank - b.rank);
+            const candidates = s.agents.map((p, i) => ({ p, i, rank: distance(p, s.puck) / (1 + effective(p)[4] / 30) })).filter(({ p }) => distance(p, s.puck) < 2.8 && p.stunnedUntil<=s.time && p.energy > 0 && heartEffects(p).morale > 0).sort((a, b) => a.rank - b.rank);
             if (candidates.length) {
                 let winner = candidates[0];
                 if (candidates[1] && candidates[1].p.team !== winner.p.team) {
@@ -279,13 +294,13 @@ export function stepMatch(s: Match, dt = .05) {
     else {
         const p = s.agents[s.owner];
         s.puck = { x: p.x, y: p.y };
-        if (s.decision <= 0) {
+        if (s.decision <= 0 && p.stunnedUntil<=s.time) {
             s.decision = p.style === 0 ? .45 : p.style === 2 ? .9 : .65;
             const e = effective(p), opponents = s.agents.filter(a => a.team !== p.team), near = opponents.sort((a, b) => distance(a, p) - distance(b, p))[0], gap = distance(near, p);
             if (gap < 5) {
-                const de = effective(near), atk = e[0] + physical(p), def = de[5] + de[0] + physical(near) * .3, chance = def / (def + atk + 1) * .5, roll = random(s);
+                const de = effective(near), atk = e[0] + physical(p), def = de[4] + de[0] + physical(near) * .3, chance = def / (def + atk + 1) * .5, roll = random(s);
                 if (roll < chance) {
-                    take(s, s.agents.indexOf(near), 'Rondelle volée', `(Défense + maniement + 0,3 × puissance physique) / (attaque + défense + 1) × 50 % = ${(chance * 100).toFixed(0)} %; tirage ${(roll * 100).toFixed(0)}.`);
+                    take(s, s.agents.indexOf(near), 'Rondelle volée', `(IQ + maniement + 0,3 × puissance physique) / (attaque + défense + 1) × 50 % = ${(chance * 100).toFixed(0)} %; tirage ${(roll * 100).toFixed(0)}.`);
                     return;
                 }
             }
@@ -293,10 +308,10 @@ export function stepMatch(s: Match, dt = .05) {
             if (action.kind === 'shot') {
                 const goal = { x: p.team === 0 ? 97 : 3, y: 25 }, range = distance(p, goal), position = clamp(1 - range / 55, .15, 1), pressure = clamp(gap / 8, .4, 1), quality = clamp((.65 * e[1] + .2 * physical(p) + .15 * e[4]) / 15 * position * pressure * .65, 0, .9);
                 s.shots[p.team]++;s.playerStats[s.owner].shots++;
-                const block = gap < 5 ? effective(near)[5] / 15 * .25 : 0, roll = random(s);
+                const block = gap < 5 ? effective(near)[4] / 15 * .25 : 0, roll = random(s);
                 if (roll < block) {
                     s.blocks[near.team]++;s.playerStats[s.agents.indexOf(near)].blocks++;
-                    log(s, 'Tir bloqué · ' + near.name, `Défense / 15 × 25 % = ${(block * 100).toFixed(1)} %; tirage ${(roll * 100).toFixed(1)}.`);
+                    log(s, 'Tir bloqué · ' + near.name, `IQ / 15 × 25 % = ${(block * 100).toFixed(1)} %; tirage ${(roll * 100).toFixed(1)}.`);
                     loose(s);
                 }
                 else if (random(s) > .7 + Math.min(e[1], 15) / 50) {
@@ -325,4 +340,21 @@ export function stepMatch(s: Match, dt = .05) {
         s.goalPause = false;
         log(s, 'Fin de période', '20 minutes de hockey · 20 secondes actives.');
     }
+}
+
+export function tryCheck(s:Match,attackerIndex:number,victimIndex:number,rng=()=>random(s)){
+ const a=s.agents[attackerIndex],v=s.agents[victimIndex];
+ if(s.owner!==victimIndex||a.team===v.team||distance(a,v)>2.4||a.hitCooldown>s.time||a.energy<=0||a.stunnedUntil>s.time||v.stunnedUntil>s.time)return false;
+ a.hitCooldown=s.time+1.1;
+ const power=physical(a),resistance=physical(v)+effective(v)[3]*.5,chance=power<=0?0:clamp(power/(power+resistance+1),.1,.8),roll=rng();
+ if(roll>=chance){log(s,'Placage évité · '+v.name,`Puissance / (puissance + résistance + 1) : ${(chance*100).toFixed(0)} %; tirage ${(roll*100).toFixed(0)}.`);return false;}
+ s.playerStats[attackerIndex].hits++;s.playerStats[victimIndex].hitsReceived++;
+ const old={x:v.x,y:v.y},dx=v.x-a.x,dy=v.y-a.y,d=Math.hypot(dx,dy)||1,shift=clamp(1.2+power/(resistance+1),1.2,3);
+ v.x=clamp(v.x+(dx|| (a.team===0?1:-1))/d*shift/RINK.scale,3,97);v.y=clamp(v.y+dy/d*shift/RINK.scale,3,47);v.stunnedUntil=s.time+.5;a.stunnedUntil=s.time+.15;
+ v.energy=clamp(v.energy-2,0,100);a.energy=clamp(a.energy-1,0,100);stir(s,v,'Réaction au placage');syncHeart(s);
+ s.contacts.push({...old,until:s.time+.7,attacker:attackerIndex,victim:victimIndex});
+ const dropChance=clamp(.35+(power-physical(v))/60,.15,.75),drop=rng()<dropChance;
+ if(drop){s.puck=old;loose(s);}else s.puck={x:v.x,y:v.y};
+ log(s,`Placage · #${a.num} ${a.name} → #${v.num} ${v.name}`,`Chance ${(chance*100).toFixed(0)} %, tirage ${(roll*100).toFixed(0)}. Recul ${shift.toFixed(1)}; ralentissement 0,5 s; énergie −2 (victime), −1 (plaqueur). Rondelle ${drop?'libérée':'conservée'} (${(dropChance*100).toFixed(0)} % de perte).`);
+ return true;
 }

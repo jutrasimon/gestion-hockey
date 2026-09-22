@@ -16,17 +16,17 @@ console.log('Hockey Player: modifiers, inactive categories, caps, derived stats,
 
 const proposed=freshTemplate();proposed.rules=suggestedRules();assert.ok(validTemplate(proposed));
 assert.equal(optionPreview(proposed,'type','Marqueur').finishing,10);
-assert.equal(optionPreview(proposed,'type','Marqueur').stats[5],6);
+assert.equal(optionPreview(proposed,'type','Marqueur').stats[5],7);
 assert.equal(proposed.player.type,'Polyvalent');
 assert.equal(optionPreview(proposed,'trait','Cupide').overall,calculate(proposed).overall);
 
 const unified=source('player-workbench-model.ts').replace("'./hockey-player-model'",JSON.stringify(encode(model)));
-const {freshPlayer,validPlayer,migratePlayer,playerSummary,normalizePotential,potentialLevels}=await import(encode(unified));
+const {freshPlayer,validPlayer,migratePlayer,upgradePlayer,playerSummary,normalizePotential,potentialLevels}=await import(encode(unified));
 const clean=freshPlayer();assert.ok(validPlayer(clean));assert.equal(playerSummary(clean).overall,7);
 const legacy=freshTemplate();legacy.rules.type.Polyvalent[1]=5;legacy.player.playStyle='Créatif';
 const migrated=migratePlayer(legacy);assert.ok(validPlayer(migrated));assert.equal(migrated.stats[1],7);assert.equal(migrated.temperament[2],1);
 clean.temperament=[0,2,2];clean.potential='Très élevé';clean.context.morale=0;assert.equal(playerSummary(clean).overall,7);
-clean.stats[1]=14;assert.equal(playerSummary(clean).overall,8);clean.contract.salary=2;clean.contract.years=3;assert.equal(playerSummary(clean).guaranteed,6);
+clean.stats[1]=13;assert.equal(playerSummary(clean).overall,8);clean.contract.salary=2;clean.contract.years=3;assert.equal(playerSummary(clean).guaranteed,6);
 assert.equal(validPlayer({...clean,temperament:[0,4,1]}),false);assert.equal(validPlayer({...clean,stats:[NaN,7,7,7,7,7,7]}),false);
 clean.history.push({date:'2026-09-21',note:'Essai',stats:[...clean.stats]});assert.ok(validPlayer(JSON.parse(JSON.stringify(clean))));
 console.log('Unified player: migration ignores legacy bonuses, neutral conversion, isolated axes/context, arithmetic and persistence validation passed.');
@@ -39,3 +39,7 @@ assert.equal(rating('xgpct',50).symbol,'●');assert.equal(rating('xgpct',53).sy
 console.log('Advanced colors: inverted danger rate, boundaries, finishing interpretation and missing values passed.');
 
 assert.equal(potentialLevels.length,5);assert.equal(normalizePotential('Modeste'),'Faible');assert.equal(normalizePotential('Moyen'),'Normal');assert.equal(normalizePotential('À évaluer'),'Normal');
+
+const oldSave={...freshPlayer(),version:2,stats:[1,2,3,4,5,14,9],history:[{date:'2026-09-21',note:'Avant',stats:[2,3,4,5,6,15,10]}]};const converted=upgradePlayer(oldSave);assert.ok(validPlayer(converted));assert.deepEqual(converted.stats,[1,2,3,4,5,9]);assert.deepEqual(converted.history[0].stats,[2,3,4,5,6,10]);assert.equal(oldSave.stats.length,7);assert.equal(converted.version,3);assert.equal(upgradePlayer({...oldSave,stats:[1,2]}),null);
+const oldTemplate=freshTemplate();oldTemplate.player.stats=[1,2,3,4,5,14,9];assert.deepEqual(migratePlayer(oldTemplate).stats,[1,2,3,4,5,9]);
+console.log('Six attributes: v1/v2 migration preserves heart, history and original drafts; malformed saves rejected.');

@@ -22,9 +22,9 @@ const fixture=M.match('balance',0,constant(.5));let draw=0;
 const zero=M.match('balance',0,()=>++draw<=21?.5:draw<=21+fixture.shots?0:.999);
 assert.ok(zero.goals>zero.awayGoals);
 for(const player of ['star','worker','rookie']) {
-  assert.equal(M.chemistry(player,Array(7).fill(0)).score,null);
-  assert.equal(M.chemistry(player,Array(7).fill(50)).score,M.chemistry(player,Array(7).fill(100)).score);
-  const c=M.chemistry(player,[100,0,0,0,0,0,0]);
+  assert.equal(M.chemistry(player,Array(6).fill(0)).score,null);
+  assert.equal(M.chemistry(player,Array(6).fill(50)).score,M.chemistry(player,Array(6).fill(100)).score);
+  const c=M.chemistry(player,[100,0,0,0,0,0]);
   assert.equal(c.attributesScore,c.rows[0].contribution/100);
   assert.ok(c.score>=0&&c.score<=100);
 }
@@ -44,7 +44,7 @@ let state=start;for(let i=0;i<4;i++)state=M.train(state,'skill',1,100,constant(.
 assert.equal(state.sessions,4);assert.equal(state.history.length,4);
 assert.equal(M.train(state,'skill',1,100),null);assert.equal(M.rest(state),null);
 const exhausted={...M.freshTraining(),energy:0};assert.equal(M.train(exhausted,'skill',1,100),null);assert.equal(M.rest(exhausted).energy,18);
-const capped={...M.freshTraining(),stats:Array(7).fill(15)};assert.equal(M.train(capped,'skill',1,100).stats[1],15);
+const capped={...M.freshTraining(),stats:Array(6).fill(15)};assert.equal(M.train(capped,'skill',1,100).stats[1],15);
 assert.equal(M.rest({...start,energy:95}).energy,100);
 console.log('Gameplay: match accounting, plan effects, zero intensity, chemistry weights, training progression and limits passed.');
 
@@ -80,7 +80,7 @@ assert.ok(M.simpleRoles(highDefense)[2]>M.simpleRoles(lowDefense)[2]);
 const defenseTraining=M.train(M.freshTraining(),'skill',5,65,constant(.5));
 assert.ok(defenseTraining.stats[5]>M.freshTraining().stats[5]);
 assert.deepEqual(defenseTraining.stats.filter((_,i)=>i!==5),M.freshTraining().stats.filter((_,i)=>i!==5));
-assert.deepEqual(N.scout(N.freshScout(),'star','defense','deep').report.findings.map(x=>x.attribute),[5,4]);
+assert.deepEqual(N.scout(N.freshScout(),'star','defense','deep').report.findings.map(x=>x.attribute),[0,4]);
 assert.deepEqual(N.scoutPlayers.star.stats,M.players.star.stats);
 const {readFileSync}=await import('node:fs');
 const uiSource=readFileSync(new URL('../app/players.ts',import.meta.url),'utf8');
@@ -91,30 +91,30 @@ for(const [id,alias] of [['roy','rookie'],['gagnon','gagnon'],['sokolov','star']
  assert.equal(row.match(/playStyle:'([^']+)'/)[1],M.players[alias].playStyle);
 }
 assert.deepEqual(M.freshTraining().stats,M.players.rookie.stats);
-assert.equal(M.attributes[5],'Défense');
+assert.equal(M.attributes[5],'Cœur');
 console.log('Defense: recovery influence, targeted training, scouting and cross-gym roster consistency passed.');
 
 await import('../public/gameplay-simple-models.js');
 const S=globalThis.SimpleModels;
-assert.equal(S.trio('star').creation,23/3);assert.equal(S.trio('star').finishing,12);assert.equal(S.trio('star').defense,6);
+assert.equal(S.trio('star').creation,23/3);assert.equal(S.trio('star').finishing,12);assert.equal(S.trio('star').defense,23/3);
 assert.equal(S.trio('star').finishing-S.trio('worker').finishing,7);
-assert.equal(S.trio('star').defense-S.trio('worker').defense,-1);
+assert.equal(S.trio('star').defense-S.trio('worker').defense,1.5);
 for(const id of Object.keys(S.plans)){
  const result=S.match(id,constant(0));assert.equal(result.goals,result.shots);assert.equal(result.awayGoals,result.against);
  assert.equal(S.match(id,constant(.999)).goals,0);
  assert.equal(result.shots,20+S.plans[id].shots);assert.equal(result.against,22+S.plans[id].against);
 }
 const simpleStart=S.fresh();
-assert.equal(S.train(simpleStart,'normal',5).stats[5],4.5);
+assert.equal(S.train(simpleStart,'normal',5).stats[5],7.5);
 assert.equal(simpleStart.energy,76);
 assert.equal(S.previewTraining({...simpleStart,energy:40},'intense',5).gain,1);
 assert.equal(S.previewTraining({...simpleStart,energy:39},'intense',5).gain,.5);
 assert.equal(S.train({...simpleStart,energy:19},'intense',5),null);
-assert.equal(S.train({...simpleStart,stats:Array(7).fill(14.9)},'intense',5).stats[5],15);
+assert.equal(S.train({...simpleStart,stats:Array(6).fill(14.9)},'intense',5).stats[5],15);
 assert.equal(S.rest({...simpleStart,energy:95}).energy,100);
 let program=S.fresh();for(let i=0;i<4;i++)program=S.train(program,'normal',5);
-assert.equal(program.stats[5],6);assert.equal(program.energy,36);assert.equal(S.train(program,'normal',5),null);assert.equal(S.rest(program),null);
+assert.equal(program.stats[5],9);assert.equal(program.energy,36);assert.equal(S.train(program,'normal',5),null);assert.equal(S.rest(program),null);
 console.log('Simple numeric rules: trio comparisons, match dice, energy threshold, costs, caps and sequence passed.');
 
-assert.equal(S.trio('rookie').strength,17/3);
+assert.equal(S.trio('rookie').strength,(16/3+6+5.5)/3);
 for(const id of ['star','worker','rookie']){const t=S.trio(id);assert.equal(t.strength,(t.creation+t.finishing+t.defense)/3)}
