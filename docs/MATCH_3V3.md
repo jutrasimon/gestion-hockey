@@ -19,3 +19,13 @@ Pas de chimie, remplacement, hors-jeu, pénalités, blessures, physique de colli
 ## Validation
 
 `node scripts/test-match-sim.mjs` : 100 périodes, répétabilité, conservation du décompte des tirs, limites spatiales, contexte, énergie nulle et pauses de but. Les essais navigateur vérifient lancement, pause/reprise et fin de période. L’équilibrage et la richesse du comportement restent à valider manette en main.
+
+## Positionnement et choix des actions (révision)
+
+Le porteur compare désormais conservation, passe et tir sans tirage de décision. Une échappée libre est conservée; les passes servent à améliorer une occasion, sortir de la pression ou avancer vers un partenaire libre. Le hasard intervient encore dans l’exécution.
+
+Sans rondelle : un partenaire attaque le côté opposé, l’autre soutient en retrait. Les cibles recherchent de l’espace et des lignes de passe dans la largeur de la glace. Un défenseur presse, les deux autres couvrent chacun une menace. Une passe en mouvement conserve cette structure, avec un receveur immobile; une rondelle libre attire un récupérateur par équipe et deux soutiens.
+
+Les plans sont recalculés toutes les 0,35 seconde, immédiatement si la possession change. La case « Voir les intentions » affiche les destinations en pointillés et le rôle actuel des six joueurs. Les poids et seuils de choix sont détaillés dans les règles du gym. Ce sont des comportements heuristiques, pas une IA de hockey complète.
+
+Tests supplémentaires : échappée conservée, passe utile sous pression, refus d’une ligne couverte, largeur des soutiens, défense individuelle et maintien de formation pendant une passe.
