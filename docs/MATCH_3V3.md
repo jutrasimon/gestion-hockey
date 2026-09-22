@@ -29,3 +29,9 @@ Sans rondelle : un partenaire attaque le côté opposé, l’autre soutient en r
 Les plans sont recalculés toutes les 0,35 seconde, immédiatement si la possession change. La case « Voir les intentions » affiche les destinations en pointillés et le rôle actuel des six joueurs. Les poids et seuils de choix sont détaillés dans les règles du gym. Ce sont des comportements heuristiques, pas une IA de hockey complète.
 
 Tests supplémentaires : échappée conservée, passe utile sous pression, refus d’une ligne couverte, largeur des soutiens, défense individuelle et maintien de formation pendant une passe.
+
+## Vue de match compacte
+
+Trois fiches vertes à gauche, trois bleues à droite, patinoire réduite au centre. Les attributs effectifs et leur base, le contexte et les compteurs individuels sont visibles simultanément. La fiche `GymMatchPlayer` est également présentée dans le UI Gym avec la patinoire partagée. Sur écran étroit, les deux équipes passent sous la glace.
+
+Une aide est créditée à la dernière passe réussie avant un but, sans rondelle libre ou changement de possession. Passes = réussies/tentées; pertes = vols et interceptions subis. Les tirs cadrés excluent les tirs bloqués et hors cible. Les compteurs sont remis à zéro au lancement de chaque période et leur somme est testée contre les totaux des équipes.

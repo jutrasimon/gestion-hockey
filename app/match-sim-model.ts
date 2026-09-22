@@ -48,6 +48,8 @@ export type Match = {
     goalPause: boolean;
     ended: boolean;
     events: Event[];
+    playerStats: {goals:number;assists:number;shots:number;onTarget:number;passes:number;completed:number;steals:number;recoveries:number;blocks:number;losses:number}[];
+    lastPasser: number;
     plans: Intention[];
     planAt: number;
     planKey: string;
@@ -150,7 +152,7 @@ export function phase(s: Match) {
     const p = s.agents[s.owner], x = p.team === 0 ? p.x : 100 - p.x;
     return x < 33 ? 'Sortie de zone' : x < 66 ? 'Transition · zone neutre' : x < 77 ? 'Entrée offensive' : 'Positionnement · occasion de tir';
 }
-function resetPositions(s: Match, team: number) { s.agents.forEach(p => { p.x = p.team === 0 ? 40 : 60; p.y = 12 + p.slot * 13; }); s.owner = s.agents.findIndex(p => p.team === team && p.slot === 1); s.agents[s.owner].x = 50; s.puck = { x: 50, y: 25 }; s.flight = null; s.decision = .5; s.plans = intentions(s); s.planAt = s.time; s.planKey = ''; }
+function resetPositions(s: Match, team: number) { s.agents.forEach(p => { p.x = p.team === 0 ? 40 : 60; p.y = 12 + p.slot * 13; }); s.owner = s.agents.findIndex(p => p.team === team && p.slot === 1); s.agents[s.owner].x = 50; s.puck = { x: 50, y: 25 }; s.flight = null; s.decision = .5; s.lastPasser=-1; s.plans = intentions(s); s.planAt = s.time; s.planKey = ''; }
 export function createMatch(players: Skater[], seed = 1): Match {
     if (players.length !== 6)
         throw Error('Six joueurs requis');
@@ -159,20 +161,20 @@ export function createMatch(players: Skater[], seed = 1): Match {
             throw Error('Valeurs invalides');
         return { ...p, stats: p.stats.map(v => clamp(v, 0, 15)), energy: clamp(p.energy, 0, 100), morale: clamp(p.morale, 0, 100), confidence: clamp(p.confidence, 0, 100), style: clamp(Math.round(p.style), 0, 2), team: i < 3 ? 0 : 1, slot: i % 3, x: 0, y: 0 };
     });
-    const s: Match = { time: 0, agents, owner: 0, puck: { x: 50, y: 25 }, flight: null, score: [0, 0], shots: [0, 0], saves: [0, 0], blocks: [0, 0], misses: [0, 0], turnovers: [0, 0], rng: seed >>> 0, decision: .5, looseUntil: 0, goalPause: false, ended: false, events: [], plans: [], planAt: 0, planKey: '' };
+    const s: Match = { time: 0, agents, owner: 0, puck: { x: 50, y: 25 }, flight: null, score: [0, 0], shots: [0, 0], saves: [0, 0], blocks: [0, 0], misses: [0, 0], turnovers: [0, 0], rng: seed >>> 0, decision: .5, looseUntil: 0, goalPause: false, ended: false, events: [], lastPasser:-1, playerStats:players.map(()=>({goals:0,assists:0,shots:0,onTarget:0,passes:0,completed:0,steals:0,recoveries:0,blocks:0,losses:0})), plans: [], planAt: 0, planKey: '' };
     resetPositions(s, random(s) < .5 ? 0 : 1);
     log(s, 'Mise en jeu', s.agents[s.owner].name + ' commence avec la rondelle (tirage 50/50).');
     return s;
 }
 function take(s: Match, index: number, reason: string, detail: string) {
     if (s.owner >= 0 && s.agents[s.owner].team !== s.agents[index].team)
-        s.turnovers[s.agents[s.owner].team]++;
-    s.owner = index;
+        {s.turnovers[s.agents[s.owner].team]++;s.playerStats[s.owner].losses++;}
+    if(reason!=='Passe reçue')s.lastPasser=-1; if(reason==='Interception'||reason==='Rondelle volée')s.playerStats[index].steals++;if(reason==='Récupération')s.playerStats[index].recoveries++; s.owner = index;
     s.flight = null;
     s.decision = .45;
     log(s, reason + ' · ' + s.agents[index].name, detail);
 }
-function loose(s: Match) { s.owner = -1; s.flight = null; s.looseUntil = s.time + .18; }
+function loose(s: Match) { s.lastPasser=-1; s.owner = -1; s.flight = null; s.looseUntil = s.time + .18; }
 export function resumeGoal(s: Match) {
     if (!s.goalPause)
         return;
@@ -234,8 +236,8 @@ export function stepMatch(s: Match, dt = .05) {
         if (s.flight && d <= step) {
             if (f.kind === 'pass') {
                 const receiver = s.agents[f.to], chance = clamp(.55 + (effective(from)[0] + effective(receiver)[0] + effective(from)[4]) / 100, 0, .97), roll = random(s);
-                if (roll < chance)
-                    take(s, f.to, 'Passe reçue', `55 % + (maniement passeur + receveur + IQ passeur) / 100 = ${(chance * 100).toFixed(0)} %; tirage ${(roll * 100).toFixed(0)}.`);
+                if (roll < chance) {
+                    s.playerStats[f.from].completed++;s.lastPasser=f.from;take(s, f.to, 'Passe reçue', `55 % + (maniement passeur + receveur + IQ passeur) / 100 = ${(chance * 100).toFixed(0)} %; tirage ${(roll * 100).toFixed(0)}.`);}
                 else {
                     log(s, 'Passe échappée', `${receiver.name} · réception ${(chance * 100).toFixed(0)} %, tirage ${(roll * 100).toFixed(0)}.`);
                     loose(s);
@@ -246,7 +248,7 @@ export function stepMatch(s: Match, dt = .05) {
                 s.flight = null;
                 s.owner = f.from;
                 if (roll < f.quality) {
-                    s.score[from.team]++;
+                    s.score[from.team]++;s.playerStats[f.from].goals++;if(s.lastPasser>=0&&s.lastPasser!==f.from)s.playerStats[s.lastPasser].assists++;
                     s.goalPause = true;
                     log(s, 'BUT · ' + from.name, `Qualité ${(f.quality * 100).toFixed(1)} %; arrêt ${(100 - f.quality * 100).toFixed(1)} %; tirage ${(roll * 100).toFixed(1)}.`);
                 }
@@ -289,10 +291,10 @@ export function stepMatch(s: Match, dt = .05) {
             const action = chooseAction(s);
             if (action.kind === 'shot') {
                 const goal = { x: p.team === 0 ? 97 : 3, y: 25 }, range = distance(p, goal), position = clamp(1 - range / 55, .15, 1), pressure = clamp(gap / 8, .4, 1), quality = clamp((.65 * e[1] + .2 * physical(p) + .15 * e[4]) / 15 * position * pressure * .65, 0, .9);
-                s.shots[p.team]++;
+                s.shots[p.team]++;s.playerStats[s.owner].shots++;
                 const block = gap < 5 ? effective(near)[5] / 15 * .25 : 0, roll = random(s);
                 if (roll < block) {
-                    s.blocks[near.team]++;
+                    s.blocks[near.team]++;s.playerStats[s.agents.indexOf(near)].blocks++;
                     log(s, 'Tir bloqué · ' + near.name, `Défense / 15 × 25 % = ${(block * 100).toFixed(1)} %; tirage ${(roll * 100).toFixed(1)}.`);
                     loose(s);
                 }
@@ -303,13 +305,13 @@ export function stepMatch(s: Match, dt = .05) {
                     loose(s);
                 }
                 else {
-                    s.flight = { kind: 'shot', from: s.owner, to: -1, ...goal, quality };
+                    s.playerStats[s.owner].onTarget++;s.flight = { kind: 'shot', from: s.owner, to: -1, ...goal, quality };
                     log(s, 'Tir cadré · ' + p.name, `Talent ${((.65 * e[1] + .2 * physical(p) + .15 * e[4]) / 15).toFixed(2)} × position ${position.toFixed(2)} × pression ${pressure.toFixed(2)} × 65 % = qualité ${(quality * 100).toFixed(1)} %.`);
                     s.owner = -1;
                 }
             }
             else if (action.kind === 'pass') {
-                const mate = s.agents[action.to];
+                const mate = s.agents[action.to];s.playerStats[s.owner].passes++;
                 s.flight = { kind: 'pass', from: s.owner, to: action.to, x: mate.x, y: mate.y, quality: 0 };
                 log(s, 'Passe · ' + p.name + ' → ' + mate.name, action.reason);
                 s.owner = -1;

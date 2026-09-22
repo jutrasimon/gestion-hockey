@@ -9,7 +9,7 @@ assert.equal(effective({...p,energy:50,morale:50,confidence:100})[0],7*.25*1.25)
 function play(seed){const s=createMatch(roster,seed);for(let i=0;i<1000&&!s.ended;i++){if(s.goalPause){const time=s.time;stepMatch(s);assert.equal(s.time,time);resumeGoal(s);}stepMatch(s);assert.ok(s.agents.every(p=>[p.x,p.y,p.energy].every(Number.isFinite)&&p.x>=3&&p.x<=97&&p.y>=3&&p.y<=47));}assert.equal(s.time,20);assert.ok(s.ended);return s;}
 assert.deepEqual(play(42),play(42));
 let goals=0,shots=0,passes=0;
-for(let seed=1;seed<=100;seed++){const s=play(seed);goals+=s.score[0]+s.score[1];shots+=s.shots[0]+s.shots[1];passes+=s.events.filter(e=>e.text.startsWith('Passe reçue')).length;for(let t=0;t<2;t++){const pending=s.flight?.kind==='shot'&&s.agents[s.flight.from].team===t?1:0;assert.equal(s.shots[t],s.score[t]+s.saves[1-t]+s.blocks[1-t]+s.misses[t]+pending);}}
+for(let seed=1;seed<=100;seed++){const s=play(seed);goals+=s.score[0]+s.score[1];shots+=s.shots[0]+s.shots[1];passes+=s.events.filter(e=>e.text.startsWith('Passe reçue')).length;for(let t=0;t<2;t++){const ps=s.playerStats.slice(t*3,t*3+3);for(const key of ['goals','shots','blocks','losses'])assert.equal(ps.reduce((n,p)=>n+p[key],0),s[key==='goals'?'score':key==='losses'?'turnovers':key][t]);assert.ok(ps.every(p=>p.completed<=p.passes&&p.onTarget<=p.shots&&p.goals<=p.onTarget));assert.ok(ps.reduce((n,p)=>n+p.assists,0)<=s.score[t]);const pending=s.flight?.kind==='shot'&&s.agents[s.flight.from].team===t?1:0;assert.equal(s.shots[t],s.score[t]+s.saves[1-t]+s.blocks[1-t]+s.misses[t]+pending);}}
 assert.ok(goals>0&&shots>goals&&passes>0);
 const stopped=createMatch(roster.map(p=>({...p,energy:0})));const before=stopped.agents.map(p=>[p.x,p.y]);stepMatch(stopped);assert.deepEqual(stopped.agents.map(p=>[p.x,p.y]),before);
 console.log(`Match 3v3: 100 periods complete, deterministic replay, goal pauses, shot accounting, context and rink bounds passed. ${goals} goals, ${shots} attempts, ${passes} completed passes.`);
@@ -37,3 +37,6 @@ situation.owner=-1;situation.flight={kind:'pass',from:0,to:1,x:45,y:25,quality:0
 const passing=intentions(situation);assert.deepEqual(passing[1].target,{x:45,y:25});assert.equal(passing[1].label,'Recevoir la passe');
 situation.flight=null;const loosePlan=intentions(situation);assert.equal(loosePlan.filter(p=>p.label==='Récupérer la rondelle').length,2);
 console.log('Tactics: breakaway preserved, open receiver selected, covered pass rejected, lateral support, individual coverage and pass-flight formation passed.');
+
+const assistMatch=createMatch(roster,42);assistMatch.lastPasser=1;assistMatch.owner=-1;assistMatch.puck={x:97,y:25};assistMatch.flight={kind:'shot',from:0,to:-1,x:97,y:25,quality:1};stepMatch(assistMatch);assert.equal(assistMatch.playerStats[0].goals,1);assert.equal(assistMatch.playerStats[1].assists,1);resumeGoal(assistMatch);assert.equal(assistMatch.lastPasser,-1);assert.ok(createMatch(roster).playerStats.every(p=>Object.values(p).every(v=>v===0)));
+console.log('Individual counters: team totals, completed/attempted passes, shots, primary assist and fresh-period reset passed.');
